@@ -137,6 +137,14 @@ python run.py val --model runs/A/weights/best.pt --data data.yaml --split test -
 - 安装并跑通后，运行 `python -m pip freeze > requirements-lock.txt` 记录当前机器的精确依赖。当前 `requirements.txt` 是安装范围，不是经过训练验证的锁定环境。
 - 大数据和权重单独保存，在 README 提供获取方式。不要上传账号令牌或私人图片。
 
+## 代码来源与复现说明
+
+- `run.py`、数据模板和实验表是为这个入门项目新写的调用脚本与模板，参考了 Ultralytics 官方文档中的 Python API 用法；没有复制 YOLOv8 模型内部实现。
+- YOLOv8 模型、预训练权重、训练与预测能力来自 [Ultralytics 官方项目](https://github.com/ultralytics/ultralytics)。本仓库不是 YOLOv8 原论文或模型的原创实现；Ultralytics 表示 YOLOv8 没有单独发布正式论文。
+- `coco8.yaml` 与 COCO8 示例数据由 Ultralytics 提供，仅用于流程检查。使用其他人的图片、标注或代码时，需要记录原始链接、作者、版本和相应许可。
+- 截至当前，本仓库只上传了代码与实验计划，尚未跑出预测图片、训练权重或对比实验数值。写复现报告时应标明真实运行环境、数据来源、具体命令、实际结果，以及与你参考项目的差异。
+- Ultralytics 说明其 YOLOv8 软件和模型按 AGPL-3.0 或 Enterprise 条款提供。若进一步发布基于它的应用或用于商业场景，先核对[官方许可说明](https://www.ultralytics.com/license)。公开仓库不等于获得任意使用、再分发第三方代码或数据的许可。
+
 ## 参考
 
 - [YOLOv8 官方说明](https://docs.ultralytics.com/models/yolov8/)
@@ -145,4 +153,4 @@ python run.py val --model runs/A/weights/best.pt --data data.yaml --split test -
 - [YOLO 检测数据格式](https://docs.ultralytics.com/datasets/detect/)
 - [COCO8](https://docs.ultralytics.com/datasets/detect/coco8/)
 
-本项目调用 Ultralytics 软件与权重，其许可见 [Ultralytics 官方仓库](https://github.com/ultralytics/ultralytics)。数据集遵循各自许可。
+本项目调用 Ultralytics 软件与权重。数据集遵循各自许可。
