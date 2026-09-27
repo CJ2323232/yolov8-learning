@@ -1,0 +1,4 @@
+experiment,status,model,dataset,imgsz,epochs,batch,seed,device,map50,map50_95,precision,recall,inference_ms,notes
+A,planned,yolov8n.pt,custom,640,30,2,0,,,,,,,baseline
+B,planned,yolov8n.pt,custom,416,30,2,0,,,,,,,change_image_size_only
+C,planned,yolov8s.pt,custom,640,30,2,0,,,,,,,change_model_only

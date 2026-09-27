@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.env.*
+runs/
+datasets/
+*.pt
+*.onnx
+*.engine
