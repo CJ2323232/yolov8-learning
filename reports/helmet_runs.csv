@@ -1,0 +1,4 @@
+run,epochs,train_time_seconds,precision,recall,map50,map50_95,split,imgsz,batch,device,seed
+helmet_try,1,221.041,0.7946,0.69379,0.77506,0.44132,val,640,4,mps,0
+helmet_test,5,1092.24,0.90815,0.82738,0.89503,0.56199,val,640,4,mps,0
+helmet_50,50,2912.54,0.94436,0.87901,0.93439,0.61448,val,640,4,mps,0

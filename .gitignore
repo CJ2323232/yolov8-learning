@@ -6,6 +6,8 @@ __pycache__/
 .env.*
 runs/
 datasets/
+VOC2028/
+helmet_dataset/
 *.pt
 *.onnx
 *.engine

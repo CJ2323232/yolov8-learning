@@ -1,8 +1,8 @@
-# 使用前复制为 data.yaml，修改路径和类别，并准备好图片与 YOLO 格式标签。
-path: /absolute/path/to/your/dataset
+# 使用前复制为 data.yaml，修改路径，并准备好图片与 YOLO 格式标签。
+path: helmet_dataset
 train: images/train
 val: images/val
 test: images/test
 names:
-  0: car
-  1: bicycle
+  0: hat
+  1: person
