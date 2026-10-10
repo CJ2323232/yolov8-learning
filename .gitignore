@@ -11,3 +11,4 @@ helmet_dataset/
 *.pt
 *.onnx
 *.engine
+helmet_external_test/external_test/

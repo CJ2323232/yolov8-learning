@@ -1,7 +1,10 @@
 experiment,status,model,dataset,imgsz,epochs,batch,seed,device,map50,map50_95,precision,recall,inference_ms,notes
 helmet_try,completed,yolov8n.pt,helmet_dataset,640,1,4,0,mps,0.77506,0.44132,0.79460,0.69379,,validation_last_epoch
 helmet_test,completed,yolov8n.pt,helmet_dataset,640,5,4,0,mps,0.89503,0.56199,0.90815,0.82738,,validation_last_epoch_not_test_set
-helmet_50,completed,yolov8n.pt,helmet_dataset,640,50,4,0,mps,0.93439,0.61448,0.94436,0.87901,,validation_last_epoch
+helmet_50,completed,yolov8n.pt,helmet_dataset,640,50,4,0,mps,0.93439,0.61448,0.94436,0.87901,,validation_last_epoch_resume_recorded
+helmet_final_test,completed,runs/helmet_50/weights/best.pt,helmet_dataset_test,640,,4,,cpu,0.911927,0.570874,0.910036,0.850812,,reevaluated_2026-10-10_759_images
+external_15,qualitative,unverified_checkpoint,Pexels_15,,,,,,,,,,,unlabelled_old_parameters_unknown
+external_15_tuned,qualitative,unverified_checkpoint,Pexels_15,,,,,,,,,,,unlabelled_old_parameters_unknown
 A,planned,yolov8n.pt,helmet_dataset,640,30,4,0,,,,,,,model_size_baseline
 B,planned,yolov8n.pt,helmet_dataset,416,30,4,0,,,,,,,change_image_size_only
 C,planned,yolov8s.pt,helmet_dataset,640,30,4,0,,,,,,,change_model_only
