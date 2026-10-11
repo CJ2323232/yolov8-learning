@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-11",
+  "experiment": "same checkpoint, validation split, input-size comparison",
+  "model_sha256": "55be821e9eefdd0a69caf4abd3fdb2a22277059e21ec155222102b32cef2e650",
+  "split": "val",
+  "device": "cpu",
+  "batch": 4,
+  "seed": 0,
+  "conf": 0.001,
+  "iou": 0.7,
+  "max_det": 300,
+  "rect": true,
+  "augment": false,
+  "repeats": 1,
+  "order": [
+    416,
+    640,
+    960
+  ],
+  "python": "3.14.7",
+  "torch": "2.14.0",
+  "ultralytics": "8.4.164",
+  "timing_note": "Ultralytics validator inference ms/image; excludes preprocessing, postprocessing and UI. Single pass; not a production throughput benchmark.",
+  "results": [
+    {
+      "imgsz": 416,
+      "precision": 0.9012631357154632,
+      "recall": 0.7963143704360878,
+      "map50": 0.8610599055330906,
+      "map50_95": 0.5483538301013529,
+      "preprocess_ms": 0.056440579266616664,
+      "inference_ms": 7.64125477722115,
+      "loss_ms": 0.00017457882785250613,
+      "postprocess_ms": 0.10555205832292033
+    },
+    {
+      "imgsz": 640,
+      "precision": 0.9446115183800132,
+      "recall": 0.878826410817872,
+      "map50": 0.9343062814148113,
+      "map50_95": 0.6144807990655519,
+      "preprocess_ms": 0.11555375595052425,
+      "inference_ms": 15.307941132991164,
+      "loss_ms": 0.0001673747083211519,
+      "postprocess_ms": 0.1295865107543329
+    },
+    {
+      "imgsz": 960,
+      "precision": 0.9404331192257139,
+      "recall": 0.9010017118093591,
+      "map50": 0.9526112935076371,
+      "map50_95": 0.6306806861290009,
+      "preprocess_ms": 0.2524570066565992,
+      "inference_ms": 33.773299796404785,
+      "loss_ms": 0.00016458051022397733,
+      "postprocess_ms": 0.17485564893589536
+    }
+  ],
+  "images": 758,
+  "hardware": "Apple Silicon Mac (arm64); CPU backend in current execution environment"
+}

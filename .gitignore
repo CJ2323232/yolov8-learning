@@ -12,3 +12,4 @@ helmet_dataset/
 *.onnx
 *.engine
 helmet_external_test/external_test/
+!models/helmet_yolov8n.pt

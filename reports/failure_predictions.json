@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-11",
+  "model_sha256": "55be821e9eefdd0a69caf4abd3fdb2a22277059e21ec155222102b32cef2e650",
+  "device": "cpu",
+  "imgsz": 640,
+  "conf": 0.25,
+  "cases": [
+    {
+      "file": "06_scaffolding_occlusion.jpg",
+      "source": "https://www.pexels.com/photo/13795569/",
+      "predictions": [
+        {
+          "class": "hat",
+          "confidence": 0.7147487998008728,
+          "xyxy": [
+            779.0709228515625,
+            701.988037109375,
+            805.2645263671875,
+            734.78369140625
+          ]
+        },
+        {
+          "class": "hat",
+          "confidence": 0.6955958008766174,
+          "xyxy": [
+            353.737060546875,
+            401.0478210449219,
+            381.13055419921875,
+            431.1359558105469
+          ]
+        },
+        {
+          "class": "hat",
+          "confidence": 0.6742534041404724,
+          "xyxy": [
+            575.4541625976562,
+            394.30218505859375,
+            605.7789916992188,
+            426.01068115234375
+          ]
+        }
+      ]
+    },
+    {
+      "file": "14_held_helmet.jpg",
+      "source": "https://www.pexels.com/photo/8487720/",
+      "predictions": []
+    },
+    {
+      "file": "15_helmet_without_wearer.jpg",
+      "source": "https://www.pexels.com/photo/30592246/",
+      "predictions": [
+        {
+          "class": "hat",
+          "confidence": 0.7886906266212463,
+          "xyxy": [
+            559.4796142578125,
+            341.3768005371094,
+            1093.5782470703125,
+            805.1561279296875
+          ]
+        },
+        {
+          "class": "hat",
+          "confidence": 0.5145540237426758,
+          "xyxy": [
+            553.84423828125,
+            203.30911254882812,
+            607.2734375,
+            249.85617065429688
+          ]
+        }
+      ]
+    }
+  ]
+}

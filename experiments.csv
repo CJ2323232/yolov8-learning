@@ -8,3 +8,6 @@ external_15_tuned,qualitative,unverified_checkpoint,Pexels_15,,,,,,,,,,,unlabell
 A,planned,yolov8n.pt,helmet_dataset,640,30,4,0,,,,,,,model_size_baseline
 B,planned,yolov8n.pt,helmet_dataset,416,30,4,0,,,,,,,change_image_size_only
 C,planned,yolov8s.pt,helmet_dataset,640,30,4,0,,,,,,,change_model_only
+val_size_416,completed,same_best_pt,helmet_dataset_val_758,416,,4,0,cpu,0.8610599055330906,0.5483538301013529,0.9012631357154632,0.7963143704360878,7.64125477722115,same_weights_no_training_single_validation_pass_2026-10-11
+val_size_640,completed,same_best_pt,helmet_dataset_val_758,640,,4,0,cpu,0.9343062814148113,0.6144807990655519,0.9446115183800132,0.878826410817872,15.307941132991164,same_weights_no_training_single_validation_pass_2026-10-11
+val_size_960,completed,same_best_pt,helmet_dataset_val_758,960,,4,0,cpu,0.9526112935076371,0.6306806861290009,0.9404331192257139,0.9010017118093591,33.773299796404785,same_weights_no_training_single_validation_pass_2026-10-11
