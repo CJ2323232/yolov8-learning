@@ -2,7 +2,7 @@
 
 使用 [Ultralytics YOLOv8](https://docs.ultralytics.com/models/yolov8/) 与 [SHWD 数据集](https://github.com/njvisionpower/Safety-Helmet-Wearing-Dataset)，在 Mac 上完成数据转换、训练、保留测试集评价和外部照片预测。这里记录复现过程与真实结果，不是 YOLOv8 算法的原创实现。
 
-**更新于 2026-10-10：** 已整理 1 / 5 / 50 轮训练记录，重新评价现有 best.pt 的 759 张测试集，并加入 15 张外部照片的两组预测展示。尚未完成严格控制变量的模型大小、输入尺寸对比。
+**更新于 2026-10-11：** 新增 Gradio 本地交互演示，支持上传图片、调节 conf、显示检测结果和类别数量。 已整理 1 / 5 / 50 轮训练记录，重新评价现有 best.pt 的 759 张测试集，并加入 15 张外部照片的两组预测展示。尚未完成严格控制变量的模型大小、输入尺寸对比。
 
 ## 1. 数据与类别
 
@@ -63,7 +63,56 @@
 
 页面预览经过缩小压缩，完整图片保留在本机；没有把 SHWD 原始数据公开到仓库。新增预测入口以后会保存 `command.json` 和 `environment.json`，便于追溯参数。
 
-## 5. 从安装到预测、训练、测试
+## 5. Gradio 本地网页演示（新增）
+
+在命令行推理的基础上，`app.py` 用 Gradio 增加交互界面：**上传图片 → 调整 conf → 点击 Submit → 查看画框图片和类别数量**。它直接加载已有安全帽模型，不需要每次重新训练，也不需要每次重新编辑代码。
+
+![已在 Mac 启动的 Gradio 界面](assets/gradio_interface.png)
+
+上图是本机实际界面的上传区域截图。已经在本机完成图片检测，并在整理仓库时用现有 best.pt 检查了预测函数；运行记录见 [Gradio 检查记录](reports/gradio_check.json)。目前支持单张图片，尚未实现批量上传与视频检测。
+
+### 首次准备
+
+在项目根目录、已激活的 `.venv` 中安装网页依赖：
+
+```bash
+python -m pip install -r requirements-gradio.txt
+python app.py
+```
+
+默认权重位置是 `runs/helmet_50/weights/best.pt`。这是 50 轮训练过程中的最佳权重，不一定是最后一轮；`last.pt` 保存最后一次训练状态。不同训练目录各自有 best.pt，应选择对应实验的模型。仓库未附带权重，先运行训练或放入本机已有权重。
+
+浏览器通常会自动打开；默认地址为 `http://127.0.0.1:7860`，以终端显示的实际地址为准。上传照片后将 conf 保持 0.25，点击 Submit 检测；降低 conf 可能增加检出，也可能增加误检。右侧显示画框图片以及 `hat` / `person` 的数量，可通过结果图片的下载按钮保存图片。
+
+### 以后怎样再次打开
+
+Mac 在项目目录运行一条命令即可：
+
+```bash
+./.venv/bin/python app.py
+```
+
+也可以双击仓库中的 `启动安全帽检测.command`。通过 ZIP 下载后若丢失执行权限，在项目目录执行一次：
+
+```bash
+chmod +x 启动安全帽检测.command
+```
+
+Windows 在项目目录运行：
+
+```bat
+.venv\Scripts\python.exe app.py
+```
+
+终端要保持运行，按 Control+C 停止程序。应用自动选择 MPS / CUDA / CPU；CPU 也能预测。若使用其他实验的权重，可以设置环境变量，Mac 示例：
+
+```bash
+YOLO_MODEL_PATH=runs/其他实验目录/weights/best.pt ./.venv/bin/python app.py
+```
+
+**当前是本地演示，没有部署为公网服务。** GitHub 展示项目说明和代码，不能直接执行 Python 模型；`127.0.0.1` 指向打开浏览器的那台电脑。默认不创建公开分享链接。Gradio 用法参考 [官方 Interface 文档](https://www.gradio.app/docs/gradio/interface)。
+
+## 6. 从安装到预测、训练、测试
 
 在仓库根目录创建环境并安装依赖：
 
@@ -109,10 +158,13 @@ python predict_external.py --conf 0.25 --imgsz 640
 
 这个命令用于生成**新的有参数记录的预测**，不声称复现旧的两组图片。照片下载失败时可按来源清单从原页面获取；不应关闭 HTTPS 证书验证。
 
-## 6. 代码如何工作
+## 7. 代码如何工作
 
 | 文件 | 读取什么 → 做什么 → 生成什么 |
 | --- | --- |
+| `app.py` | Gradio 接收图片和阈值，调用已训练 YOLO 模型，返回画框图和检测数量 |
+| `requirements-gradio.txt` | 安装核心依赖和 Gradio 6.30.0；网页演示使用此清单 |
+| `启动安全帽检测.command` | 在 Mac 上双击启动已有环境中的 app.py |
 | `requirements.txt` | 告诉 pip 安装哪些库；Ultralytics 提供模型和训练 API |
 | `run.py` | 读取命令参数，选择设备，调用 YOLO 的 predict / train / val，保存结果和运行记录 |
 | `voc_to_yolo.py` | 读取 XML 的类别与像素坐标，转成归一化的 `类别 中心x 中心y 宽 高` TXT |
@@ -126,13 +178,15 @@ python predict_external.py --conf 0.25 --imgsz 640
 
 公交车预测与 COCO8 三轮训练已在本机跑通，只用于检查流程，不计入安全帽成绩。
 
-## 7. 下一步实验
+## 8. 下一步实验
 
 - 在同一数据划分、训练预算和硬件下对比 YOLOv8n / YOLOv8s，或者只改变输入尺寸；计划见 `experiments.csv`。
 - 为外部照片补充人工框，统计误检与漏检；调参后需要新的独立照片再检验。
 - 补充多次随机种子实验，报告波动，避免把单次结果当作稳定结论。
 
 ## 来源与许可
+
+交互界面使用 [Gradio](https://github.com/gradio-app/gradio)。
 
 模型、预训练权重和训练 API 来自 [Ultralytics 官方项目](https://github.com/ultralytics/ultralytics)，请遵守其 [AGPL-3.0 / Enterprise 许可说明](https://www.ultralytics.com/license)。本项目脚本是在官方 API 上编写和整理的学习代码。
 

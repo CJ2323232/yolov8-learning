@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-11",
+  "scope": "Interface construction and real model detect() calls; no public deployment",
+  "gradio": "6.30.0",
+  "device": "cpu",
+  "model": "runs/helmet_50/weights/best.pt",
+  "model_sha256": "55be821e9eefdd0a69caf4abd3fdb2a22277059e21ec155222102b32cef2e650",
+  "input": "03_two_workers.jpg",
+  "input_source": "https://www.pexels.com/photo/8961623/",
+  "empty_input": "passed",
+  "rgb_output_and_size": "passed",
+  "interface_construction": "passed",
+  "predictions": [
+    {
+      "conf": 0.25,
+      "image_size": [
+        1280,
+        1920
+      ],
+      "summary": "共检测到 2 个目标（置信度阈值：0.25）。\nhat: 2 个"
+    },
+    {
+      "conf": 0.15,
+      "image_size": [
+        1280,
+        1920
+      ],
+      "summary": "共检测到 2 个目标（置信度阈值：0.15）。\nhat: 2 个"
+    }
+  ]
+}
