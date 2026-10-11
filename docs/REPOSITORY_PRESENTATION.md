@@ -17,7 +17,7 @@ YOLOv8n helmet detection with SHWD: trained weights, Gradio demo, reproducible e
 ## 设置状态
 
 - README、中英文说明、模型权重、实验结果和失败案例已发布到 main。
-- About、Topics、Social preview 尚未设置：2026-10-11 浏览器仍登录 `liningyuan358-web`，没有 `CJ2323232/yolov8-learning` 的仓库管理入口，需切换到所有者账号后继续。
+- About、Topics、Social preview 需在拥有管理权限的浏览器会话中设置；提交本说明和图片文件不会自动更改这些仓库设置。
 
 ## 分享
 
