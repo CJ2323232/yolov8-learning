@@ -1,6 +1,6 @@
 # YOLOv8 Helmet Detection with Gradio
 
-[中文](README.md) · [Model](models/README.md) · [Experiments](reports/size_comparison.md) · [Failure cases](reports/failure_cases.md)
+[中文](README.md) · [v1.0.0 release](https://github.com/CJ2323232/yolov8-learning/releases/tag/v1.0.0) · [Model](models/README.md) · [Experiments](reports/size_comparison.md) · [Failure cases](reports/failure_cases.md)
 
 A learning and reproduction project using **Ultralytics YOLOv8n and SHWD**: data conversion, training, held-out evaluation, input-size comparison, and a local Gradio image demo. This is an application of YOLOv8, not an original detector architecture.
 
@@ -24,7 +24,7 @@ python app.py
 
 On Windows CMD use `python -m venv .venv` and `.venv\Scripts\activate.bat`. Open the URL printed in the terminal, usually `http://127.0.0.1:7860`. Upload one image, set conf, click Submit, then view/download the annotated image and read class counts. Keep the terminal running; stop with Control+C.
 
-The model is included at `models/helmet_yolov8n.pt` (6,230,058 bytes). The helper verifies SHA256 and installs it at the default inference path without replacing a different existing checkpoint. [Direct model download](https://raw.githubusercontent.com/CJ2323232/yolov8-learning/main/models/helmet_yolov8n.pt).
+The model is included at `models/helmet_yolov8n.pt` (6,230,058 bytes). The helper verifies SHA256 and installs it at the default inference path without replacing a different existing checkpoint. [Direct model download](https://github.com/CJ2323232/yolov8-learning/releases/download/v1.0.0/helmet_yolov8n.pt).
 
 For later launches, run `./.venv/bin/python app.py`; Windows: `.venv\Scripts\python.exe app.py`. Mac users can use `启动安全帽检测.command`; after a ZIP download, restore its execute permission if necessary. A different checkpoint can be selected with `YOLO_MODEL_PATH`. Device selection is automatic: MPS / CUDA / CPU.
 
