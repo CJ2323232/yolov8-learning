@@ -2,7 +2,9 @@
 
 `helmet_yolov8n.pt` 是本项目 YOLOv8n 在 SHWD 本地划分上的 50 轮实验最佳权重，与 `reports/test_metrics.json` 中的模型一致。未重新训练，保留原始文件校验值。
 
-- [下载权重](https://raw.githubusercontent.com/CJ2323232/yolov8-learning/main/models/helmet_yolov8n.pt)
+- [v1.0.0 发布页（权重、校验文件、源码）](https://github.com/CJ2323232/yolov8-learning/releases/tag/v1.0.0)
+- [下载 v1.0.0 权重](https://github.com/CJ2323232/yolov8-learning/releases/download/v1.0.0/helmet_yolov8n.pt)
+- [下载 SHA256SUMS](https://github.com/CJ2323232/yolov8-learning/releases/download/v1.0.0/SHA256SUMS)
 - 大小：6,230,058 字节（约 5.94 MiB）
 - 类别：0 = hat（戴安全帽的头部），1 = person（未戴安全帽的头部）
 - SHA256：`55be821e9eefdd0a69caf4abd3fdb2a22277059e21ec155222102b32cef2e650`
