@@ -1,6 +1,6 @@
 # YOLOv8 安全帽检测与 Gradio 演示
 
-[English](README_EN.md) · [快速开始](#快速开始) · [模型下载](models/README.md) · [实验报告](reports/size_comparison.md) · [失败案例](reports/failure_cases.md)
+[English](README_EN.md) · [快速开始](#快速开始) · [v1.0.0 下载](https://github.com/CJ2323232/yolov8-learning/releases/tag/v1.0.0) · [模型说明](models/README.md) · [实验报告](reports/size_comparison.md) · [失败案例](reports/failure_cases.md)
 
 基于 **Ultralytics YOLOv8n + SHWD** 的学习与复现项目：完成数据处理、模型训练、保留测试集评价，并用 Gradio 提供上传图片、调节置信度、显示检测框和数量的本地界面。支持 Mac、Windows；CPU 也可演示。
 
@@ -40,7 +40,7 @@ Windows CMD 把创建环境改为 `python -m venv .venv`，激活改为 `.venv\S
 
 ## 模型与数据
 
-[下载已训练权重](https://raw.githubusercontent.com/CJ2323232/yolov8-learning/main/models/helmet_yolov8n.pt)（约 5.94 MiB） · [模型说明与 SHA256](models/README.md)
+[下载已训练权重](https://github.com/CJ2323232/yolov8-learning/releases/download/v1.0.0/helmet_yolov8n.pt)（约 5.94 MiB） · [模型说明与 SHA256](models/README.md)
 
 模型来自本项目 50 轮实验的 best.pt，与测试报告中的权重一致。best.pt 是该训练过程验证表现最好的权重，不一定是最后一轮。原始数据不打包：需要训练或评价时，从 [SHWD 原仓库](https://github.com/njvisionpower/Safety-Helmet-Wearing-Dataset)取得数据。
 
