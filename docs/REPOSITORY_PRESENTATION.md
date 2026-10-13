@@ -1,5 +1,7 @@
 # 仓库展示资料
 
+> 2026-10-13 修正：旧模型与旧分数仅作历史记录，旧划分已发现重复泄漏。当前数据和代码修复见 [FIXES_2026-10-13.md](FIXES_2026-10-13.md)，运行命令以 [WORKFLOW.md](WORKFLOW.md) 为准。
+
 ## About 简介
 
 YOLOv8n helmet detection with SHWD: trained weights, Gradio demo, reproducible evaluation, and failure analysis. Mac / Windows / CPU.

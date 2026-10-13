@@ -1,5 +1,7 @@
 # YOLOv8 Helmet Detection with Gradio
 
+> **2026-10-13 correction:** The historical split contains 7 train/validation and 5 train/test exact-duplicate pairs. Existing weights and scores are historical, not an independent clean baseline. A new split quarantines conflicting annotations; full retraining has not been run. [Fixes and workflow](docs/FIXES_2026-10-13.md).
+
 [中文](README.md) · [v1.0.0 release](https://github.com/CJ2323232/yolov8-learning/releases/tag/v1.0.0) · [Model](models/README.md) · [Experiments](reports/size_comparison.md) · [Failure cases](reports/failure_cases.md)
 
 A learning and reproduction project using **Ultralytics YOLOv8n and SHWD**: data conversion, training, held-out evaluation, input-size comparison, and a local Gradio image demo. This is an application of YOLOv8, not an original detector architecture.
@@ -24,13 +26,13 @@ python app.py
 
 On Windows CMD use `python -m venv .venv` and `.venv\Scripts\activate.bat`. Open the URL printed in the terminal, usually `http://127.0.0.1:7860`. Upload one image, set conf, click Submit, then view/download the annotated image and read class counts. Keep the terminal running; stop with Control+C.
 
-The model is included at `models/helmet_yolov8n.pt` (6,230,058 bytes). The helper verifies SHA256 and installs it at the default inference path without replacing a different existing checkpoint. [Direct model download](https://github.com/CJ2323232/yolov8-learning/releases/download/v1.0.0/helmet_yolov8n.pt).
+The model is included at `models/helmet_yolov8n.pt` (6,230,058 bytes). The helper verifies SHA256 and keeps it in the models directory without occupying a training-output directory. [Direct model download](https://github.com/CJ2323232/yolov8-learning/releases/download/v1.0.0/helmet_yolov8n.pt).
 
 For later launches, run `./.venv/bin/python app.py`; Windows: `.venv\Scripts\python.exe app.py`. Mac users can use `启动安全帽检测.command`; after a ZIP download, restore its execute permission if necessary. A different checkpoint can be selected with `YOLO_MODEL_PATH`. Device selection is automatic: MPS / CUDA / CPU.
 
-## Data and results
+## Data and historical results
 
-SHWD local split: **6,064 train / 758 validation / 759 test images**. `hat` means a helmet-wearing head; `person` means a bare/unhelmeted head, not a full-body person. Original dataset images are not bundled.
+Historical split: **6,064 / 758 / 759 images**, with confirmed duplicate leakage. New audited split: **6,005 / 750 / 752**; 74 conflicting variants from 37 groups are quarantined. Exact-byte overlap is eliminated; near-duplicates and scene independence require manual review. `hat` means a helmet-wearing head; `person` means a bare/unhelmeted head, not a full-body person. Original dataset images are not bundled.
 
 The existing 50-epoch run's best checkpoint was re-evaluated on the held-out test split on 2026-10-10, with CPU / imgsz 640 / batch 4:
 
@@ -54,10 +56,12 @@ An input-size comparison on 2026-10-11 used the same checkpoint and the same 758
 
 [Full conditions and raw results](reports/size_comparison.json) · [CSV](reports/size_comparison.csv) · [Validation manifest](reports/validation_manifest.csv)
 
-Reproduce with prepared SHWD validation data:
+Prepare the new split with voc_to_yolo.py and split_dataset.py, then train a fresh model before evaluation. Entry points select the registered checkpoint and verify model/data hashes. This does not reproduce the old contaminated baseline:
 
 ```bash
-python benchmark_sizes.py --data helmet_dataset/data.yaml --sizes 416 640 960 --device cpu --output reports/my_size_comparison
+python train_helmet.py
+python test_helmet.py
+python benchmark_sizes.py --sizes 416 640 960 --device cpu --output reports/my_size_comparison
 ```
 
 Historical 1/5/50-epoch figures are last-epoch validation results. The 50-epoch configuration records resumed training; these are not three independent from-scratch controlled experiments. The 15 external Pexels images have no ground-truth boxes and support qualitative observations only.

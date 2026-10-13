@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 SHA256 = '55be821e9eefdd0a69caf4abd3fdb2a22277059e21ec155222102b32cef2e650'
-URL = 'https://raw.githubusercontent.com/CJ2323232/yolov8-learning/main/models/helmet_yolov8n.pt'
+URL = 'https://github.com/CJ2323232/yolov8-learning/releases/download/v1.0.0/helmet_yolov8n.pt'
 
 
 def verify(path):
@@ -18,7 +18,7 @@ def verify(path):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--output', type=Path, default=ROOT/'runs/helmet_50/weights/best.pt')
+    p.add_argument('--output', type=Path, default=ROOT/'models/helmet_yolov8n.pt')
     args = p.parse_args()
     target = args.output.expanduser().resolve()
     if target.exists():
@@ -42,8 +42,7 @@ def main():
         if not verify(temp):
             raise SystemExit('权重 SHA256 校验失败，请重新获取；未安装此文件。')
         # 仅当目标不存在时安装；并发启动也不会覆盖已有文件。
-        with target.open('xb') as f, temp.open('rb') as source:
-            shutil.copyfileobj(source, f)
+        os.link(temp, target)  # Same filesystem, atomic publication, never overwrites.
         print(f'权重已准备好，SHA256 校验通过：{target}')
     finally:
         temp.unlink(missing_ok=True)

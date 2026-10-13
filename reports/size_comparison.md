@@ -1,5 +1,7 @@
 # 输入尺寸与精度、耗时的对比
 
+> 2026-10-13 审计更新：本页模型和数值来自已发现重复泄漏的旧划分，只作历史/定性记录，不代表新划分性能。[修复说明](../docs/FIXES_2026-10-13.md)。
+
 2026-10-11，在**同一已训练 best.pt、同一 758 张验证图片**上比较 416 / 640 / 960；不重新训练，不使用 759 张测试集调参。每档尺寸各评价一次，固定顺序 416 → 640 → 960。
 
 | imgsz | Precision | Recall | mAP50 | mAP50-95 | 模型推理 ms/图 |
@@ -29,7 +31,10 @@
 在仓库根目录，准备权重与同一数据划分后运行：
 
 ```bash
-python benchmark_sizes.py --model runs/helmet_50/weights/best.pt --data helmet_dataset/data.yaml --sizes 416 640 960 --device cpu --output reports/my_size_comparison
+# 完成新划分训练后：
+python benchmark_sizes.py --sizes 416 640 960 --device cpu --output reports/my_size_comparison
+# 仅诊断历史结果，显式承认旧数据协议：
+python benchmark_sizes.py --model models/helmet_yolov8n.pt --data helmet_dataset/data.yaml --allow-legacy-data --device cpu --output reports/legacy_diagnostic
 ```
 
 输出目录不能已存在，避免覆盖旧结果。只改变 `imgsz`；模型大小和训练输入尺寸对比需要另行训练，尚未完成。

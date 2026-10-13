@@ -6,19 +6,12 @@ import gradio as gr
 import torch
 from PIL import Image
 from ultralytics import YOLO
+from workflow import select_model, sha256
 
 # app.py 和 runs 文件夹放在同一项目目录。
 BASE_DIR = Path(__file__).resolve().parent
-# 默认使用 50 轮实验的 best.pt；也可通过 YOLO_MODEL_PATH 指定其他权重。
-MODEL_PATH = Path(os.environ.get("YOLO_MODEL_PATH", "runs/helmet_50/weights/best.pt")).expanduser()
-if not MODEL_PATH.is_absolute():
-    MODEL_PATH = BASE_DIR / MODEL_PATH
-
-if not MODEL_PATH.is_file():
-    raise FileNotFoundError(
-        f"找不到训练好的模型：{MODEL_PATH}\n"
-        "请先训练模型或放入已有权重；也可设置 YOLO_MODEL_PATH 指定 best.pt。"
-    )
+MODEL_PATH, MODEL_ORIGIN = select_model(os.environ.get("YOLO_MODEL_PATH"))
+MODEL_SHA256 = sha256(MODEL_PATH)
 
 if torch.backends.mps.is_available():
     DEVICE = "mps"
@@ -28,8 +21,11 @@ else:
     DEVICE = "cpu"
 
 print(f"加载模型：{MODEL_PATH}")
+print(f"模型来源：{MODEL_ORIGIN}；SHA256：{MODEL_SHA256}")
 print(f"推理设备：{DEVICE}")
 model = YOLO(str(MODEL_PATH))
+if model.task != 'detect' or model.names != {0: 'hat', 1: 'person'}:
+    raise ValueError('网页只支持 0=hat、1=person 的两类头部检测模型')
 
 
 def detect(image: Image.Image | None, conf: float):
@@ -72,7 +68,10 @@ demo = gr.Interface(
         gr.Textbox(label="检测统计"),
     ],
     title="YOLOv8 安全帽检测 Demo",
-    description="上传图片后点击 Submit 进行检测。hat 表示戴安全帽的头部目标，person 表示未戴安全帽的头部目标。检测结果需要人工核对。",
+    description=("上传图片后点击 Submit。hat=戴帽头部，person=未戴帽头部，结果需人工核对。"
+                 f" 当前模型：{MODEL_PATH.name}，SHA256={MODEL_SHA256[:12]}，来源={MODEL_ORIGIN}。"
+                 + ("历史演示模型使用过存在重复泄漏的旧划分，不代表清理后数据的性能。"
+                    if MODEL_ORIGIN == 'historical_demo_not_clean_baseline' else "")),
     analytics_enabled=False,
 )
 

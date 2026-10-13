@@ -57,5 +57,8 @@
     }
   ],
   "images": 758,
-  "hardware": "Apple Silicon Mac (arm64); CPU backend in current execution environment"
+  "hardware": "Apple Silicon Mac (arm64); CPU backend in current execution environment",
+  "evaluation_status": "historical_leakage_detected_not_independent_baseline",
+  "audit_note": "Exact duplicate image leakage confirmed on 2026-10-13. Historical values retained unchanged; not a clean independent baseline.",
+  "precision_recall_definition": "Class means at library max-mean-F1 confidence; not fixed deployment conf=0.25"
 }

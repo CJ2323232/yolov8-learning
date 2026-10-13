@@ -1,5 +1,7 @@
 # YOLOv8 安全帽检测与 Gradio 演示
 
+> **2026-10-13 数据审计修正：** 旧划分存在 7 组训练/验证、5 组训练/测试重复图片。旧模型和下方成绩仅保留作历史记录，不能作为独立测试基准。已生成去重与冲突隔离后的新划分；尚未在完整新划分上重新训练。[修复说明与新流程](docs/FIXES_2026-10-13.md)。
+
 [English](README_EN.md) · [快速开始](#快速开始) · [v1.0.0 下载](https://github.com/CJ2323232/yolov8-learning/releases/tag/v1.0.0) · [模型说明](models/README.md) · [实验报告](reports/size_comparison.md) · [失败案例](reports/failure_cases.md)
 
 基于 **Ultralytics YOLOv8n + SHWD** 的学习与复现项目：完成数据处理、模型训练、保留测试集评价，并用 Gradio 提供上传图片、调节置信度、显示检测框和数量的本地界面。支持 Mac、Windows；CPU 也可演示。
@@ -11,7 +13,7 @@
 | 已完成 | 结果 |
 | --- | --- |
 | 数据处理与训练 | SHWD 两类；1 / 5 / 50 轮历史训练记录 |
-| 保留测试集评价 | 759 张；mAP50 **91.19%**，mAP50-95 **57.09%** |
+| 旧划分历史评价（已发现泄漏） | 759 张；mAP50 **91.19%**，mAP50-95 **57.09%** |
 | 输入尺寸对比 | 同一权重、758 张验证图；416 / 640 / 960，报告精度与 CPU 推理耗时 |
 | 应用演示 | 单张图片上传、conf 滑块、检测统计和结果图片下载 |
 | 复现资料 | 公开已训练权重、校验值、脚本、配置与原始数值 |
@@ -34,9 +36,22 @@ Windows CMD 把创建环境改为 `python -m venv .venv`，激活改为 `.venv\S
 
 打开终端显示的地址（通常 `http://127.0.0.1:7860`），上传图片，保持 conf=0.25，点击 Submit。结果区显示画框图和检测数量，可下载结果图片。终端需保持运行；Control+C 停止。
 
-**无需重新训练即可演示。** `download_weights.py` 优先使用仓库自带模型，校验后安装到默认路径；已有不同模型时会停止，不覆盖你的训练结果。默认选择 MPS / CUDA / CPU。
+**无需重新训练即可运行历史演示。** 模型保存在 `models/helmet_yolov8n.pt`，不会占用新训练目录。网页优先使用已登记的新训练产物；没有新产物时明确显示历史模型及数据局限。默认选择 MPS / CUDA / CPU。
 
 以后在项目目录只需 `./.venv/bin/python app.py`；Mac 也可双击 `启动安全帽检测.command`，ZIP 下载后若不能执行，先运行 `chmod +x 启动安全帽检测.command`。
+
+## 用新划分训练与评价
+
+```bash
+# 新机器准备数据；本机已生成新划分，无需重复运行前两步。
+python voc_to_yolo.py
+python split_dataset.py
+python train_helmet.py
+python test_helmet.py
+python benchmark_sizes.py --device cpu
+```
+
+训练前后核对图片与标签哈希；测试读取已登记产物，不再固定读取 `helmet_50`。完整训练尚未重跑，小规模流程检查不作为精度结果。近重复、同场景关联和隔离标注仍待人工复核；新划分只证明已排除完全相同的跨集合图片。[数据审计](reports/clean_dataset_audit.json) · [完整划分清单](reports/clean_dataset_manifest.csv)。
 
 ## 模型与数据
 
@@ -49,9 +64,9 @@ Windows CMD 把创建环境改为 `python -m venv .venv`，激活改为 `.venv\S
 | hat / 0 | 戴安全帽的头部目标 |
 | person / 1 | 未戴安全帽的头部目标，不是整个人体 |
 
-本地划分：训练 6,064 张 / 验证 758 张 / 测试 759 张。Pexels 外部 15 张照片无人工框，只作定性观察。
+旧划分：6,064 / 758 / 759 张（已发现泄漏）。新划分：训练 6,005 张 / 验证 750 张 / 测试 752 张；37 组标注冲突的 74 张图片已隔离。Pexels 外部 15 张照片无人工框，只作定性观察。
 
-## 实验结果
+## 历史实验结果（旧划分存在泄漏）
 
 **保留测试集，2026-10-10：** 同一公开 best.pt，CPU，imgsz 640，batch 4。
 

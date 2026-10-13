@@ -8,6 +8,8 @@ runs/
 datasets/
 VOC2028/
 helmet_dataset/
+helmet_dataset_clean/
+backups/
 *.pt
 *.onnx
 *.engine

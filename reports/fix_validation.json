@@ -1,0 +1,26 @@
+{
+  "scope": "Pipeline smoke checks only, not new performance results",
+  "regression_tests": 13,
+  "train_one_epoch_on_15_image_fixture": "passed",
+  "training_artifact_model_and_dataset_binding": "passed",
+  "test_entry_point_metrics_identity": "passed",
+  "prediction_batch_2": "passed",
+  "size_comparison_entry_point": "passed",
+  "gradio_rgb_and_empty_input": "passed",
+  "atomic_weight_install_sha256": "passed",
+  "formal_clean_dataset_training": "not_run",
+  "public_demo_origin": "historical_demo_not_clean_baseline",
+  "full_dataset_hash_verification": "passed",
+  "source_images_unchanged": "passed",
+  "repaired_copy_pixel_identity": "passed",
+  "jpeg_repaired_accepted_images": 64,
+  "clean_dataset_identity": {
+    "status": "exact_duplicates_removed_conflicts_quarantined",
+    "manifest_sha256": "924c37eb13ef8dc5cc3318fd81b1867f8b48b9372bb7c740c98535e23d42397f",
+    "images": 7507,
+    "difficult_policy": "include_as_ordinary",
+    "scene_independence": "not_verified"
+  },
+  "known_label_conflicts": "quarantined_pending_manual_review",
+  "near_duplicates_and_scene_independence": "pending_manual_review"
+}

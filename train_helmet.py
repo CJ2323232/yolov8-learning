@@ -1,36 +1,17 @@
+"""Train a fresh helmet baseline on the audited dataset; importing is safe."""
+import sys
+from run import main as run
+from workflow import ROOT
 
-from pathlib import Path
-from ultralytics import YOLO
-import torch
 
-# 1. 设置数据集路径
-BASE_DIR = Path(__file__).resolve().parent
-DATA = BASE_DIR / "helmet_dataset" / "data.yaml"
+def main(argv=None):
+    pretrained = str(ROOT/'yolov8n.pt') if (ROOT/'yolov8n.pt').is_file() else 'yolov8n.pt'
+    return run(['train', '--model', pretrained, '--data', str(ROOT/'helmet_dataset_clean/data.yaml'),
+                '--epochs', '50', '--imgsz', '640', '--batch', '4',
+                '--optimizer', 'AdamW', '--lr0', '0.001667', '--seed', '0',
+                '--project', str(ROOT/'runs'), '--name', 'helmet_clean',
+                *(sys.argv[1:] if argv is None else argv)])
 
-# 2. 自动选择计算设备
-if torch.backends.mps.is_available():
-    device = "mps"
-elif torch.cuda.is_available():
-    device = "0"
-else:
-    device = "cpu"
 
-print(f"当前训练设备：{device}")
-
-# 3. 加载官方预训练模型
-model = YOLO("yolov8n.pt")
-
-# 4. 开始训练
-model.train(
-    data=str(DATA),
-    epochs=50,
-    imgsz=640,
-    batch=4,
-    device=device,
-    workers=0,
-    project=str(BASE_DIR / "runs"),
-    name="helmet_50"
-)
-
-print("训练完成！")
-
+if __name__ == '__main__':
+    main()

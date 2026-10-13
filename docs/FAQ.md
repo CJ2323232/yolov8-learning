@@ -1,8 +1,10 @@
 # 常见问题
 
+> 2026-10-13 修正：旧模型与旧分数仅作历史记录，旧划分已发现重复泄漏。当前数据和代码修复见 [FIXES_2026-10-13.md](FIXES_2026-10-13.md)，运行命令以 [WORKFLOW.md](WORKFLOW.md) 为准。
+
 ## 找不到 best.pt
 
-在项目根目录运行 `python download_weights.py`。仓库自带模型位于 `models/helmet_yolov8n.pt`，脚本会校验并复制到默认路径。你自己的模型可以通过 `YOLO_MODEL_PATH` 指定，例：`YOLO_MODEL_PATH=runs/my_run/weights/best.pt python app.py`（Mac/Linux）。
+在项目根目录运行 `python download_weights.py`。仓库自带模型位于 `models/helmet_yolov8n.pt`，脚本会在 models 目录校验或安装历史演示模型，不占用训练目录。你自己的模型可以通过 `YOLO_MODEL_PATH` 指定，例：`YOLO_MODEL_PATH=runs/my_run/weights/best.pt python app.py`（Mac/Linux）。
 
 ## 要不要每次重新训练或编辑代码
 
