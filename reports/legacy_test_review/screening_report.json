@@ -1,0 +1,45 @@
+{
+  "purpose": "Post-hoc original-test sensitivity analysis; no retraining",
+  "policy": {
+    "phash_bits": 64,
+    "dhash_bits_each_axis": 64,
+    "near_rule": "(p<=8 and (horizontal<=10 or vertical<=10)) or (horizontal<=4 and vertical<=8)",
+    "nearest_hash_candidates_each": 10,
+    "nearest_embedding_candidates": 20,
+    "embedding_layers": [
+      4,
+      6,
+      8
+    ],
+    "embedding_imgsz": 224,
+    "orb_features": 600,
+    "orb_ratio_test": 0.75,
+    "ransac_pixels": 4,
+    "conservative_scene_min_inliers": 8,
+    "scene_min_inlier_fraction": 0.3,
+    "scene_min_hull_fraction_each_image": 0.03
+  },
+  "original_test_images": 759,
+  "retained_test_images": 474,
+  "excluded_test_images": 285,
+  "exclusion_reasons": {
+    "perceptual_candidate_conservative_exclusion": 219,
+    "geometric_scene_candidate_conservative_exclusion": 60,
+    "exact_bytes": 5,
+    "identical_decoded_pixels": 1
+  },
+  "retained_objects": {
+    "0": 816,
+    "1": 4000
+  },
+  "retrieval_model_sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+  "decision_manifest_sha256": "271f278d7008e7934709d935d2b46e4292a6b8d36ef2ce61b3f8cc3567c60d3a",
+  "retained_manifest_sha256": "602a7b56bd97ca7729e17329514bae7115a29a63c76e6102e4babf905de300cb",
+  "reference_manifest_sha256": "367e0e8365981d9889a574e799fe59408f1538a8ba73d329f3cb3c7a65964828",
+  "original_test_manifest_sha256": "f10b572ce12b1f4dc802382f497383fb7464fc39e2ef0b1d03f0526270a20fef",
+  "evaluation_yaml_sha256": "f5cb056ab34307b7cc944e037f2f86f871ee3a3f2d117960af9d260fada59f9f",
+  "difficult_policy": "include_as_ordinary",
+  "scene_independence": "NOT_PROVEN: automatic retrieval is finite; original XML has no usable scene/video IDs",
+  "training_provenance": "Current original train/val files are reference; immutable training-time data manifest was not recorded",
+  "comparison_limit": "Different test composition; differences in mAP are not model improvements. Original test had already been evaluated."
+}

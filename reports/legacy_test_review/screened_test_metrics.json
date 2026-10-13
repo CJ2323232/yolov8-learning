@@ -1,0 +1,41 @@
+{
+  "evaluation_scope": "post_hoc_screened_original_test_not_proven_scene_independent",
+  "model_sha256": "55be821e9eefdd0a69caf4abd3fdb2a22277059e21ec155222102b32cef2e650",
+  "images": 474,
+  "training_performed": false,
+  "retained_manifest_sha256": "602a7b56bd97ca7729e17329514bae7115a29a63c76e6102e4babf905de300cb",
+  "screening_decisions_sha256": "271f278d7008e7934709d935d2b46e4292a6b8d36ef2ce61b3f8cc3567c60d3a",
+  "device": "cpu",
+  "imgsz": 640,
+  "batch": 4,
+  "conf": 0.001,
+  "nms_iou": 0.7,
+  "max_det": 300,
+  "python": "3.14.7",
+  "torch": "2.14.0",
+  "ultralytics": "8.4.164",
+  "precision": 0.9078816998878426,
+  "recall": 0.8543594582905252,
+  "map50": 0.9172864420790618,
+  "map50_95": 0.6063239191952714,
+  "precision_recall_definition": "class means at library max-mean-F1 confidence, not fixed conf=.25",
+  "per_class": [
+    {
+      "id": 0,
+      "name": "hat",
+      "precision": 0.8922951153704312,
+      "recall": 0.8122189165810503,
+      "map50": 0.8826559389175268,
+      "map50_95": 0.6527303336509724
+    },
+    {
+      "id": 1,
+      "name": "person",
+      "precision": 0.9234682844052541,
+      "recall": 0.8965,
+      "map50": 0.9519169452405968,
+      "map50_95": 0.5599175047395704
+    }
+  ],
+  "limitations": "NOT_PROVEN: automatic retrieval is finite; original XML has no usable scene/video IDs; Current original train/val files are reference; immutable training-time data manifest was not recorded; Different test composition; differences in mAP are not model improvements. Original test had already been evaluated."
+}

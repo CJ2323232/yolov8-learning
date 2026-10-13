@@ -122,3 +122,7 @@ python test_helmet.py --model models/helmet_yolov8n.pt --data helmet_dataset/dat
 
 模型/API：[Ultralytics](https://github.com/ultralytics/ultralytics)；使用遵循其 [AGPL-3.0 / Enterprise 条款](https://www.ultralytics.com/license)。
 数据：[SHWD](https://github.com/njvisionpower/Safety-Helmet-Wearing-Dataset)。外部照片：[Pexels](https://www.pexels.com/license/)，逐图来源保留在清单中。
+
+## 6. 保留原模型，筛查原测试集再评价
+
+无需重新训练的已完成复评见 [方法与成绩](../reports/legacy_test_reassessment.md)。脚本 review_legacy_test.py 对原 test 与原 train/val 做文件、像素、感知和局部几何筛查，冻结决策后用同一 best.pt 评价。当前保留 474 张，排除 285 张确认或疑似关联图；不是新外部独立测试，不能把分数变化称为模型提升。源数据与权重保持不动。

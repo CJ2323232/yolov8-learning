@@ -9,6 +9,7 @@ datasets/
 VOC2028/
 helmet_dataset/
 helmet_dataset_clean/
+reviewed_legacy_test/
 backups/
 *.pt
 *.onnx

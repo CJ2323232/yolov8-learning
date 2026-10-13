@@ -40,6 +40,10 @@ Windows CMD 把创建环境改为 `python -m venv .venv`，激活改为 `.venv\S
 
 以后在项目目录只需 `./.venv/bin/python app.py`；Mac 也可双击 `启动安全帽检测.command`，ZIP 下载后若不能执行，先运行 `chmod +x 启动安全帽检测.command`。
 
+## 保留旧模型，无需重训的复评
+
+已沿用原 best.pt，从原 759 张测试图中保守筛出 474 张重新评价：mAP50 **0.9173**、mAP50–95 **0.6063**。排除 285 张确认重复或疑似关联图，规则在评价前固定。**这是事后筛查子集结果，测试组成已变化，不代表模型提升或已证明场景独立。** [完整方法、每类指标、决策清单与局限](reports/legacy_test_reassessment.md)。
+
 ## 用新划分训练与评价
 
 ```bash

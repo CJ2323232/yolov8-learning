@@ -30,6 +30,10 @@ The model is included at `models/helmet_yolov8n.pt` (6,230,058 bytes). The helpe
 
 For later launches, run `./.venv/bin/python app.py`; Windows: `.venv\Scripts\python.exe app.py`. Mac users can use `启动安全帽检测.command`; after a ZIP download, restore its execute permission if necessary. A different checkpoint can be selected with `YOLO_MODEL_PATH`. Device selection is automatic: MPS / CUDA / CPU.
 
+## Keep the existing model: screened-test reassessment
+
+No retraining: the unchanged best.pt was evaluated on 474 conservatively retained images from the ORIGINAL 759-image test split. mAP50 **0.9173**, mAP50–95 **0.6063**. 285 confirmed duplicates or possible related images were excluded before evaluation. This is post-hoc subset sensitivity analysis, not evidence of model improvement or fully verified scene independence. [Method, decisions, per-class metrics and limitations](reports/legacy_test_reassessment.md).
+
 ## Data and historical results
 
 Historical split: **6,064 / 758 / 759 images**, with confirmed duplicate leakage. New audited split: **6,005 / 750 / 752**; 74 conflicting variants from 37 groups are quarantined. Exact-byte overlap is eliminated; near-duplicates and scene independence require manual review. `hat` means a helmet-wearing head; `person` means a bare/unhelmeted head, not a full-body person. Original dataset images are not bundled.

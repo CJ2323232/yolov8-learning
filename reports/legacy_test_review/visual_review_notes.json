@@ -1,0 +1,8 @@
+{
+  "geometric_candidates_visually_reviewed": 60,
+  "non_PartA_perceptual_candidates_visually_reviewed": 28,
+  "systematic_perceptual_sample_visually_reviewed": 24,
+  "unconfirmed_geometry_matches_remaining_excluded": 6,
+  "visual_review_changes_to_frozen_selection": false,
+  "note": "Assistant visual review, not exhaustive human verification of all retained images against all references. Stock-photo watermarks can produce false geometric matches."
+}

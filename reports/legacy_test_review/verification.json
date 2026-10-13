@@ -1,0 +1,9 @@
+{
+  "source_images_and_labels_verified_unchanged": 7581,
+  "checkpoint_sha256_verified_unchanged": true,
+  "subset_is_only_from_original_test": true,
+  "retained_images": 474,
+  "screening_regression_tests_passed": 4,
+  "training_performed": false,
+  "subset_decisions_frozen_before_evaluation": true
+}
