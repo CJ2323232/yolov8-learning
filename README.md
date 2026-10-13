@@ -1,26 +1,33 @@
-# YOLOv8 安全帽检测与 Gradio 演示
+# 安全帽佩戴检测 · YOLOv8 + Gradio
 
-> **2026-10-13 数据审计修正：** 旧划分存在 7 组训练/验证、5 组训练/测试重复图片。旧模型和下方成绩仅保留作历史记录，不能作为独立测试基准。已生成去重与冲突隔离后的新划分；尚未在完整新划分上重新训练。[修复说明与新流程](docs/FIXES_2026-10-13.md)。
+基于 **Ultralytics YOLOv8n 与 SHWD** 的计算机视觉实践项目，覆盖数据处理、模型训练、结果评价、数据质量审计与本地交互演示。目标是检测**戴安全帽与未戴安全帽的头部**，并通过实验记录说明模型的表现与边界。
 
-[English](README_EN.md) · [快速开始](#快速开始) · [v1.0.0 下载](https://github.com/CJ2323232/yolov8-learning/releases/tag/v1.0.0) · [模型说明](models/README.md) · [实验报告](reports/size_comparison.md) · [失败案例](reports/failure_cases.md)
+**Python · PyTorch · Ultralytics · OpenCV · Gradio**
 
-基于 **Ultralytics YOLOv8n + SHWD** 的学习与复现项目：完成数据处理、模型训练、保留测试集评价，并用 Gradio 提供上传图片、调节置信度、显示检测框和数量的本地界面。支持 Mac、Windows；CPU 也可演示。
+[English](README_EN.md) · [快速体验](#快速体验) · [实验结果](#实验结果与适用范围) · [技术复盘](docs/PROJECT_STORY.md) · [模型下载](https://github.com/CJ2323232/yolov8-learning/releases/tag/v1.0.0)
 
-![Gradio 实际检测：原图、检测框和数量](assets/gradio_result.png)
+![Gradio 本地演示：原图、检测框与分类统计](assets/gradio_result.png)
 
-*用户提供的真实操作截图：conf=0.25，界面输出 8 个 hat。截图用于展示交互流程，未核实该输入是否参与训练，不作为独立测试证据。当前是本地应用，尚未部署公网在线 Demo。*
+*支持图片上传、置信度调整、分类计数和结果下载。截图用于展示交互；输入图片是否参与过训练未核实，不作为独立测试证据。*
 
-| 已完成 | 结果 |
-| --- | --- |
-| 数据处理与训练 | SHWD 两类；1 / 5 / 50 轮历史训练记录 |
-| 旧划分历史评价（已发现泄漏） | 759 张；mAP50 **91.19%**，mAP50-95 **57.09%** |
-| 输入尺寸对比 | 同一权重、758 张验证图；416 / 640 / 960，报告精度与 CPU 推理耗时 |
-| 应用演示 | 单张图片上传、conf 滑块、检测统计和结果图片下载 |
-| 复现资料 | 公开已训练权重、校验值、脚本、配置与原始数值 |
+> **当前状态：** 可下载已有权重直接运行。旧数据划分发现重复泄漏，已完成审计修复与原模型的测试子集复评；成绩适用范围见下文。新划分尚未完成正式训练。
 
-## 快速开始
+## 项目完成了什么
 
-下载仓库 ZIP 并解压，或克隆：
+| 工作 | 实现内容 | 可核查资料 |
+| --- | --- | --- |
+| 数据处理 | VOC XML 转 YOLO；校验类别、图片尺寸和框范围，保留 difficult/truncated 元数据 | [转换代码](voc_to_yolo.py) · [标注协议](docs/WORKFLOW.md) |
+| 训练与推理 | 完成历史 50 轮训练实验，保存训练记录与最佳权重，集成单图预测 | [训练记录](reports/training/) · [模型说明](models/README.md) |
+| 数据质量审计 | 内容去重、冲突标注隔离；记录图片与标签哈希，支持按场景组划分 | [审计结果](reports/clean_dataset_audit.json) · [划分代码](split_dataset.py) |
+| 实验可追溯 | 记录模型、数据清单、有效参数及环境；评价入口核验对应关系 | [流程代码](workflow.py) · [修复验证](reports/fix_validation.json) |
+| 评价与取舍 | 比较 416 / 640 / 960 输入尺寸；筛查原测试集后复评，公开每类指标 | [尺寸实验](reports/size_comparison.md) · [复评报告](reports/legacy_test_reassessment.md) |
+| 交互与错误分析 | Gradio 展示；分析无人佩戴安全帽误检、小目标及遮挡场景 | [界面代码](app.py) · [失败案例](reports/failure_cases.md) |
+
+项目工作集中在**数据、实验和应用集成**；检测网络及训练框架来自 Ultralytics，未提出新的检测架构。
+
+## 快速体验
+
+**不需要训练，也不需要下载完整数据集。** 下载仓库 ZIP 并解压，或在 macOS / Linux 终端运行：
 
 ```bash
 git clone https://github.com/CJ2323232/yolov8-learning.git
@@ -32,98 +39,88 @@ python download_weights.py
 python app.py
 ```
 
-Windows CMD 把创建环境改为 `python -m venv .venv`，激活改为 `.venv\Scripts\activate.bat`；其余 `python` 命令相同。
+Windows CMD 使用 `python -m venv .venv` 创建环境，使用 `.venv\Scripts\activate.bat` 激活；后续安装、权重准备和启动命令相同。
 
-打开终端显示的地址（通常 `http://127.0.0.1:7860`），上传图片，保持 conf=0.25，点击 Submit。结果区显示画框图和检测数量，可下载结果图片。终端需保持运行；Control+C 停止。
+打开终端显示的本地地址（通常为 `http://127.0.0.1:7860`），上传图片并点击 **Submit**。保持终端运行，按 `Control+C` 停止。设备自动选择 MPS / CUDA / CPU；当前应用仅在本机提供单张图片检测。
 
-**无需重新训练即可运行历史演示。** 模型保存在 `models/helmet_yolov8n.pt`，不会占用新训练目录。网页优先使用已登记的新训练产物；没有新产物时明确显示历史模型及数据局限。默认选择 MPS / CUDA / CPU。
+权重保存在 `models/helmet_yolov8n.pt`，通过 SHA256 校验。网页优先选择已登记的新训练产物；没有新产物时使用并标明历史演示模型。[详细安装与运行说明](docs/WORKFLOW.md)。
 
-以后在项目目录只需 `./.venv/bin/python app.py`；Mac 也可双击 `启动安全帽检测.command`，ZIP 下载后若不能执行，先运行 `chmod +x 启动安全帽检测.command`。
+已验证本地环境：Python **3.14.7** / PyTorch **2.14.0** / Ultralytics **8.4.164** / Gradio **6.30.0**。历史训练使用 Mac MPS；复评使用 CPU。Mac 环境快照不代表 Windows 全依赖兼容性保证。
 
-## 保留旧模型，无需重训的复评
+## 实验结果与适用范围
 
-已沿用原 best.pt，从原 759 张测试图中保守筛出 474 张重新评价：mAP50 **0.9173**、mAP50–95 **0.6063**。排除 285 张确认重复或疑似关联图，规则在评价前固定。**这是事后筛查子集结果，测试组成已变化，不代表模型提升或已证明场景独立。** [完整方法、每类指标、决策清单与局限](reports/legacy_test_reassessment.md)。
+### 原模型的测试子集复评
 
-## 用新划分训练与评价
+沿用历史 50 轮实验的同一份 `best.pt`，只从**原测试集 759 张**图片中筛查，排除 285 张确认重复、测试内部冗余或疑似关联图片，在保留的 **474 张、4,816 个标注框**上重新评价，没有训练或微调。
 
-```bash
-# 新机器准备数据；本机已生成新划分，无需重复运行前两步。
-python voc_to_yolo.py
-python split_dataset.py
-python train_helmet.py
-python test_helmet.py
-python benchmark_sizes.py --device cpu
-```
+| 评价对象 | 图片数 | Precision | Recall | mAP50 | mAP50–95 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 原测试集筛查子集 | 474 | 0.9079 | 0.8544 | 0.9173 | 0.6063 |
 
-训练前后核对图片与标签哈希；测试读取已登记产物，不再固定读取 `helmet_50`。完整训练尚未重跑，小规模流程检查不作为精度结果。近重复、同场景关联和隔离标注仍待人工复核；新划分只证明已排除完全相同的跨集合图片。[数据审计](reports/clean_dataset_audit.json) · [完整划分清单](reports/clean_dataset_manifest.csv)。
+**适用范围：** 这是事后筛查子集结果，不能证明全部场景独立，也不代表模型获得提升。285 张排除图并非全部确诊泄漏。评价使用 CPU、imgsz=640、batch=4；P/R 是最大平均 F1 置信度点的类别平均，不能当成网页 conf=0.25 的成绩。
 
-## 模型与数据
+[方法、每类结果与局限](reports/legacy_test_reassessment.md) · [逐图筛查决策](reports/legacy_test_review/screening_decisions.csv) · [完整数值](reports/legacy_test_review/screened_test_metrics.json)
 
-[下载已训练权重](https://github.com/CJ2323232/yolov8-learning/releases/download/v1.0.0/helmet_yolov8n.pt)（约 5.94 MiB） · [模型说明与 SHA256](models/README.md)
+### 输入尺寸与推理耗时
 
-模型来自本项目 50 轮实验的 best.pt，与测试报告中的权重一致。best.pt 是该训练过程验证表现最好的权重，不一定是最后一轮。原始数据不打包：需要训练或评价时，从 [SHWD 原仓库](https://github.com/njvisionpower/Safety-Helmet-Wearing-Dataset)取得数据。
+同一模型、同一组 758 张历史验证图片，仅改变输入尺寸：
 
-| 类别 | 含义 |
+| 输入尺寸 | mAP50–95 | CPU 模型推理耗时（ms/图） |
+| ---: | ---: | ---: |
+| 416 | 0.5484 | 7.64 |
+| 640 | 0.6145 | 15.31 |
+| 960 | 0.6307 | 33.77 |
+
+![输入尺寸、验证精度与 CPU 模型推理耗时](assets/size_comparison.svg)
+
+这次运行中，960 相比 640 的 mAP50–95 高 **1.62 个百分点**，模型推理耗时约为 **2.2 倍**。结果来自存在重复泄漏的历史划分；每档仅运行一次，耗时不含预处理、后处理和网页交互，因此用于探索取舍，不能作为独立泛化或稳定性能基准。没有据此证明小目标 AP 提升。
+
+[完整条件与原始记录](reports/size_comparison.md) · [全部历史实验](reports/README.md)
+
+## 一个值得分析的错误
+
+![无人佩戴的安全帽被误判为戴帽头部](assets/failure_3.jpg)
+
+模型把地上无人佩戴的安全帽识别为 `hat`，置信度约 **0.79**。这说明“识别到帽子外观”不能等同于“正确识别佩戴状态”。增加此类负样本或显式利用头部与帽子的关系是待验证方向，尚未实现为性能改进。
+
+另外两类观察是手持安全帽负例与远处遮挡目标。[案例、来源和预测参数](reports/failure_cases.md) · [15 张外部图片定性对照](reports/external_gallery.md)。外部图片没有人工真值框，不报告其 mAP 或漏检率。
+
+## 数据与复现
+
+数据来自 [SHWD](https://github.com/njvisionpower/Safety-Helmet-Wearing-Dataset)，本仓库不打包原始数据。
+
+| 类别 | 标注含义 |
 | --- | --- |
-| hat / 0 | 戴安全帽的头部目标 |
-| person / 1 | 未戴安全帽的头部目标，不是整个人体 |
+| `0: hat` | 戴安全帽的头部 |
+| `1: person` | 未戴安全帽的头部，不是整个人体 |
 
-旧划分：6,064 / 758 / 759 张（已发现泄漏）。新划分：训练 6,005 张 / 验证 750 张 / 测试 752 张；37 组标注冲突的 74 张图片已隔离。Pexels 外部 15 张照片无人工框，只作定性观察。
+数据流：**VOC 图片与 XML → 标签转换与校验 → 去重、冲突隔离及划分 → 训练与产物登记 → 评价 / 预测 → Gradio 展示**。
 
-## 历史实验结果（旧划分存在泄漏）
+审计隔离了 **37 组、74 张**同图不同标注的版本，生成 **6,005 / 750 / 752** 张训练 / 验证 / 测试新划分。新划分已排除完全相同图片的跨集合重复；近重复和场景分组仍需复核。当前模型来自旧划分，不能直接用于重新划分数据的独立基准评价。
 
-**保留测试集，2026-10-10：** 同一公开 best.pt，CPU，imgsz 640，batch 4。
+已有正式实验、修复后的训练流程与小规模流程验证分开记录；**尚未完成新划分上的正式训练**。开展新基准实验前，先完成场景分组核查，再按[完整训练与评价流程](docs/WORKFLOW.md)准备数据和训练。历史 1 / 5 / 50 轮记录不是三组独立从零训练的控制实验。
 
-| Precision | Recall | mAP50 | mAP50-95 |
-| ---: | ---: | ---: | ---: |
-| 0.9100 | 0.8508 | 0.9119 | 0.5709 |
-
-[完整测试成绩与模型身份](reports/test_metrics.json) · [测试清单](reports/test_manifest.csv) · [训练历史](reports/training/)
-
-**输入尺寸对比，2026-10-11：** 同一模型与 758 张验证图，不重新训练。
-
-| imgsz | Precision | Recall | mAP50 | mAP50-95 | 模型推理 ms/图 |
-| ---: | ---: | ---: | ---: | ---: | ---: |
-| 416 | 0.9013 | 0.7963 | 0.8611 | 0.5484 | 7.64 |
-| 640 | 0.9446 | 0.8788 | 0.9343 | 0.6145 | 15.31 |
-| 960 | 0.9404 | 0.9010 | 0.9526 | 0.6307 | 33.77 |
-
-![验证精度与 CPU 推理耗时](assets/size_comparison.svg)
-
-960 相比 640 的 mAP50-95 高约 **1.62 个百分点**，本次 CPU 模型推理耗时约 **2.2 倍**。计时是库内模型推理，不是网页端到端延迟；每档只运行一次，不能当作稳定硬件性能结论。
-
-[实验条件、局限与重跑命令](reports/size_comparison.md) · [完整 JSON](reports/size_comparison.json) · [CSV](reports/size_comparison.csv)
-
-历史 1 / 5 / 50 轮记录是最后一轮的验证成绩；50 轮配置记录了恢复训练，不能当作三组独立从零训练的严格对比。测试与验证成绩分开展示。
-
-## 失败与边界
-
-![地上的安全帽被判为戴帽目标](assets/failure_3.jpg)
-
-模型可能把无人佩戴的安全帽识别为 hat，也会受到小目标、遮挡、模糊和场景变化影响。不能用画框数量代替准确性，更不能直接用作安全管理判定。
-
-[查看失败与边界案例分析](reports/failure_cases.md) · [15 张历史外部照片对照及来源](reports/external_gallery.md)
-
-## 代码与详细复现
-
-| 入口 | 用途 |
+| 代码入口 | 职责 |
 | --- | --- |
-| `app.py` | Gradio 单图演示，显示画框和数量 |
-| `download_weights.py` | 获取或安装模型并校验，不覆盖不同的已有文件 |
-| `run.py` | 通用设备检查、预测、训练、评价入口 |
-| `voc_to_yolo.py` / `split_dataset.py` | 标签转换、固定随机种子划分数据 |
-| `train_helmet.py` / `test_helmet.py` | 安全帽训练与测试，保存结果和运行记录 |
-| `benchmark_sizes.py` | 在同一验证集上比较输入尺寸 |
-| `predict_external.py` | 外部照片预测，保存命令与环境 |
+| [voc_to_yolo.py](voc_to_yolo.py) / [split_dataset.py](split_dataset.py) | 标注转换、数据检查、去重及划分 |
+| [workflow.py](workflow.py) / [run.py](run.py) | 完整性检查、训练产物管理与执行入口 |
+| [train_helmet.py](train_helmet.py) / [test_helmet.py](test_helmet.py) | 训练与评价 |
+| [review_legacy_test.py](review_legacy_test.py) | 原测试集筛查与原模型复评 |
+| [benchmark_sizes.py](benchmark_sizes.py) | 同权重的输入尺寸比较 |
+| [app.py](app.py) / [predict_external.py](predict_external.py) | 网页演示与外部图片预测 |
 
-[完整安装、数据准备与代码解读](docs/WORKFLOW.md) · [常见问题](docs/FAQ.md) · [实验登记](experiments.csv) · [可复用的项目介绍](docs/PROJECT_STORY.md)
+[数据修复记录](docs/FIXES_2026-10-13.md) · [模型说明](models/README.md) · [常见问题](docs/FAQ.md) · [项目技术复盘](docs/PROJECT_STORY.md)
 
-已验证环境：Python 3.14.7 / torch 2.14.0 / Ultralytics 8.4.164 / Gradio 6.30.0。历史训练使用 MPS，本次评价与对比使用 CPU；跨环境结果和耗时可能变化。
+## 后续方向
 
-后续计划：不同模型大小的训练对比、更多随机种子、外部照片人工标注、重复速度测量。目前未实现视频检测、批量上传或公网在线服务。
+- 基于已有标注整理误检、漏检案例，分析目标大小与遮挡的影响。
+- 重复测量模型推理与端到端耗时，在验证集选择置信度阈值。
+- 完成场景分组与外部图片标注后，开展新基准和模型大小对比。
+
+当前没有公网在线服务、视频检测或批量上传；未证明可用于实际安全管理决策。
 
 ## 来源与许可
 
-本项目调用 [Ultralytics](https://github.com/ultralytics/ultralytics) 提供的模型与 API，不是 YOLOv8 原创算法；模型使用遵循其 [AGPL-3.0 / Enterprise 条款](https://www.ultralytics.com/license)。界面使用 [Gradio](https://github.com/gradio-app/gradio)。
+模型与 API 来自 [Ultralytics](https://github.com/ultralytics/ultralytics)，使用遵循其 [AGPL-3.0 / Enterprise 条款](https://www.ultralytics.com/license)；界面使用 [Gradio](https://github.com/gradio-app/gradio)。
 
-数据来自 [njvisionpower/SHWD](https://github.com/njvisionpower/Safety-Helmet-Wearing-Dataset)；其仓库标有 MIT，但部分图片来自网络及 SCUT-HEAD，原始数据不在本仓库再分发。外部示例遵循 [Pexels License](https://www.pexels.com/license/)，逐图来源见展示页面。画框不代表人物真实安全状态，也不暗示背书。
+数据来自 [njvisionpower/SHWD](https://github.com/njvisionpower/Safety-Helmet-Wearing-Dataset)。其仓库标有 MIT，但部分图片来自网络及 SCUT-HEAD，本仓库不再分发原始数据。外部示例逐图记录来源，并遵循 [Pexels License](https://www.pexels.com/license/)。检测输出不代表图片人物的真实安全状态或背书。
