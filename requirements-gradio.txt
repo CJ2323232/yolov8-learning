@@ -1,3 +1,4 @@
 # 网页演示额外依赖；与本机已验证的 Gradio 版本一致。
 -r requirements.txt
 gradio==6.30.0
+sahi==0.12.8

@@ -126,3 +126,7 @@ python test_helmet.py --model models/helmet_yolov8n.pt --data helmet_dataset/dat
 ## 6. 保留原模型，筛查原测试集再评价
 
 无需重新训练的已完成复评见 [方法与成绩](../reports/legacy_test_reassessment.md)。脚本 review_legacy_test.py 对原 test 与原 train/val 做文件、像素、感知和局部几何筛查，冻结决策后用同一 best.pt 评价。当前保留 474 张，排除 285 张确认或疑似关联图；不是新外部独立测试，不能把分数变化称为模型提升。源数据与权重保持不动。
+
+## 7. SAHI 切片检测
+
+安装 requirements-gradio.txt 后运行 app.py，在“检测方式”中选择“SAHI 切片检测”。模型与普通模式相同，按 640×640、20% 重叠切片，额外整图预测后按类别 NMS 去重；小于等于切片尺寸的图片不会产生多个切片。[完整参数和限制](SAHI.md)。

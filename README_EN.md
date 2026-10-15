@@ -8,7 +8,7 @@ A computer vision practice project using **Ultralytics YOLOv8n and SHWD**, cover
 
 ![Local Gradio demo: input image, detections and class counts](assets/gradio_result.png)
 
-*Upload an image, adjust confidence, inspect counts and download the result. The screenshot demonstrates interaction; its training-set membership is unverified, so it is not independent test evidence.*
+*Upload an image, adjust confidence, inspect counts and download the result. The screenshot shows the standard-inference interface; its training-set membership is unverified, so it is not independent test evidence.*
 
 > **Status:** Existing weights run without retraining. Duplicate leakage was found in the historical split; auditing, workflow fixes and a screened-test reassessment are complete. Evaluation limits are stated below. Full training on the new split has not been completed.
 
@@ -41,7 +41,9 @@ python app.py
 
 On Windows CMD, create the environment with `python -m venv .venv` and activate it with `.venv\Scripts\activate.bat`; use the same subsequent commands. Open the printed local URL, usually `http://127.0.0.1:7860`, upload an image and click **Submit**. Keep the terminal running; stop with `Control+C`.
 
-The app selects MPS / CUDA / CPU automatically. Weights are stored at `models/helmet_yolov8n.pt` and verified with SHA256. Registered new training artifacts take precedence; otherwise the app explicitly labels the historical demo model. It serves single-image inference locally without public hosting. [Detailed workflow (Chinese)](docs/WORKFLOW.md).
+The app selects MPS / CUDA / CPU automatically. Weights are stored at `models/helmet_yolov8n.pt` and verified with SHA256. Registered new training artifacts take precedence; otherwise the app explicitly labels the historical demo model. It serves single-image inference locally without public hosting.
+
+The UI now offers standard or SAHI sliced inference using the same model. Slicing uses 640×640 tiles with 20% overlap, an additional full-image pass and class-aware merging. This is intended for exploring distant objects in large images and usually takes longer; no accuracy improvement has been established. [Integration notes (Chinese)](docs/SAHI.md). [Detailed workflow (Chinese)](docs/WORKFLOW.md).
 
 Verified local environment: Python **3.14.7**, PyTorch **2.14.0**, Ultralytics **8.4.164**, Gradio **6.30.0**. Historical training used Mac MPS; reassessment used CPU. The Mac environment snapshot does not guarantee full dependency compatibility on Windows.
 

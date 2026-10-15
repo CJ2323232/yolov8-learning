@@ -1,0 +1,23 @@
+{
+  "scope": "SAHI integration verification only; not an accuracy or stable latency benchmark",
+  "sahi_version": "0.12.8",
+  "device": "cpu",
+  "regression_tests_passed": 23,
+  "ordinary_real_image_prediction": "passed",
+  "sliced_real_image_prediction": "passed",
+  "small_image_single_tile": "passed",
+  "confidence_change_reuses_existing_weights": "passed",
+  "gradio_three_input_http_api": "passed",
+  "dependency_check": "passed",
+  "model_sha256": "55be821e9eefdd0a69caf4abd3fdb2a22277059e21ec155222102b32cef2e650",
+  "model_unchanged": true,
+  "source_image_unchanged": true,
+  "training_performed": false,
+  "class_aware_partial_box_merging": "passed",
+  "merge": {
+    "type": "GREEDYNMM",
+    "metric": "IOS",
+    "threshold": 0.5,
+    "class_agnostic": false
+  }
+}
