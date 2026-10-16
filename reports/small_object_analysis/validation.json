@@ -1,0 +1,11 @@
+{
+  "matching_and_integrity_tests_passed": 8,
+  "full_subset_images": 474,
+  "gt_objects": 4816,
+  "accounting_invariants_checked": true,
+  "model_and_dataset_hashes_unchanged": true,
+  "manual_review": "pending",
+  "review_cases": 20,
+  "training_performed": false,
+  "sahi_comparison_performed": false
+}

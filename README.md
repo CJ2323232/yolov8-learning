@@ -63,6 +63,8 @@ Windows CMD 使用 `python -m venv .venv` 创建环境，使用 `.venv\Scripts\a
 
 [方法、每类结果与局限](reports/legacy_test_reassessment.md) · [逐图筛查决策](reports/legacy_test_review/screening_decisions.csv) · [完整数值](reports/legacy_test_review/screened_test_metrics.json)
 
+已补充普通检测在固定 conf=0.25 下的[小目标与错误诊断](reports/small_object_analysis.md)，统计不同大小目标的漏检并提供人工核查步骤；这不是新的独立测试或 SAHI 提升结论。
+
 ### 输入尺寸与推理耗时
 
 同一模型、同一组 758 张历史验证图片，仅改变输入尺寸：

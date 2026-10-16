@@ -61,6 +61,8 @@ The same best checkpoint from the historical 50-epoch experiment was evaluated w
 
 [Method and limitations](reports/legacy_test_reassessment.md) · [Per-image decisions](reports/legacy_test_review/screening_decisions.csv) · [Raw metrics](reports/legacy_test_review/screened_test_metrics.json)
 
+A [fixed-confidence error diagnosis](reports/small_object_analysis.md) now stratifies ordinary-inference misses by ground-truth size and provides manual-review steps. It is not a new independent test or evidence of SAHI improvement.
+
 ### Input size versus inference time
 
 Same checkpoint and 758 historical validation images; only input size changes:

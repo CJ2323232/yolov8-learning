@@ -1,0 +1,162 @@
+{
+  "protocol": {
+    "scope": "post_hoc_error_diagnosis_on_used_original_test_subset",
+    "mode": "ordinary_full_image",
+    "confidence": 0.25,
+    "input_size": 640,
+    "matching_iou": 0.5,
+    "matching": "score_ordered_class_aware_one_to_one",
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "device": "cpu",
+    "batch": 1,
+    "difficult_policy": "include_as_ordinary",
+    "size_definition": "sqrt(GT box area) after scaling longest original image side to 640",
+    "size_bins": {
+      "tiny": "[0,16)",
+      "small": "[16,32)",
+      "medium": "[32,96)",
+      "large": "[96,infinity)"
+    },
+    "size_metrics": "Recall by GT size; no per-size Precision because FP has no GT size",
+    "not_comparable_to_prior_map_report": "fixed confidence 0.25; micro P/R; custom matcher; no AP computed",
+    "model_sha256": "55be821e9eefdd0a69caf4abd3fdb2a22277059e21ec155222102b32cef2e650",
+    "manifest_sha256": "602a7b56bd97ca7729e17329514bae7115a29a63c76e6102e4babf905de300cb",
+    "images": 474,
+    "analysis_script_sha256": "edfd97f11cd970597c6e71705df0300a1b64bcde43ad2b5c1f5303e4ce6261d7"
+  },
+  "overall": {
+    "gt": 4816,
+    "predictions": 5055,
+    "tp": 4371,
+    "fn": 445,
+    "fp": 684,
+    "recall": 0.9075996677740864,
+    "precision": 0.8646884272997033
+  },
+  "by_class": {
+    "hat": {
+      "gt": 816,
+      "tp": 698,
+      "fn": 118,
+      "predictions": 833,
+      "fp": 135,
+      "recall": 0.8553921568627451,
+      "precision": 0.8379351740696278
+    },
+    "person": {
+      "gt": 4000,
+      "tp": 3673,
+      "fn": 327,
+      "predictions": 4222,
+      "fp": 549,
+      "recall": 0.91825,
+      "precision": 0.8699668403600189
+    }
+  },
+  "by_gt_size": {
+    "tiny": {
+      "gt": 788,
+      "tp": 585,
+      "fn": 203,
+      "recall": 0.7423857868020305
+    },
+    "small": {
+      "gt": 1786,
+      "tp": 1634,
+      "fn": 152,
+      "recall": 0.9148936170212766
+    },
+    "medium": {
+      "gt": 1870,
+      "tp": 1794,
+      "fn": 76,
+      "recall": 0.9593582887700535
+    },
+    "large": {
+      "gt": 372,
+      "tp": 358,
+      "fn": 14,
+      "recall": 0.9623655913978495
+    }
+  },
+  "by_class_and_gt_size": {
+    "hat": {
+      "tiny": {
+        "gt": 126,
+        "tp": 58,
+        "fn": 68,
+        "recall": 0.4603174603174603
+      },
+      "small": {
+        "gt": 196,
+        "tp": 166,
+        "fn": 30,
+        "recall": 0.8469387755102041
+      },
+      "medium": {
+        "gt": 280,
+        "tp": 263,
+        "fn": 17,
+        "recall": 0.9392857142857143
+      },
+      "large": {
+        "gt": 214,
+        "tp": 211,
+        "fn": 3,
+        "recall": 0.985981308411215
+      }
+    },
+    "person": {
+      "tiny": {
+        "gt": 662,
+        "tp": 527,
+        "fn": 135,
+        "recall": 0.7960725075528701
+      },
+      "small": {
+        "gt": 1590,
+        "tp": 1468,
+        "fn": 122,
+        "recall": 0.9232704402515723
+      },
+      "medium": {
+        "gt": 1590,
+        "tp": 1531,
+        "fn": 59,
+        "recall": 0.9628930817610063
+      },
+      "large": {
+        "gt": 158,
+        "tp": 147,
+        "fn": 11,
+        "recall": 0.930379746835443
+      }
+    }
+  },
+  "fp_diagnostic_candidates": {
+    "wrong_class_candidate": 49,
+    "background_or_missing_label_candidate": 322,
+    "localization_candidate": 231,
+    "duplicate_candidate": 82
+  },
+  "fn_diagnostic_candidates": {
+    "wrong_class_candidate": 32,
+    "localization_candidate": 180,
+    "no_matching_detection": 233
+  },
+  "images_at_max_det": 0,
+  "environment": {
+    "python": "3.14.7",
+    "torch": "2.14.0",
+    "ultralytics": "8.4.164"
+  },
+  "model_and_data_verified_unchanged": true,
+  "limitations": [
+    "Used post-hoc subset; scene independence unproven.",
+    "Label-relative errors require visual review; missing/wrong annotations can affect counts.",
+    "Custom scale bins and matching; not COCO AP or prior max-F1 P/R.",
+    "No annotation of occlusion/blur; those causes cannot be inferred from size alone."
+  ],
+  "review_cases": 20
+}

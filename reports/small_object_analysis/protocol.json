@@ -1,0 +1,26 @@
+{
+  "scope": "post_hoc_error_diagnosis_on_used_original_test_subset",
+  "mode": "ordinary_full_image",
+  "confidence": 0.25,
+  "input_size": 640,
+  "matching_iou": 0.5,
+  "matching": "score_ordered_class_aware_one_to_one",
+  "nms_iou": 0.7,
+  "max_det": 300,
+  "device": "cpu",
+  "batch": 1,
+  "difficult_policy": "include_as_ordinary",
+  "size_definition": "sqrt(GT box area) after scaling longest original image side to 640",
+  "size_bins": {
+    "tiny": "[0,16)",
+    "small": "[16,32)",
+    "medium": "[32,96)",
+    "large": "[96,infinity)"
+  },
+  "size_metrics": "Recall by GT size; no per-size Precision because FP has no GT size",
+  "not_comparable_to_prior_map_report": "fixed confidence 0.25; micro P/R; custom matcher; no AP computed",
+  "model_sha256": "55be821e9eefdd0a69caf4abd3fdb2a22277059e21ec155222102b32cef2e650",
+  "manifest_sha256": "602a7b56bd97ca7729e17329514bae7115a29a63c76e6102e4babf905de300cb",
+  "images": 474,
+  "analysis_script_sha256": "edfd97f11cd970597c6e71705df0300a1b64bcde43ad2b5c1f5303e4ce6261d7"
+}

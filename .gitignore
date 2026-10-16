@@ -16,3 +16,6 @@ backups/
 *.engine
 helmet_external_test/external_test/
 !models/helmet_yolov8n.pt
+
+# Local error-review images and annotations
+error_analysis/
