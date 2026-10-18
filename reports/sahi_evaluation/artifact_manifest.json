@@ -1,0 +1,133 @@
+{
+  "note": "Public report export. Source hashes refer to frozen local artifacts; published hashes refer to these sanitized files. Dataset images, raw annotations, personal paths and local galleries are not bundled. Full prediction logs remain local; their hashes are in validation records.",
+  "artifacts": [
+    {
+      "published_path": "reports/sahi_evaluation/slice_summary.json",
+      "source_artifact": "error_analysis/sahi_slice_ablation_2026-10-17/summary.json",
+      "source_sha256": "7b457310ca7e3ffe252d963e26e6b314947ae982d7d7662b3390d5e76b57a2e5",
+      "published_sha256": "7b457310ca7e3ffe252d963e26e6b314947ae982d7d7662b3390d5e76b57a2e5",
+      "transformation": "Project-absolute paths made relative; JSON formatting normalized; private attachment identity omitted from case04 summary. Numeric results unchanged."
+    },
+    {
+      "published_path": "reports/sahi_evaluation/slice_per_image.csv",
+      "source_artifact": "error_analysis/sahi_slice_ablation_2026-10-17/per_image_metrics.csv",
+      "source_sha256": "07a62a55ed6f9ba9bf101bb1e14644165e8c1b26746b09a8012e4f651e49a17c",
+      "published_sha256": "8702abb34433e43fc509eb3d27e30834fe5914750c5bd696a687f5f4a54aa5b5",
+      "transformation": "Project-absolute paths made relative; JSON formatting normalized; private attachment identity omitted from case04 summary. Numeric results unchanged."
+    },
+    {
+      "published_path": "reports/sahi_evaluation/slice_protocol.json",
+      "source_artifact": "error_analysis/sahi_slice_ablation_2026-10-17/protocol.json",
+      "source_sha256": "720b4165014dd5dbbe29cc4aa07fde0859ca70c8a2bf0e284d35a25b233fde85",
+      "published_sha256": "40e901730680ac161123b9bb0f28c63821a5084c91eb0fec71151c88b53e895e",
+      "transformation": "Project-absolute paths made relative; JSON formatting normalized; private attachment identity omitted from case04 summary. Numeric results unchanged."
+    },
+    {
+      "published_path": "reports/sahi_evaluation/slice_validation.json",
+      "source_artifact": "error_analysis/sahi_slice_ablation_2026-10-17/validation.json",
+      "source_sha256": "669f81c085ee373a973cac78483d7f692f50b0bf4afa8b4814050bc00f17a97f",
+      "published_sha256": "669f81c085ee373a973cac78483d7f692f50b0bf4afa8b4814050bc00f17a97f",
+      "transformation": "Project-absolute paths made relative; JSON formatting normalized; private attachment identity omitted from case04 summary. Numeric results unchanged."
+    },
+    {
+      "published_path": "reports/sahi_evaluation/slice_run_identity.json",
+      "source_artifact": "error_analysis/sahi_slice_ablation_2026-10-17/run_identity.json",
+      "source_sha256": "6aa872d2656f9f9ecfd4132ac54016729e782daf4ae9f0db134dca12b27f371c",
+      "published_sha256": "6aa872d2656f9f9ecfd4132ac54016729e782daf4ae9f0db134dca12b27f371c",
+      "transformation": "Project-absolute paths made relative; JSON formatting normalized; private attachment identity omitted from case04 summary. Numeric results unchanged."
+    },
+    {
+      "published_path": "reports/sahi_evaluation/screening_decisions.csv",
+      "source_artifact": "error_analysis/sahi_slice_ablation_2026-10-17/screening_decisions.csv",
+      "source_sha256": "4646e82dc4531d76a56f0040e9a478fff5261b5fd5c416914d210f6535b069c0",
+      "published_sha256": "17c4346a5a7c3437733870930c175c7fed0a182204acd31cea334533b9fbde80",
+      "transformation": "Project-absolute paths made relative; JSON formatting normalized; private attachment identity omitted from case04 summary. Numeric results unchanged."
+    },
+    {
+      "published_path": "reports/sahi_evaluation/single_tile_postprocess_diagnosis.json",
+      "source_artifact": "error_analysis/sahi_slice_ablation_2026-10-17/single_tile_postprocess_diagnosis.json",
+      "source_sha256": "fb6fa39784e8ca7108aabeecf5013ea48acbd71803c386a518f7a856b7bde15b",
+      "published_sha256": "fb6fa39784e8ca7108aabeecf5013ea48acbd71803c386a518f7a856b7bde15b",
+      "transformation": "Project-absolute paths made relative; JSON formatting normalized; private attachment identity omitted from case04 summary. Numeric results unchanged."
+    },
+    {
+      "published_path": "reports/sahi_evaluation/slice_comparison.svg",
+      "source_artifact": "error_analysis/sahi_slice_ablation_2026-10-17/comparison.svg",
+      "source_sha256": "215811242ca31018a78066a65dde71d090798ab9e9a0c2d6deb083165800d6ed",
+      "published_sha256": "215811242ca31018a78066a65dde71d090798ab9e9a0c2d6deb083165800d6ed",
+      "transformation": "Project-absolute paths made relative; JSON formatting normalized; private attachment identity omitted from case04 summary. Numeric results unchanged."
+    },
+    {
+      "published_path": "reports/sahi_evaluation/fix_summary.json",
+      "source_artifact": "error_analysis/sahi_single_tile_recheck_2026-10-18/summary.json",
+      "source_sha256": "d798127a7249b99a5af7f6aaae22f04167e117da8a0c9c360c24e6746ccde10a",
+      "published_sha256": "d798127a7249b99a5af7f6aaae22f04167e117da8a0c9c360c24e6746ccde10a",
+      "transformation": "Project-absolute paths made relative; JSON formatting normalized; private attachment identity omitted from case04 summary. Numeric results unchanged."
+    },
+    {
+      "published_path": "reports/sahi_evaluation/fix_per_image.csv",
+      "source_artifact": "error_analysis/sahi_single_tile_recheck_2026-10-18/per_image_metrics.csv",
+      "source_sha256": "3bba532ca3e4573ade90f5c87bf7ef7fdbbdcfbdb759fe30d8f90540738f3706",
+      "published_sha256": "90f7c4f31d40c19c5ba0f6f294970c614903b2202b2eaaf377770a05141ab7f2",
+      "transformation": "Project-absolute paths made relative; JSON formatting normalized; private attachment identity omitted from case04 summary. Numeric results unchanged."
+    },
+    {
+      "published_path": "reports/sahi_evaluation/fix_protocol.json",
+      "source_artifact": "error_analysis/sahi_single_tile_recheck_2026-10-18/protocol.json",
+      "source_sha256": "12760a153f27c104b998f5ba236166fbb3caad3fe1640a5f8e2affd910c5cd86",
+      "published_sha256": "97d99f85798ea528168ebcbaf20d6b26da1acf3d5ae2ee567ec5ae62c57e8580",
+      "transformation": "Project-absolute paths made relative; JSON formatting normalized; private attachment identity omitted from case04 summary. Numeric results unchanged."
+    },
+    {
+      "published_path": "reports/sahi_evaluation/fix_validation.json",
+      "source_artifact": "error_analysis/sahi_single_tile_recheck_2026-10-18/validation.json",
+      "source_sha256": "136b9a4af08273c6cdee073e19b6b1466081a00bcaf57768fdf5f4db5b9ece2b",
+      "published_sha256": "136b9a4af08273c6cdee073e19b6b1466081a00bcaf57768fdf5f4db5b9ece2b",
+      "transformation": "Project-absolute paths made relative; JSON formatting normalized; private attachment identity omitted from case04 summary. Numeric results unchanged."
+    },
+    {
+      "published_path": "reports/sahi_evaluation/fix_run_identity.json",
+      "source_artifact": "error_analysis/sahi_single_tile_recheck_2026-10-18/run_identity.json",
+      "source_sha256": "894ca7dea662b946ca44ccba67c8de0f68496cf3e92a330b14acd95972aea78f",
+      "published_sha256": "894ca7dea662b946ca44ccba67c8de0f68496cf3e92a330b14acd95972aea78f",
+      "transformation": "Project-absolute paths made relative; JSON formatting normalized; private attachment identity omitted from case04 summary. Numeric results unchanged."
+    },
+    {
+      "published_path": "reports/sahi_evaluation/fix_comparison.svg",
+      "source_artifact": "error_analysis/sahi_single_tile_recheck_2026-10-18/comparison.svg",
+      "source_sha256": "6b6277147e5b0c0a1df76d87fc6f17a995612f07a5b0008c09bd96eef224553a",
+      "published_sha256": "6b6277147e5b0c0a1df76d87fc6f17a995612f07a5b0008c09bd96eef224553a",
+      "transformation": "Project-absolute paths made relative; JSON formatting normalized; private attachment identity omitted from case04 summary. Numeric results unchanged."
+    },
+    {
+      "published_path": "reports/sahi_evaluation/case04_summary.json",
+      "source_artifact": "error_analysis/sahi_case04_2026-10-17/summary.json",
+      "source_sha256": "68ca9358afe5730fbc1d93cb3f9647db6ab4d0144ea536a0908fda7799fba6f8",
+      "published_sha256": "e80d33350445991f13a42cd4d38581f80700a42ffdac2f809168a26dcfd6d95f",
+      "transformation": "Project-absolute paths made relative; JSON formatting normalized; private attachment identity omitted from case04 summary. Numeric results unchanged."
+    },
+    {
+      "published_path": "reports/sahi_evaluation/case04_diagnosis.json",
+      "source_artifact": "error_analysis/sahi_case04_2026-10-17/diagnosis.json",
+      "source_sha256": "5818ace06072903814438f82bf7a00452705817492004743a45fd05b5a1064bc",
+      "published_sha256": "5818ace06072903814438f82bf7a00452705817492004743a45fd05b5a1064bc",
+      "transformation": "Project-absolute paths made relative; JSON formatting normalized; private attachment identity omitted from case04 summary. Numeric results unchanged."
+    },
+    {
+      "published_path": "reports/sahi_evaluation/code_fix_validation.json",
+      "source_artifact": "project_work/sahi_single_tile_fix_2026-10-18/validation.json",
+      "source_sha256": "c6b6f31df15101cb64b6d7ca4a02d2451a42bea47b160c8b8a8b13ec10922c9b",
+      "published_sha256": "c6b6f31df15101cb64b6d7ca4a02d2451a42bea47b160c8b8a8b13ec10922c9b",
+      "transformation": "Project-absolute paths made relative; JSON formatting normalized; private attachment identity omitted from case04 summary. Numeric results unchanged."
+    },
+    {
+      "published_path": "reports/sahi_evaluation/selected_manifest.csv",
+      "source_artifact": "error_analysis/sahi_slice_ablation_2026-10-17/selected_validation_manifest.csv",
+      "source_sha256": "9ca71de7d816bcdb585b527d28abf3d7374f104990fad991393125e00201afca",
+      "published_sha256": "c1af67a24b30a686d600c5d83a80e570a39145e8d97b56ee1b2065403376d41a",
+      "transformation": "Only image_path and label_path made relative to the historical dataset root; image/label hashes, dimensions, order and selection unchanged."
+    }
+  ],
+  "legacy_inference_sha256": "f3f62ecdb876ca424f4bf6eb3889764ab0da706b72b6e98fc4661c9b9bbec769",
+  "metric_extraction_source_sha256": "2e1db60cf56f168d045382173f0e910d3c54d792232e87f93b145b4379ea863a"
+}

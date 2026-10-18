@@ -1,0 +1,19 @@
+{
+  "evaluated_validation_images": 529,
+  "configurations": 4,
+  "paired_image_config_predictions": 2116,
+  "all_count_invariants_passed": true,
+  "all_effective_block_parameters_equal": true,
+  "all_boxes_inside_original_images": true,
+  "expected_number_of_model_calls_checked": true,
+  "all_6822_reference_images_and_labels_unchanged": true,
+  "protected_model_code_protocol_inputs_unchanged": true,
+  "case04_reproduces_previous_ordinary_and_640_counts": true,
+  "production_code_changed": false,
+  "training_performed": false,
+  "script_sha256": "2e1db60cf56f168d045382173f0e910d3c54d792232e87f93b145b4379ea863a",
+  "single_tile_offline_replay_matches_all_three_SAHI_modes": true,
+  "gallery_and_report_local_links_verified": true,
+  "comparison_chart_visually_checked": true,
+  "model_inference_for_offline_diagnosis": false
+}

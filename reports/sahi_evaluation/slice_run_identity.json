@@ -1,0 +1,20 @@
+{
+  "script_sha256": "2e1db60cf56f168d045382173f0e910d3c54d792232e87f93b145b4379ea863a",
+  "protocol_sha256": "720b4165014dd5dbbe29cc4aa07fde0859ca70c8a2bf0e284d35a25b233fde85",
+  "versions": {
+    "python": "3.14.7",
+    "torch": "2.14.0",
+    "ultralytics": "8.4.164",
+    "sahi": "0.12.8"
+  },
+  "unix_start_seconds": 1792224207.4828422,
+  "train_called": false,
+  "resume_history": [
+    {
+      "previous_script_sha256": "f4d13e818aa96f42c6fbaf01dd4b439a1d5149db0f2f8c59e448fe500a9151b3",
+      "completed_images_reused": 425,
+      "archive": "history/v1_run_experiment.py",
+      "reason": "Inert EXIF orientation 0 accepted; nested aggregation corrected. Detector, parameters and sample selection unchanged."
+    }
+  ]
+}

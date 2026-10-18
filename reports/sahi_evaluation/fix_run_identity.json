@@ -1,0 +1,11 @@
+{
+  "start_unix_seconds": 1792325963.123559,
+  "versions": {
+    "python": "3.14.7",
+    "torch": "2.14.0",
+    "ultralytics": "8.4.164",
+    "sahi": "0.12.8"
+  },
+  "runner_sha256": "3cdc1f9a39cab6a4eed194d3150b9aacc30646425f15cd88f86aed20b69e972c",
+  "protocol_sha256": "12760a153f27c104b998f5ba236166fbb3caad3fe1640a5f8e2affd910c5cd86"
+}

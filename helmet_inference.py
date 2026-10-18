@@ -55,7 +55,9 @@ class HelmetPredictor:
         # YOLO's predictor and SAHI's confidence/output fields are mutable.
         with self._lock:
             start = perf_counter()
-            if mode == NORMAL_MODE:
+            # A single tile is the whole image. Reuse ordinary inference so
+            # SAHI's extra IOS merge cannot combine distinct nearby heads.
+            if mode == NORMAL_MODE or tiles == 1:
                 result = self.model.predict(
                     source=image, conf=conf, imgsz=640,
                     device=self.device, iou=0.7, max_det=300, verbose=False,

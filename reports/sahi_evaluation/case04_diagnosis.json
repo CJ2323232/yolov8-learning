@@ -1,0 +1,20 @@
+{
+  "scope": "interpretation_of_single_image_results_only",
+  "raw_hat_predictions": 14,
+  "whole_image_hat_predictions": 0,
+  "final_hat_predictions": 8,
+  "final_hat_single_source": 6,
+  "final_hat_multiple_sources": 2,
+  "maximum_hat_area_increase_relative_to_largest_raw_source_percent": 3.7437796592712402,
+  "raw_lineage_is_complete_partition": true,
+  "net_added_fp": 8,
+  "recovered_targets": 8,
+  "lost_targets": 0,
+  "recovered_tiny": 6,
+  "recovered_small": 2,
+  "hypotheses_not_proven": [
+    "局部尺度与上下文变化导致模型误识别",
+    "切片边界截断影响识别"
+  ],
+  "production_modified": false
+}

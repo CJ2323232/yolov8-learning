@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-18",
+  "scope": "single-tile bypass recheck on historical validation, not independent test",
+  "selected_images": 529,
+  "gt_objects": {
+    "hat": 669,
+    "person": 5040
+  },
+  "model_path": "models/helmet_yolov8n.pt",
+  "model_origin": "historical_demo_not_clean_baseline",
+  "fixed": {
+    "confidence": 0.25,
+    "model_input_size": 640,
+    "block_nms_iou": 0.7,
+    "block_max_det": 300,
+    "overlap": 0.2,
+    "perform_standard_pred": true,
+    "merge_type": "GREEDYNMM",
+    "merge_metric": "IOS",
+    "merge_threshold": 0.5,
+    "class_agnostic": false,
+    "device": "cpu",
+    "threads": 4,
+    "matching_iou": 0.5,
+    "matching": "score-ordered class-aware one-to-one; match all GT before size bins",
+    "difficult": "include_as_ordinary",
+    "size_definition": "sqrt(GT area) after longest side scaled to640",
+    "size_bins": [
+      "<16",
+      "16-32",
+      "32-96",
+      ">=96"
+    ],
+    "AP_computed": false
+  },
+  "change": "tiles == 1 uses ordinary inference; otherwise unchanged SAHI 640",
+  "baseline_reuse": {
+    "path": "error_analysis/sahi_slice_ablation_2026-10-17",
+    "configs": [
+      "ordinary",
+      "sahi_640"
+    ],
+    "new_baseline_inference": false
+  },
+  "new_config": "sahi_640_fixed",
+  "selected_manifest_sha256": "9ca71de7d816bcdb585b527d28abf3d7374f104990fad991393125e00201afca",
+  "protected_file_hashes": {
+    "models/helmet_yolov8n.pt": "55be821e9eefdd0a69caf4abd3fdb2a22277059e21ec155222102b32cef2e650",
+    "helmet_inference.py": "90ec7e04a7a5f82f24e293326c78f5ae03725242f1d2aeb1fd46e6e745f3d003",
+    "app.py": "5bdb941f8ffbdde346093ad8b3435b9a7cf188ca6c8f80cb0b19bc52bd92ef1e",
+    "analyze_detection_errors.py": "edfd97f11cd970597c6e71705df0300a1b64bcde43ad2b5c1f5303e4ce6261d7",
+    "workflow.py": "49835022b674889ae7619006da0fc647b7548133ec3acd6b0043ea4e8eb9925c",
+    "error_analysis/sahi_slice_ablation_2026-10-17/protocol.json": "720b4165014dd5dbbe29cc4aa07fde0859ca70c8a2bf0e284d35a25b233fde85",
+    "error_analysis/sahi_slice_ablation_2026-10-17/predictions.jsonl": "df54b075295e0f4c605e239695bed30be0ecfb76a963ecf1102fa66372753ef6",
+    "error_analysis/sahi_slice_ablation_2026-10-17/summary.json": "7b457310ca7e3ffe252d963e26e6b314947ae982d7d7662b3390d5e76b57a2e5",
+    "error_analysis/sahi_slice_ablation_2026-10-17/selected_validation_manifest.csv": "9ca71de7d816bcdb585b527d28abf3d7374f104990fad991393125e00201afca",
+    "error_analysis/sahi_slice_ablation_2026-10-17/run_experiment.py": "2e1db60cf56f168d045382173f0e910d3c54d792232e87f93b145b4379ea863a",
+    "project_work/sahi_single_tile_fix_2026-10-18/before/helmet_inference.py": "f3f62ecdb876ca424f4bf6eb3889764ab0da706b72b6e98fc4661c9b9bbec769"
+  },
+  "runner_sha256": "3cdc1f9a39cab6a4eed194d3150b9aacc30646425f15cd88f86aed20b69e972c",
+  "versions": {
+    "python": "3.14.7",
+    "torch": "2.14.0",
+    "ultralytics": "8.4.164",
+    "sahi": "0.12.8"
+  },
+  "timing": "new run only; same 3 warm-up images, CPU/4 torch threads/2 cv2 threads; includes drawing and instrumentation, excludes input IO/scoring. Historical baselines are not contemporaneous; no causal speedup claim.",
+  "screening_limitations": [
+    "perceptual matches are conservative candidates, not all confirmed leaks",
+    "no embedding or ORB geometry screening was performed on this validation subset",
+    "remaining scene/near-duplicate independence is unproven",
+    "historical training did not preserve an immutable training-time data manifest",
+    "original validation selected historical checkpoint; appropriate for exploratory parameter choice, not independent testing"
+  ],
+  "training_performed": false,
+  "production_defaults_changed": false
+}

@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-18",
+  "status": "passed",
+  "scope": "single-tile inference fix and targeted regression only",
+  "unit_tests": {
+    "tests_run": 33,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true
+  },
+  "real_image_cases": 4,
+  "trained": false,
+  "full_529_comparison_run": false,
+  "github_published": false,
+  "protected_files_unchanged": true,
+  "finder_visibility_preserved": true,
+  "changed_files": {
+    "helmet_inference.py": {
+      "before_sha256": "f3f62ecdb876ca424f4bf6eb3889764ab0da706b72b6e98fc4661c9b9bbec769",
+      "after_sha256": "90ec7e04a7a5f82f24e293326c78f5ae03725242f1d2aeb1fd46e6e745f3d003"
+    },
+    "app.py": {
+      "before_sha256": "3d3e2d2c3a5ca404e50cbcc0a8516be598ed829fe7aa782fb2f479535533f285",
+      "after_sha256": "5bdb941f8ffbdde346093ad8b3435b9a7cf188ca6c8f80cb0b19bc52bd92ef1e"
+    },
+    "tests/test_helmet_inference.py": {
+      "before_sha256": "424e519969b97bb7f3cd61565f7716b10f3fd1e375564e4e04b24fcc49e078f0",
+      "after_sha256": "09cef5c332b4012ff000c2a6678f0f02e46e99d33f16b9649e542e9524cb1fc1"
+    },
+    "docs/SAHI.md": {
+      "before_sha256": "f2ebe92628d2b816318877230e5faf1a12bfb453a4c79e8597dc891850b4e447",
+      "after_sha256": "367d3e574ac330ef7f8e33df16e21eb44fe5f88339c07b90afca21f8f028f27c"
+    }
+  },
+  "real_validation_sha256": "a1da8baf186f074b9a8b6c9f30fdcdb381e68d9aa585db1c013002adfd05f893"
+}

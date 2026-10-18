@@ -1,6 +1,6 @@
 from types import SimpleNamespace
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 import numpy as np
 from PIL import Image
@@ -39,9 +39,62 @@ class InferenceTests(unittest.TestCase):
 
     def test_slice_count_agrees_with_sahi_at_boundaries(self):
         from sahi.slicing import get_slice_bboxes
-        for width, height in [(400, 300), (640, 640), (641, 640), (1152, 1153), (1500, 900)]:
+        for width, height in [(400, 300), (640, 640), (640, 300), (300, 640),
+                              (641, 640), (640, 641), (1152, 1153), (1500, 900)]:
             actual = get_slice_bboxes(height, width, 640, 640, 0.2, 0.2)
             self.assertEqual(count_slices(width, height), len(actual))
+
+    def test_single_tile_sliced_mode_preserves_normal_output_without_sahi(self):
+        # These same-class boxes can survive YOLO NMS (IoU=0.49), but an
+        # additional IOS-based merge would combine them (IOS=1.0).
+        boxes = [
+            SimpleNamespace(bbox=SimpleNamespace(to_xyxy=lambda: [10, 10, 30, 30]),
+                            score=SimpleNamespace(value=0.9), category=SimpleNamespace(id=1)),
+            SimpleNamespace(bbox=SimpleNamespace(to_xyxy=lambda: [11, 11, 25, 25]),
+                            score=SimpleNamespace(value=0.8), category=SimpleNamespace(id=1)),
+        ]
+        for size in [(40, 30), (640, 640), (640, 300), (300, 640)]:
+            for predictions in [boxes, []]:
+                for conf in [0.25, 0.65]:
+                    with self.subTest(size=size, count=len(predictions), conf=conf):
+                        image = Image.new("RGB", size, (200, 10, 20))
+                        names = {0: "hat", 1: "person"}
+                        result = sahi_to_result(predictions, image, names)
+                        model = SimpleNamespace(names=names, predict=Mock(return_value=[result]))
+                        predictor = HelmetPredictor(model, "cpu")
+                        with patch.dict("sys.modules", {"sahi": None}):
+                            normal, normal_counts, _ = predictor.predict(image, conf, NORMAL_MODE)
+                            sliced, counts, details = predictor.predict(image, conf, SLICED_MODE)
+                        np.testing.assert_array_equal(np.asarray(normal), np.asarray(sliced))
+                        self.assertEqual(counts, normal_counts)
+                        self.assertEqual(counts, {"person": 2} if predictions else {})
+                        self.assertEqual(details["tiles"], 1)
+                        self.assertEqual(details["mode"], SLICED_MODE)
+                        self.assertIsNone(predictor._sahi_model)
+                        self.assertEqual(model.predict.call_count, 2)
+                        for call in model.predict.call_args_list:
+                            kwargs = dict(call.kwargs)
+                            np.testing.assert_array_equal(np.asarray(kwargs.pop("source")), np.asarray(image))
+                            self.assertEqual(kwargs, dict(conf=conf, imgsz=640, device="cpu",
+                                                          iou=0.7, max_det=300, verbose=False))
+
+    def test_single_tile_bypasses_existing_sahi_adapter(self):
+        image = Image.new("RGB", (640, 640))
+        names = {0: "hat", 1: "person"}
+        result = sahi_to_result([], image, names)
+        model = SimpleNamespace(names=names, predict=Mock(return_value=[result]))
+        predictor = HelmetPredictor(model, "cpu")
+        cached_adapter = SimpleNamespace(confidence_threshold=0.25)
+        predictor._sahi_model = cached_adapter
+        with patch("sahi.predict.get_sliced_prediction",
+                   return_value=SimpleNamespace(object_prediction_list=[])) as sliced_prediction:
+            _, counts, details = predictor.predict(image, 0.65, SLICED_MODE)
+        sliced_prediction.assert_not_called()
+        model.predict.assert_called_once()
+        self.assertIs(predictor._sahi_model, cached_adapter)
+        self.assertEqual(cached_adapter.confidence_threshold, 0.25)
+        self.assertEqual(counts, {})
+        self.assertEqual(details["tiles"], 1)
 
     def test_partial_same_class_boxes_merge_but_other_class_remains(self):
         from sahi.prediction import ObjectPrediction
@@ -63,12 +116,20 @@ class InferenceTests(unittest.TestCase):
         def fake_prediction(**kw):
             adapter = kw["detection_model"]
             seen.append((adapter.model, adapter.confidence_threshold))
+            self.assertEqual((kw["slice_height"], kw["slice_width"]), (640, 640))
+            self.assertEqual((kw["overlap_height_ratio"], kw["overlap_width_ratio"]), (0.2, 0.2))
+            self.assertTrue(kw["perform_standard_pred"])
+            self.assertEqual(kw["postprocess_type"], "GREEDYNMM")
+            self.assertEqual(kw["postprocess_match_metric"], "IOS")
+            self.assertEqual(kw["postprocess_match_threshold"], 0.5)
+            self.assertFalse(kw["postprocess_class_agnostic"])
             return SimpleNamespace(object_prediction_list=[])
         with patch("sahi.predict.get_sliced_prediction", side_effect=fake_prediction):
             for conf in [0.25, 0.65]:
-                result, counts, _ = predictor.predict(Image.new("RGB", (40, 30)), conf, SLICED_MODE)
-                self.assertEqual(result.size, (40, 30))
+                result, counts, details = predictor.predict(Image.new("RGB", (641, 640)), conf, SLICED_MODE)
+                self.assertEqual(result.size, (641, 640))
                 self.assertEqual(counts, {})
+                self.assertEqual(details["tiles"], 2)
         self.assertEqual(seen, [(model, 0.25), (model, 0.65)])
 
 

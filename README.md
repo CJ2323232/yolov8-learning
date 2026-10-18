@@ -22,6 +22,7 @@
 | 实验可追溯 | 记录模型、数据清单、有效参数及环境；评价入口核验对应关系 | [流程代码](workflow.py) · [修复验证](reports/fix_validation.json) |
 | 评价与取舍 | 比较 416 / 640 / 960 输入尺寸；筛查原测试集后复评，公开每类指标 | [尺寸实验](reports/size_comparison.md) · [复评报告](reports/legacy_test_reassessment.md) |
 | 交互与错误分析 | Gradio 展示；分析无人佩戴安全帽误检、小目标及遮挡场景 | [界面代码](app.py) · [失败案例](reports/failure_cases.md) |
+| 切片推理评估 | 集成SAHI；比较640/960/1280切片，定位并修复单块额外合并，完成529张复验并公开收益与代价 | [完整实验](reports/sahi_evaluation.md) · [代码](helmet_inference.py) |
 
 项目工作集中在**数据、实验和应用集成**；检测网络及训练框架来自 Ultralytics，未提出新的检测架构。
 
@@ -43,7 +44,7 @@ Windows CMD 使用 `python -m venv .venv` 创建环境，使用 `.venv\Scripts\a
 
 打开终端显示的本地地址（通常为 `http://127.0.0.1:7860`），上传图片并点击 **Submit**。保持终端运行，按 `Control+C` 停止。设备自动选择 MPS / CUDA / CPU；当前应用仅在本机提供单张图片检测。
 
-网页新增“普通检测 / SAHI 切片检测”选项。切片模式使用同一模型，将原图按 640×640、20% 重叠分块，结合整图预测后按类别去重。适合尝试大图中的远处目标，通常更慢；尚未完成精度提升验证。[接入与使用说明](docs/SAHI.md)。
+网页提供“普通检测 / SAHI 切片检测”选项，默认普通检测。SAHI使用同一模型，按640×640、20%重叠切片，多块时补充整图预测并合并；宽、高均不超过640时直接沿用普通检测。已完成切片对比与修复复验：召回有收益，但综合F1仍低于普通检测。[接入说明](docs/SAHI.md) · [完整实验](reports/sahi_evaluation.md)。
 
 权重保存在 `models/helmet_yolov8n.pt`，通过 SHA256 校验。网页优先选择已登记的新训练产物；没有新产物时使用并标明历史演示模型。[详细安装与运行说明](docs/WORKFLOW.md)。
 
@@ -64,6 +65,20 @@ Windows CMD 使用 `python -m venv .venv` 创建环境，使用 `.venv\Scripts\a
 [方法、每类结果与局限](reports/legacy_test_reassessment.md) · [逐图筛查决策](reports/legacy_test_review/screening_decisions.csv) · [完整数值](reports/legacy_test_review/screened_test_metrics.json)
 
 已补充普通检测在固定 conf=0.25 下的[小目标与错误诊断](reports/small_object_analysis.md)，统计不同大小目标的漏检并提供人工核查步骤；这不是新的独立测试或 SAHI 提升结论。
+
+### SAHI 切片对比与单块修复
+
+在推理前冻结的 **529 张原验证集筛查图片**上，固定同一历史模型与 conf=0.25，对比切片尺寸并修复单块图片额外合并的问题；修正版已对529张全部重新运行。
+
+| 方案 | 总体 Recall | 最小档 Recall | 未匹配预测 FP | 微平均 F1 |
+| --- | --- | --- | --- | --- |
+| 普通检测 | 93.13% | 81.22% | 747 | 90.33% |
+| 旧版 SAHI 640 | 92.63% | 83.11% | 975 | 88.34% |
+| 修正版 SAHI 640 | 93.47% | 83.84% | 1055 | 88.20% |
+
+修正版相比旧版少漏48个目标，但多80个未匹配预测；相比普通检测净少漏19个，但多308个未匹配预测。**继续采用普通检测为默认，SAHI不作为已验证的综合性能提升。** 最小档包含两种头部，FP也包含重复框和定位差异等。该子集用于探索与修复验证，不是新独立测试。
+
+[完整工作、五种配置与局限](reports/sahi_evaluation.md) · [公开数值与复现入口](reports/sahi_evaluation/) · [接入代码](helmet_inference.py)
 
 ### 输入尺寸与推理耗时
 

@@ -1,0 +1,745 @@
+{
+  "scope": "single-image post-hoc paired diagnosis; not independent evaluation or full-dataset accuracy",
+  "image": "PartB_01886.jpg",
+  "dimensions": [
+    3264,
+    2448
+  ],
+  "model_origin": "historical_demo_not_clean_baseline",
+  "confidence": 0.25,
+  "matching_iou": 0.5,
+  "matching": "existing score-ordered class-aware one-to-one matcher",
+  "difficult_policy": "include_as_ordinary",
+  "device": "cpu",
+  "torch_num_threads": 8,
+  "versions": {
+    "python": "3.14.7",
+    "torch": "2.14.0",
+    "ultralytics": "8.4.164",
+    "sahi": "0.12.8"
+  },
+  "sahi_settings": {
+    "slice_size": 640,
+    "overlap": 0.2,
+    "tiles": 35,
+    "perform_standard_pred": true,
+    "merge_type": "GREEDYNMM",
+    "merge_metric": "IOS",
+    "merge_threshold": 0.5,
+    "class_agnostic": false
+  },
+  "ordinary": {
+    "predictions": 64,
+    "gt": 74,
+    "tp": 59,
+    "fn": 15,
+    "fp": 5,
+    "precision": 0.921875,
+    "recall": 0.7972972972972973,
+    "by_gt_size": {
+      "tiny": {
+        "gt": 44,
+        "tp": 33,
+        "fn": 11,
+        "recall": 0.75
+      },
+      "small": {
+        "gt": 22,
+        "tp": 18,
+        "fn": 4,
+        "recall": 0.8181818181818182
+      },
+      "medium": {
+        "gt": 7,
+        "tp": 7,
+        "fn": 0,
+        "recall": 1.0
+      },
+      "large": {
+        "gt": 1,
+        "tp": 1,
+        "fn": 0,
+        "recall": 1.0
+      }
+    },
+    "by_class": {
+      "hat": {
+        "gt": 0,
+        "predictions": 0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0
+      },
+      "person": {
+        "gt": 74,
+        "predictions": 64,
+        "tp": 59,
+        "fp": 5,
+        "fn": 15
+      }
+    }
+  },
+  "sahi": {
+    "predictions": 80,
+    "gt": 74,
+    "tp": 67,
+    "fn": 7,
+    "fp": 13,
+    "precision": 0.8375,
+    "recall": 0.9054054054054054,
+    "by_gt_size": {
+      "tiny": {
+        "gt": 44,
+        "tp": 39,
+        "fn": 5,
+        "recall": 0.8863636363636364
+      },
+      "small": {
+        "gt": 22,
+        "tp": 20,
+        "fn": 2,
+        "recall": 0.9090909090909091
+      },
+      "medium": {
+        "gt": 7,
+        "tp": 7,
+        "fn": 0,
+        "recall": 1.0
+      },
+      "large": {
+        "gt": 1,
+        "tp": 1,
+        "fn": 0,
+        "recall": 1.0
+      }
+    },
+    "by_class": {
+      "hat": {
+        "gt": 0,
+        "predictions": 8,
+        "tp": 0,
+        "fp": 8,
+        "fn": 0
+      },
+      "person": {
+        "gt": 74,
+        "predictions": 72,
+        "tp": 67,
+        "fp": 5,
+        "fn": 7
+      }
+    }
+  },
+  "recovered_gt_indices": [
+    5,
+    18,
+    37,
+    40,
+    45,
+    51,
+    56,
+    63
+  ],
+  "lost_gt_indices": [],
+  "timings": {
+    "ordinary": {
+      "repeats_seconds": [
+        0.046652916993480176,
+        0.030485082999803126,
+        0.030737124965526164
+      ],
+      "median_seconds": 0.030737124965526164,
+      "scope": "single-image warmed CPU processing time, includes plotting; exploratory only"
+    },
+    "sahi": {
+      "repeats_seconds": [
+        0.9347311250166968,
+        0.9194659579661675,
+        0.9257462919922546
+      ],
+      "median_seconds": 0.9257462919922546,
+      "scope": "single-image warmed CPU processing time, includes plotting; exploratory only"
+    }
+  },
+  "effective_model_calls": {
+    "ordinary": [
+      {
+        "shapes": [
+          [
+            2448,
+            3264
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      }
+    ],
+    "sahi": [
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            640,
+            640
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      },
+      {
+        "shapes": [
+          [
+            2448,
+            3264
+          ]
+        ],
+        "conf": 0.25,
+        "iou": 0.7,
+        "max_det": 300,
+        "imgsz": 640,
+        "rect": true,
+        "augment": false,
+        "device": "cpu"
+      }
+    ]
+  },
+  "raw_hat_predictions": 14,
+  "raw_hat_by_source": {
+    "tile": 14,
+    "whole_image": 0
+  },
+  "final_hat_predictions": 8,
+  "final_hat_with_multiple_sources": 2,
+  "baseline_matches_saved_predictions_within_0_01_pixels": true,
+  "source_hashes": {
+    "models/helmet_yolov8n.pt": "55be821e9eefdd0a69caf4abd3fdb2a22277059e21ec155222102b32cef2e650",
+    "reviewed_legacy_test/dataset/images/test/PartB_01886.jpg": "6e2b3c9f378b150e4fd33ce40c4d49d980e1d80591cd1b28da2b1df2d6e79f30",
+    "reviewed_legacy_test/dataset/labels/test/PartB_01886.txt": "48311621d997dcc5058901035a768566c3da288bcaa05ede23804f024df25b99",
+    "helmet_inference.py": "f3f62ecdb876ca424f4bf6eb3889764ab0da706b72b6e98fc4661c9b9bbec769",
+    "analyze_detection_errors.py": "edfd97f11cd970597c6e71705df0300a1b64bcde43ad2b5c1f5303e4ce6261d7",
+    "error_analysis/protocol.json": "73539edb0d0bce5798136039b3a015c3a969f2f585c0874613d55fb43d935aec"
+  },
+  "evaluation_script_sha256": "7c51a66033dcd8a7ebf71864a8d84740a56b160c0455bbd83a48a41580fd9b12",
+  "training_performed": false,
+  "production_code_changed": false,
+  "original_labels_changed": false
+}

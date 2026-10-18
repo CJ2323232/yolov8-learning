@@ -22,6 +22,7 @@ A computer vision practice project using **Ultralytics YOLOv8n and SHWD**, cover
 | Traceability | Model/data identities, effective parameters, environment records and evaluation checks | [Workflow](workflow.py) · [Fix validation](reports/fix_validation.json) |
 | Evaluation | 416/640/960 input-size experiment; unchanged-model reassessment with per-class metrics | [Size experiment](reports/size_comparison.md) · [Reassessment](reports/legacy_test_reassessment.md) |
 | Application and analysis | Gradio UI and qualitative analysis of false positives and challenging scenes | [App](app.py) · [Cases](reports/failure_cases.md) |
+| Sliced inference evaluation | SAHI integration, 640/960/1280 comparison, single-tile fix and 529-image recheck with negative results retained | [Evaluation](reports/sahi_evaluation.md) · [Code](helmet_inference.py) |
 
 The work focuses on data handling, experiments and integration. The detector architecture and training framework are provided by Ultralytics; no new detector architecture is proposed.
 
@@ -43,7 +44,7 @@ On Windows CMD, create the environment with `python -m venv .venv` and activate 
 
 The app selects MPS / CUDA / CPU automatically. Weights are stored at `models/helmet_yolov8n.pt` and verified with SHA256. Registered new training artifacts take precedence; otherwise the app explicitly labels the historical demo model. It serves single-image inference locally without public hosting.
 
-The UI now offers standard or SAHI sliced inference using the same model. Slicing uses 640×640 tiles with 20% overlap, an additional full-image pass and class-aware merging. This is intended for exploring distant objects in large images and usually takes longer; no accuracy improvement has been established. [Integration notes (Chinese)](docs/SAHI.md). [Detailed workflow (Chinese)](docs/WORKFLOW.md).
+The UI offers standard or SAHI inference with shared weights; standard inference remains the default. SAHI uses 640×640 tiles, 20% overlap and class-aware merging with an additional full-image pass for multiple tiles. Single-tile inputs now use the standard path directly. Completed experiments show a recall gain with more unmatched predictions and lower overall F1 than standard inference. [Integration notes](docs/SAHI.md) · [Full evaluation](reports/sahi_evaluation.md).
 
 Verified local environment: Python **3.14.7**, PyTorch **2.14.0**, Ultralytics **8.4.164**, Gradio **6.30.0**. Historical training used Mac MPS; reassessment used CPU. The Mac environment snapshot does not guarantee full dependency compatibility on Windows.
 
@@ -62,6 +63,20 @@ The same best checkpoint from the historical 50-epoch experiment was evaluated w
 [Method and limitations](reports/legacy_test_reassessment.md) · [Per-image decisions](reports/legacy_test_review/screening_decisions.csv) · [Raw metrics](reports/legacy_test_review/screened_test_metrics.json)
 
 A [fixed-confidence error diagnosis](reports/small_object_analysis.md) now stratifies ordinary-inference misses by ground-truth size and provides manual-review steps. It is not a new independent test or evidence of SAHI improvement.
+
+### SAHI slicing and single-tile fix
+
+Same historical checkpoint and confidence 0.25 on a frozen **529-image screened original-validation subset**. Legacy 640/960/1280 tiles were compared; the extra merge on single-tile inputs was diagnosed and bypassed. The fixed 640 mode was rerun on all 529 images.
+
+| Configuration | Overall recall | Tiny recall | Unmatched predictions | Micro F1 |
+| --- | --- | --- | --- | --- |
+| Standard | 93.13% | 81.22% | 747 | 90.33% |
+| Legacy SAHI 640 | 92.63% | 83.11% | 975 | 88.34% |
+| Fixed SAHI 640 | 93.47% | 83.84% | 1055 | 88.20% |
+
+The fix recovers 48 matches versus legacy SAHI but adds 80 unmatched predictions. Relative to standard inference, it gains 19 net matches and adds 308 unmatched predictions. **Standard remains the default; SAHI is not presented as an overall performance improvement.** Tiny recall includes both head classes. Unmatched predictions can include duplicates, localization differences and annotation issues. This is exploratory validation, not an independent test.
+
+[Complete evaluation and limitations](reports/sahi_evaluation.md) · [Numeric evidence and reproduction](reports/sahi_evaluation/)
 
 ### Input size versus inference time
 

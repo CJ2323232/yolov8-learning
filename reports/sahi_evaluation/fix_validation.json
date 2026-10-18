@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "images": 529,
+  "all_529_images_and_labels_unchanged": true,
+  "model_code_and_archived_results_unchanged_during_run": true,
+  "archived_baseline_counts_recomputed_equal": true,
+  "all_single_tile_outputs_equal_archived_ordinary": true,
+  "all_multi_tile_outputs_equal_archived_sahi_640": true,
+  "bbox_score_reference_tolerance": 0.01,
+  "all_effective_settings_checked": true,
+  "all_model_call_counts_checked": true,
+  "max_det_cap_hits": 0,
+  "script_sha256": "3cdc1f9a39cab6a4eed194d3150b9aacc30646425f15cd88f86aed20b69e972c",
+  "protocol_sha256": "12760a153f27c104b998f5ba236166fbb3caad3fe1640a5f8e2affd910c5cd86",
+  "predictions_sha256": "443888b25cfdc0d60784101cc120b80ccc7debdda8b90ae5b4c16e266d9726c2",
+  "summary_sha256": "d798127a7249b99a5af7f6aaae22f04167e117da8a0c9c360c24e6746ccde10a"
+}

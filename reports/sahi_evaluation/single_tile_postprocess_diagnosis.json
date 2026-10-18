@@ -1,0 +1,733 @@
+{
+  "scope": "post-hoc diagnostic replay, not an additional parameter-selection experiment",
+  "model_inference_performed": false,
+  "production_code_changed": false,
+  "saved_predictions_sha256": "df54b075295e0f4c605e239695bed30be0ecfb76a963ecf1102fa66372753ef6",
+  "script_sha256": "ef293183a2aead804e4ec89ae59cdfa762029772bf04a1ddb08aee6eeadf51e3",
+  "results": {
+    "sahi_640": {
+      "one_tile_images": 231,
+      "ordinary_boxes_with_same_NMM_reproduce_saved_SAHI_outputs": true,
+      "tolerance_pixels_and_score": 0.01,
+      "mismatch_images": [],
+      "ordinary": {
+        "gt": 2570,
+        "predictions": 2845,
+        "tp": 2399,
+        "fn": 171,
+        "fp": 446,
+        "by_class": {
+          "hat": {
+            "gt": 312,
+            "predictions": 325,
+            "tp": 293,
+            "fn": 19,
+            "fp": 32,
+            "precision": 0.9015384615384615,
+            "f1": 0.9199372056514914,
+            "recall": 0.9391025641025641
+          },
+          "person": {
+            "gt": 2258,
+            "predictions": 2520,
+            "tp": 2106,
+            "fn": 152,
+            "fp": 414,
+            "precision": 0.8357142857142857,
+            "f1": 0.8815403934700712,
+            "recall": 0.9326837909654562
+          }
+        },
+        "by_size": {
+          "tiny": {
+            "gt": 292,
+            "tp": 228,
+            "fn": 64,
+            "recall": 0.7808219178082192
+          },
+          "small": {
+            "gt": 1072,
+            "tp": 996,
+            "fn": 76,
+            "recall": 0.9291044776119403
+          },
+          "medium": {
+            "gt": 1032,
+            "tp": 1006,
+            "fn": 26,
+            "recall": 0.9748062015503876
+          },
+          "large": {
+            "gt": 174,
+            "tp": 169,
+            "fn": 5,
+            "recall": 0.9712643678160919
+          }
+        },
+        "by_class_size": {
+          "tiny": {
+            "hat": {
+              "gt": 12,
+              "tp": 8,
+              "fn": 4,
+              "recall": 0.6666666666666666
+            },
+            "person": {
+              "gt": 280,
+              "tp": 220,
+              "fn": 60,
+              "recall": 0.7857142857142857
+            }
+          },
+          "small": {
+            "hat": {
+              "gt": 64,
+              "tp": 57,
+              "fn": 7,
+              "recall": 0.890625
+            },
+            "person": {
+              "gt": 1008,
+              "tp": 939,
+              "fn": 69,
+              "recall": 0.9315476190476191
+            }
+          },
+          "medium": {
+            "hat": {
+              "gt": 144,
+              "tp": 138,
+              "fn": 6,
+              "recall": 0.9583333333333334
+            },
+            "person": {
+              "gt": 888,
+              "tp": 868,
+              "fn": 20,
+              "recall": 0.9774774774774775
+            }
+          },
+          "large": {
+            "hat": {
+              "gt": 92,
+              "tp": 90,
+              "fn": 2,
+              "recall": 0.9782608695652174
+            },
+            "person": {
+              "gt": 82,
+              "tp": 79,
+              "fn": 3,
+              "recall": 0.9634146341463414
+            }
+          }
+        },
+        "precision": 0.8432337434094903,
+        "f1": 0.8860572483841181,
+        "recall": 0.9334630350194553
+      },
+      "sahi": {
+        "gt": 2570,
+        "predictions": 2717,
+        "tp": 2351,
+        "fn": 219,
+        "fp": 366,
+        "by_class": {
+          "hat": {
+            "gt": 312,
+            "predictions": 317,
+            "tp": 288,
+            "fn": 24,
+            "fp": 29,
+            "precision": 0.9085173501577287,
+            "f1": 0.9157392686804452,
+            "recall": 0.9230769230769231
+          },
+          "person": {
+            "gt": 2258,
+            "predictions": 2400,
+            "tp": 2063,
+            "fn": 195,
+            "fp": 337,
+            "precision": 0.8595833333333334,
+            "f1": 0.8857878917990554,
+            "recall": 0.9136403897254207
+          }
+        },
+        "by_size": {
+          "tiny": {
+            "gt": 292,
+            "tp": 221,
+            "fn": 71,
+            "recall": 0.7568493150684932
+          },
+          "small": {
+            "gt": 1072,
+            "tp": 973,
+            "fn": 99,
+            "recall": 0.9076492537313433
+          },
+          "medium": {
+            "gt": 1032,
+            "tp": 989,
+            "fn": 43,
+            "recall": 0.9583333333333334
+          },
+          "large": {
+            "gt": 174,
+            "tp": 168,
+            "fn": 6,
+            "recall": 0.9655172413793104
+          }
+        },
+        "by_class_size": {
+          "tiny": {
+            "hat": {
+              "gt": 12,
+              "tp": 7,
+              "fn": 5,
+              "recall": 0.5833333333333334
+            },
+            "person": {
+              "gt": 280,
+              "tp": 214,
+              "fn": 66,
+              "recall": 0.7642857142857142
+            }
+          },
+          "small": {
+            "hat": {
+              "gt": 64,
+              "tp": 56,
+              "fn": 8,
+              "recall": 0.875
+            },
+            "person": {
+              "gt": 1008,
+              "tp": 917,
+              "fn": 91,
+              "recall": 0.9097222222222222
+            }
+          },
+          "medium": {
+            "hat": {
+              "gt": 144,
+              "tp": 135,
+              "fn": 9,
+              "recall": 0.9375
+            },
+            "person": {
+              "gt": 888,
+              "tp": 854,
+              "fn": 34,
+              "recall": 0.9617117117117117
+            }
+          },
+          "large": {
+            "hat": {
+              "gt": 92,
+              "tp": 90,
+              "fn": 2,
+              "recall": 0.9782608695652174
+            },
+            "person": {
+              "gt": 82,
+              "tp": 78,
+              "fn": 4,
+              "recall": 0.9512195121951219
+            }
+          }
+        },
+        "precision": 0.8652926021347074,
+        "f1": 0.8893512388878381,
+        "recall": 0.9147859922178988
+      },
+      "matched_gt_recovered": 0,
+      "matched_gt_lost": 48,
+      "net_tp_change": -48
+    },
+    "sahi_960": {
+      "one_tile_images": 347,
+      "ordinary_boxes_with_same_NMM_reproduce_saved_SAHI_outputs": true,
+      "tolerance_pixels_and_score": 0.01,
+      "mismatch_images": [],
+      "ordinary": {
+        "gt": 3645,
+        "predictions": 3925,
+        "tp": 3404,
+        "fn": 241,
+        "fp": 521,
+        "by_class": {
+          "hat": {
+            "gt": 480,
+            "predictions": 478,
+            "tp": 433,
+            "fn": 47,
+            "fp": 45,
+            "precision": 0.9058577405857741,
+            "f1": 0.9039665970772442,
+            "recall": 0.9020833333333333
+          },
+          "person": {
+            "gt": 3165,
+            "predictions": 3447,
+            "tp": 2971,
+            "fn": 194,
+            "fp": 476,
+            "precision": 0.8619089062953292,
+            "f1": 0.8986690865093769,
+            "recall": 0.9387045813586098
+          }
+        },
+        "by_size": {
+          "tiny": {
+            "gt": 461,
+            "tp": 363,
+            "fn": 98,
+            "recall": 0.7874186550976139
+          },
+          "small": {
+            "gt": 1530,
+            "tp": 1434,
+            "fn": 96,
+            "recall": 0.9372549019607843
+          },
+          "medium": {
+            "gt": 1399,
+            "tp": 1359,
+            "fn": 40,
+            "recall": 0.9714081486776269
+          },
+          "large": {
+            "gt": 255,
+            "tp": 248,
+            "fn": 7,
+            "recall": 0.9725490196078431
+          }
+        },
+        "by_class_size": {
+          "tiny": {
+            "hat": {
+              "gt": 41,
+              "tp": 16,
+              "fn": 25,
+              "recall": 0.3902439024390244
+            },
+            "person": {
+              "gt": 420,
+              "tp": 347,
+              "fn": 73,
+              "recall": 0.8261904761904761
+            }
+          },
+          "small": {
+            "hat": {
+              "gt": 90,
+              "tp": 81,
+              "fn": 9,
+              "recall": 0.9
+            },
+            "person": {
+              "gt": 1440,
+              "tp": 1353,
+              "fn": 87,
+              "recall": 0.9395833333333333
+            }
+          },
+          "medium": {
+            "hat": {
+              "gt": 202,
+              "tp": 192,
+              "fn": 10,
+              "recall": 0.9504950495049505
+            },
+            "person": {
+              "gt": 1197,
+              "tp": 1167,
+              "fn": 30,
+              "recall": 0.974937343358396
+            }
+          },
+          "large": {
+            "hat": {
+              "gt": 147,
+              "tp": 144,
+              "fn": 3,
+              "recall": 0.9795918367346939
+            },
+            "person": {
+              "gt": 108,
+              "tp": 104,
+              "fn": 4,
+              "recall": 0.9629629629629629
+            }
+          }
+        },
+        "precision": 0.8672611464968153,
+        "f1": 0.8993394980184941,
+        "recall": 0.9338820301783265
+      },
+      "sahi": {
+        "gt": 3645,
+        "predictions": 3768,
+        "tp": 3344,
+        "fn": 301,
+        "fp": 424,
+        "by_class": {
+          "hat": {
+            "gt": 480,
+            "predictions": 468,
+            "tp": 427,
+            "fn": 53,
+            "fp": 41,
+            "precision": 0.9123931623931624,
+            "f1": 0.9008438818565401,
+            "recall": 0.8895833333333333
+          },
+          "person": {
+            "gt": 3165,
+            "predictions": 3300,
+            "tp": 2917,
+            "fn": 248,
+            "fp": 383,
+            "precision": 0.8839393939393939,
+            "f1": 0.9023975251353442,
+            "recall": 0.9216429699842023
+          }
+        },
+        "by_size": {
+          "tiny": {
+            "gt": 461,
+            "tp": 354,
+            "fn": 107,
+            "recall": 0.7678958785249458
+          },
+          "small": {
+            "gt": 1530,
+            "tp": 1407,
+            "fn": 123,
+            "recall": 0.9196078431372549
+          },
+          "medium": {
+            "gt": 1399,
+            "tp": 1336,
+            "fn": 63,
+            "recall": 0.9549678341672623
+          },
+          "large": {
+            "gt": 255,
+            "tp": 247,
+            "fn": 8,
+            "recall": 0.9686274509803922
+          }
+        },
+        "by_class_size": {
+          "tiny": {
+            "hat": {
+              "gt": 41,
+              "tp": 15,
+              "fn": 26,
+              "recall": 0.36585365853658536
+            },
+            "person": {
+              "gt": 420,
+              "tp": 339,
+              "fn": 81,
+              "recall": 0.8071428571428572
+            }
+          },
+          "small": {
+            "hat": {
+              "gt": 90,
+              "tp": 80,
+              "fn": 10,
+              "recall": 0.8888888888888888
+            },
+            "person": {
+              "gt": 1440,
+              "tp": 1327,
+              "fn": 113,
+              "recall": 0.9215277777777777
+            }
+          },
+          "medium": {
+            "hat": {
+              "gt": 202,
+              "tp": 188,
+              "fn": 14,
+              "recall": 0.9306930693069307
+            },
+            "person": {
+              "gt": 1197,
+              "tp": 1148,
+              "fn": 49,
+              "recall": 0.9590643274853801
+            }
+          },
+          "large": {
+            "hat": {
+              "gt": 147,
+              "tp": 144,
+              "fn": 3,
+              "recall": 0.9795918367346939
+            },
+            "person": {
+              "gt": 108,
+              "tp": 103,
+              "fn": 5,
+              "recall": 0.9537037037037037
+            }
+          }
+        },
+        "precision": 0.8874734607218684,
+        "f1": 0.9021988398758937,
+        "recall": 0.9174211248285322
+      },
+      "matched_gt_recovered": 0,
+      "matched_gt_lost": 60,
+      "net_tp_change": -60
+    },
+    "sahi_1280": {
+      "one_tile_images": 454,
+      "ordinary_boxes_with_same_NMM_reproduce_saved_SAHI_outputs": true,
+      "tolerance_pixels_and_score": 0.01,
+      "mismatch_images": [],
+      "ordinary": {
+        "gt": 5033,
+        "predictions": 5367,
+        "tp": 4686,
+        "fn": 347,
+        "fp": 681,
+        "by_class": {
+          "hat": {
+            "gt": 565,
+            "predictions": 574,
+            "tp": 518,
+            "fn": 47,
+            "fp": 56,
+            "precision": 0.9024390243902439,
+            "f1": 0.9095697980684812,
+            "recall": 0.9168141592920354
+          },
+          "person": {
+            "gt": 4468,
+            "predictions": 4793,
+            "tp": 4168,
+            "fn": 300,
+            "fp": 625,
+            "precision": 0.8696015021906948,
+            "f1": 0.9001187776697981,
+            "recall": 0.9328558639212176
+          }
+        },
+        "by_size": {
+          "tiny": {
+            "gt": 887,
+            "tp": 721,
+            "fn": 166,
+            "recall": 0.8128523111612176
+          },
+          "small": {
+            "gt": 1954,
+            "tp": 1831,
+            "fn": 123,
+            "recall": 0.9370522006141249
+          },
+          "medium": {
+            "gt": 1849,
+            "tp": 1798,
+            "fn": 51,
+            "recall": 0.9724175229853975
+          },
+          "large": {
+            "gt": 343,
+            "tp": 336,
+            "fn": 7,
+            "recall": 0.9795918367346939
+          }
+        },
+        "by_class_size": {
+          "tiny": {
+            "hat": {
+              "gt": 47,
+              "tp": 22,
+              "fn": 25,
+              "recall": 0.46808510638297873
+            },
+            "person": {
+              "gt": 840,
+              "tp": 699,
+              "fn": 141,
+              "recall": 0.8321428571428572
+            }
+          },
+          "small": {
+            "hat": {
+              "gt": 96,
+              "tp": 87,
+              "fn": 9,
+              "recall": 0.90625
+            },
+            "person": {
+              "gt": 1858,
+              "tp": 1744,
+              "fn": 114,
+              "recall": 0.9386437029063509
+            }
+          },
+          "medium": {
+            "hat": {
+              "gt": 238,
+              "tp": 228,
+              "fn": 10,
+              "recall": 0.957983193277311
+            },
+            "person": {
+              "gt": 1611,
+              "tp": 1570,
+              "fn": 41,
+              "recall": 0.9745499689633768
+            }
+          },
+          "large": {
+            "hat": {
+              "gt": 184,
+              "tp": 181,
+              "fn": 3,
+              "recall": 0.9836956521739131
+            },
+            "person": {
+              "gt": 159,
+              "tp": 155,
+              "fn": 4,
+              "recall": 0.9748427672955975
+            }
+          }
+        },
+        "precision": 0.8731134712129681,
+        "f1": 0.9011538461538462,
+        "recall": 0.9310550367574012
+      },
+      "sahi": {
+        "gt": 5033,
+        "predictions": 5129,
+        "tp": 4601,
+        "fn": 432,
+        "fp": 528,
+        "by_class": {
+          "hat": {
+            "gt": 565,
+            "predictions": 562,
+            "tp": 512,
+            "fn": 53,
+            "fp": 50,
+            "precision": 0.9110320284697508,
+            "f1": 0.9086069210292813,
+            "recall": 0.9061946902654867
+          },
+          "person": {
+            "gt": 4468,
+            "predictions": 4567,
+            "tp": 4089,
+            "fn": 379,
+            "fp": 478,
+            "precision": 0.8953361068535144,
+            "f1": 0.9051466519092418,
+            "recall": 0.9151745747538048
+          }
+        },
+        "by_size": {
+          "tiny": {
+            "gt": 887,
+            "tp": 704,
+            "fn": 183,
+            "recall": 0.7936865839909808
+          },
+          "small": {
+            "gt": 1954,
+            "tp": 1797,
+            "fn": 157,
+            "recall": 0.9196519959058342
+          },
+          "medium": {
+            "gt": 1849,
+            "tp": 1765,
+            "fn": 84,
+            "recall": 0.9545700378583017
+          },
+          "large": {
+            "gt": 343,
+            "tp": 335,
+            "fn": 8,
+            "recall": 0.9766763848396501
+          }
+        },
+        "by_class_size": {
+          "tiny": {
+            "hat": {
+              "gt": 47,
+              "tp": 21,
+              "fn": 26,
+              "recall": 0.44680851063829785
+            },
+            "person": {
+              "gt": 840,
+              "tp": 683,
+              "fn": 157,
+              "recall": 0.8130952380952381
+            }
+          },
+          "small": {
+            "hat": {
+              "gt": 96,
+              "tp": 86,
+              "fn": 10,
+              "recall": 0.8958333333333334
+            },
+            "person": {
+              "gt": 1858,
+              "tp": 1711,
+              "fn": 147,
+              "recall": 0.9208826695371367
+            }
+          },
+          "medium": {
+            "hat": {
+              "gt": 238,
+              "tp": 224,
+              "fn": 14,
+              "recall": 0.9411764705882353
+            },
+            "person": {
+              "gt": 1611,
+              "tp": 1541,
+              "fn": 70,
+              "recall": 0.9565487274984482
+            }
+          },
+          "large": {
+            "hat": {
+              "gt": 184,
+              "tp": 181,
+              "fn": 3,
+              "recall": 0.9836956521739131
+            },
+            "person": {
+              "gt": 159,
+              "tp": 154,
+              "fn": 5,
+              "recall": 0.9685534591194969
+            }
+          }
+        },
+        "precision": 0.8970559563267694,
+        "f1": 0.9055304074001181,
+        "recall": 0.9141665010927876
+      },
+      "matched_gt_recovered": 1,
+      "matched_gt_lost": 86,
+      "net_tp_change": -85
+    }
+  },
+  "interpretation": "If replay reproduces final boxes, single-tile differences from ordinary are explained by extra GREEDYNMM/IOS merging, without attributing them to image slicing."
+}

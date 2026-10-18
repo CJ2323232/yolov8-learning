@@ -49,7 +49,7 @@ def detect(image: Image.Image | None, conf: float, mode: str = NORMAL_MODE):
     if mode == SLICED_MODE:
         summary += f"\n切片数：{details['tiles']}（640×640，重叠 20%）。"
         if details['tiles'] == 1:
-            summary += "\n图片较小，本次没有分成多个切片。"
+            summary += "\n图片无需切片，已按普通检测处理。"
         else:
             summary += "\n结果合并了切片与整图预测，并按类别去重。"
     return annotated, summary

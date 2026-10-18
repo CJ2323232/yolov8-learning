@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "date": "2026-10-18",
+  "links_checked": 161,
+  "private_machine_paths_removed": true,
+  "raw_dataset_images_included": false,
+  "frozen_529_selection_and_hashes_preserved": true,
+  "public_csv_totals_match_full_summaries": true,
+  "production_source_matches_33_test_fix": true,
+  "portable_runner_smoke": {
+    "images": 3,
+    "configs": 5,
+    "all_15_predictions_and_counts_match_archived_results": true,
+    "runner_sha256": "337a8c6b01bac519a30c92dee591f2736cf2492707d765e49ca8aa9c3032ccbb",
+    "limited_scope": "Smoke validation of the publication entry point, not another full benchmark."
+  }
+}

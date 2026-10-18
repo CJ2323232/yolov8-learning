@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-17",
+  "scope": "historical-model original-validation subset parameter comparison; not independent test",
+  "source_validation_images": 758,
+  "selected_images": 529,
+  "exclusion_reasons": {
+    "perceptual_train_candidate_conservative_exclusion": 218,
+    "exact_train_overlap": 7,
+    "within_validation_perceptual_redundancy": 1,
+    "pixel_train_overlap": 1,
+    "known_conflicting_annotation": 2
+  },
+  "strata": {
+    "hat_only": 223,
+    "mixed": 45,
+    "person_only": 261
+  },
+  "gt_objects": {
+    "hat": 669,
+    "person": 5040
+  },
+  "source_groups": {
+    "other": 270,
+    "PartA": 11,
+    "PartB": 248
+  },
+  "screening_rule": "(p<=8 and (horizontal<=10 or vertical<=10)) or (horizontal<=4 and vertical<=8)",
+  "within_validation_group_rule": "connected perceptual components; keep lexicographically first",
+  "screening_limitations": [
+    "perceptual matches are conservative candidates, not all confirmed leaks",
+    "no embedding or ORB geometry screening was performed on this validation subset",
+    "remaining scene/near-duplicate independence is unproven",
+    "historical training did not preserve an immutable training-time data manifest",
+    "original validation selected historical checkpoint; appropriate for exploratory parameter choice, not independent testing"
+  ],
+  "configs": [
+    {
+      "name": "ordinary",
+      "slice_size": null
+    },
+    {
+      "name": "sahi_640",
+      "slice_size": 640
+    },
+    {
+      "name": "sahi_960",
+      "slice_size": 960
+    },
+    {
+      "name": "sahi_1280",
+      "slice_size": 1280
+    }
+  ],
+  "fixed": {
+    "confidence": 0.25,
+    "model_input_size": 640,
+    "block_nms_iou": 0.7,
+    "block_max_det": 300,
+    "overlap": 0.2,
+    "perform_standard_pred": true,
+    "merge_type": "GREEDYNMM",
+    "merge_metric": "IOS",
+    "merge_threshold": 0.5,
+    "class_agnostic": false,
+    "device": "cpu",
+    "threads": 4,
+    "matching_iou": 0.5,
+    "matching": "score-ordered class-aware one-to-one; match all GT before size bins",
+    "difficult": "include_as_ordinary",
+    "size_definition": "sqrt(GT area) after longest side scaled to640",
+    "size_bins": [
+      "<16",
+      "16-32",
+      "32-96",
+      ">=96"
+    ],
+    "AP_computed": false
+  },
+  "timing": "each image once per config after same warm-up; rotate config order cyclically by image index; elapsed includes app plotting, excludes shared input read and scoring",
+  "reporting": "report every configuration; micro F1 as reference ordering plus class/size recall, precision and time; do not automatically change app defaults",
+  "selected_manifest_sha256": "9ca71de7d816bcdb585b527d28abf3d7374f104990fad991393125e00201afca",
+  "screening_decisions_sha256": "4646e82dc4531d76a56f0040e9a478fff5261b5fd5c416914d210f6535b069c0",
+  "verified_reference_sha256": "5e5b1f4791205046e6b2f6774846b0f752af481e555d782d8ae3353d51d6b4cd",
+  "protected_file_hashes": {
+    "models/helmet_yolov8n.pt": "55be821e9eefdd0a69caf4abd3fdb2a22277059e21ec155222102b32cef2e650",
+    "helmet_inference.py": "f3f62ecdb876ca424f4bf6eb3889764ab0da706b72b6e98fc4661c9b9bbec769",
+    "app.py": "3d3e2d2c3a5ca404e50cbcc0a8516be598ed829fe7aa782fb2f479535533f285",
+    "analyze_detection_errors.py": "edfd97f11cd970597c6e71705df0300a1b64bcde43ad2b5c1f5303e4ce6261d7",
+    "reviewed_legacy_test/original_reference_manifest.csv": "367e0e8365981d9889a574e799fe59408f1538a8ba73d329f3cb3c7a65964828",
+    "helmet_dataset_clean/dataset_audit.json": "281fcfd4a25e7c9ddb757b651b4f0b03d4733bcaf80a728563e831cdb2f9bb70"
+  },
+  "preparation_script_sha256": "b647f8b5304326c0f8b0fc21b1786392ccbe7648abd7faa6aa764d28e9348912",
+  "training_performed": false
+}
