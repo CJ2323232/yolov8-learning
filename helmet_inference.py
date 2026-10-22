@@ -41,11 +41,16 @@ class HelmetPredictor:
         self._sahi_model = None
         self._lock = Lock()
 
-    def predict(self, image, conf, mode=NORMAL_MODE):
+    def predict(self, image, conf, mode=NORMAL_MODE, ordinary_imgsz=640):
         if mode not in (NORMAL_MODE, SLICED_MODE):
             raise ValueError("请选择普通检测或 SAHI 切片检测。")
         if not math.isfinite(conf) or not 0 <= conf <= 1:
             raise ValueError("置信度必须在 0 到 1 之间。")
+        if ordinary_imgsz not in (640, 960):
+            raise ValueError("普通检测分辨率请选择 640 或 960。")
+        # Keep the published SAHI protocol unchanged, including its single-tile
+        # fallback. The new size control applies only to ordinary inference.
+        input_size = int(ordinary_imgsz) if mode == NORMAL_MODE else 640
         # Both inference paths receive the same oriented RGB pixels.
         image = ImageOps.exif_transpose(image).convert("RGB")
         tiles = count_slices(*image.size) if mode == SLICED_MODE else 1
@@ -59,7 +64,7 @@ class HelmetPredictor:
             # SAHI's extra IOS merge cannot combine distinct nearby heads.
             if mode == NORMAL_MODE or tiles == 1:
                 result = self.model.predict(
-                    source=image, conf=conf, imgsz=640,
+                    source=image, conf=conf, imgsz=input_size,
                     device=self.device, iou=0.7, max_det=300, verbose=False,
                 )[0]
             else:
@@ -95,6 +100,6 @@ class HelmetPredictor:
                 name = self.model.names[int(cls)]
                 counts[name] = counts.get(name, 0) + 1
             return annotated, counts, {
-                "mode": mode, "tiles": tiles,
+                "mode": mode, "tiles": tiles, "imgsz": input_size,
                 "seconds": perf_counter() - start,
             }

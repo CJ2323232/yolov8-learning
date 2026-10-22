@@ -17,3 +17,8 @@
 模型基于 [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)，使用遵循其 [AGPL-3.0 / Enterprise 条款](https://www.ultralytics.com/license)。数据来源为 [SHWD](https://github.com/njvisionpower/Safety-Helmet-Wearing-Dataset)。不附带原始训练图片，不承诺新场景的准确性。
 
 新训练模型由 `runs/latest_helmet_training.json` 登记，测试和网页优先读取该记录，不会静默把历史权重当成新训练产物。
+
+
+## 模型结构配置
+
+configs/保存standard/P2的两类nano网络蓝图和来源记录，不是训练好的权重。它们通过helmet_models.py从同一官方yolov8n.pt迁移共有层0..15，新增/分歧部分保持初始化。详见 [P2说明](../docs/P2.md)。作者已反馈两版训练完成，最终检查点尚未提交本仓库核验；这里的公开演示权重未替换为 P2。

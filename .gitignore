@@ -19,3 +19,16 @@ helmet_external_test/external_test/
 
 # Local error-review images and annotations
 error_analysis/
+
+# Historical local experiments and validation artifacts
+project_work/
+
+# Local Finder navigation, source-image shortcuts, and cleanup records
+/_项目导航.html
+/00_打开项目导航.command
+/01_启动安全帽检测.command
+/02_实验结果/
+/03_图片与数据/
+/04_代码和项目说明/
+/99_技术文件和历史资料/
+/_文件整理记录_2026-10-17/

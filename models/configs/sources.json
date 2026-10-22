@@ -1,0 +1,22 @@
+{
+  "ultralytics": "8.4.164",
+  "variants": {
+    "standard": {
+      "installed_source": ".venv/lib/python3.14/site-packages/ultralytics/cfg/models/v8/yolov8.yaml",
+      "source_sha256": "405a3c302eb6096103a99af4d82c1d2d8b2bbff469a228c55aac944b2c19672a",
+      "config": "models/configs/helmet_yolov8n.yaml",
+      "config_sha256": "65b2a80a9753d3193773bd1ec8199a17c2c656bae0d2a2af48b13fc072677690",
+      "upstream": "https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/v8/yolov8.yaml"
+    },
+    "p2": {
+      "installed_source": ".venv/lib/python3.14/site-packages/ultralytics/cfg/models/v8/yolov8-p2.yaml",
+      "source_sha256": "ba54363e9f283e8f60b0fa0843eb37115093338d6f9273ccd4f74f60639754f4",
+      "config": "models/configs/helmet_yolov8n_p2.yaml",
+      "config_sha256": "0a23f0a4ec217ed375b33fac9ed0a2d842ec1943f387427b26800520f13dd4e1",
+      "upstream": "https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/v8/yolov8-p2.yaml"
+    }
+  },
+  "pretrained_sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+  "shared_prefix_layers": 16,
+  "policy": "Only common layers 0..15 transferred for BOTH variants. Rest freshly/default initialized; no COCO person-to-bare-head class remap."
+}

@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "source_images_and_labels_verified_by_manifest": true,
+  "original_manifest_audit_yaml_model_and_user_decisions_unchanged": true,
+  "source_and_derived_image_label_bytes_equal": true,
+  "independent_copy_not_hardlink": true,
+  "confirmed_same_pairs": 10,
+  "confirmed_same_cross_split_pairs": 0,
+  "retrieved_candidate_pairs": 20466,
+  "retrieved_candidate_cross_split_pairs": 0,
+  "PartA_images_in_train": 1999,
+  "PartA_images_in_val_test": 0,
+  "all_7507_images_retained": true,
+  "unit_tests_passed": 40,
+  "real_inference_smoke_passed": true,
+  "two_preflights_passed_without_training": true,
+  "training_performed": false,
+  "accuracy_improvement_measured": false,
+  "scene_independence_proven": false,
+  "training_image_label_pixel_diagnostic": {
+    "hat": {
+      "objects": 7248,
+      "short_side_below_8px_at_640": 156,
+      "short_side_below_16px_at_640": 829,
+      "short_side_below_8px_at_960": 33,
+      "short_side_below_16px_at_960": 362
+    },
+    "person": {
+      "objects": 102502,
+      "short_side_below_8px_at_640": 8903,
+      "short_side_below_16px_at_640": 64988,
+      "short_side_below_8px_at_960": 169,
+      "short_side_below_16px_at_960": 34206
+    }
+  },
+  "dataset": {
+    "status": "exact_duplicates_removed_conflicts_quarantined",
+    "manifest_sha256": "5781ecdffa173010f539189b15565220f5e2ac597b5f8ea72f5cf7b1e8bf63e4",
+    "images": 7507,
+    "difficult_policy": "include_as_ordinary",
+    "scene_independence": "retrieved_risks_isolated_not_exhaustive",
+    "isolation_constraints_sha256": "afcacf6d160443637813879f37f4b6d507a05c75c9941c2271ebe8c500766efb",
+    "review_decisions_sha256": "86a47e191957f5abc0be1099629ba680f68d1703a718008c149a72fad4e83887"
+  },
+  "protected_source_hashes": {
+    "helmet_dataset_clean/split_manifest.csv": "924c37eb13ef8dc5cc3318fd81b1867f8b48b9372bb7c740c98535e23d42397f",
+    "helmet_dataset_clean/dataset_audit.json": "281fcfd4a25e7c9ddb757b651b4f0b03d4733bcaf80a728563e831cdb2f9bb70",
+    "helmet_dataset_clean/data.yaml": "c1cc3b7470a8a0b3fe69a8ab1c695a74876a438addff5f38238152c00de7abc8",
+    "models/helmet_yolov8n.pt": "55be821e9eefdd0a69caf4abd3fdb2a22277059e21ec155222102b32cef2e650",
+    "error_analysis/scene_review_2026-10-19/review_decisions.json": "86a47e191957f5abc0be1099629ba680f68d1703a718008c149a72fad4e83887"
+  },
+  "modified_code_sha256": {
+    "split_dataset.py": "c8ea483653c2d0d442dcf07cb016eac99dce00a37d3c4e8d1c9a9c01dc729d96",
+    "workflow.py": "41f2d970f153a2d0bc43d09a2d7279159601a280456e5262e003309eea97c95b",
+    "run.py": "3d19130bb9a7a1f2a320046592b28e409c5ff44e6bf59eba502415a4d5ff8d53",
+    "train_helmet.py": "189dee7eb1c99ab396fdbadd03f3161deca41e86280449252caedab6d0c0a107",
+    "helmet_inference.py": "c78dfd47ea04500f57b652977797f1ba2fde51054dd633b7353edd64b5d0a8ea",
+    "app.py": "83472325b2758353ab773e8fbc522aad23746261d4b39e3957b06886e758b827"
+  }
+}

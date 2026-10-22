@@ -77,6 +77,8 @@ def verify_dataset(data, *, allow_legacy=False):
     if not root.is_absolute():
         root = config.parent / root
     root = root.resolve()
+    if (root/'BUILD_INCOMPLETE.json').exists():
+        raise ValueError('数据版本尚未构建完成，不能用于训练或评价')
     manifest, report = root / 'split_manifest.csv', root / 'dataset_audit.json'
     if not manifest.is_file() or not report.is_file():
         if allow_legacy:
@@ -90,7 +92,7 @@ def verify_dataset(data, *, allow_legacy=False):
         raise ValueError('未知 difficult 评价协议')
     with manifest.open(encoding='utf-8', newline='') as f:
         rows = list(csv.DictReader(f))
-    expected, seen_hashes, seen_groups = set(), {}, {}
+    expected, seen_hashes, seen_groups, by_name = set(), {}, {}, {}
     for row in rows:
         split = row['split']
         if split not in ('train', 'val', 'test'):
@@ -103,6 +105,9 @@ def verify_dataset(data, *, allow_legacy=False):
         if image in expected:
             raise ValueError('duplicate manifest entry')
         expected.add(image)
+        if image.name in by_name:
+            raise ValueError('数据版本内图片文件名重复')
+        by_name[image.name] = row
         if sha256(image) != row['image_sha256'] or sha256(label) != row['label_sha256']:
             raise ValueError(f'数据内容已变化，不能沿用旧清单：{image.name}')
         read_labels(label)
@@ -116,10 +121,25 @@ def verify_dataset(data, *, allow_legacy=False):
         actual.update(p for p in (root/'images'/split).rglob('*') if p.suffix.lower() in IMAGE_EXTENSIONS)
     if actual != expected or any(not any(r['split'] == s for r in rows) for s in ('train', 'val', 'test')):
         raise ValueError('数据目录与清单不一致，或划分为空')
+    isolation = audit.get('grouping') == 'conservative_candidate_isolation'
+    if isolation:
+        for filename, key in [('review_decisions.json', 'review_decisions_sha256'),
+                              ('isolation_constraints.json', 'isolation_constraints_sha256')]:
+            if sha256(root/filename) != audit.get(key):
+                raise ValueError('隔离证据已变化，不能沿用原数据审计')
+        for edge in json.loads((root/'isolation_constraints.json').read_text()):
+            a, b = by_name[edge['a']], by_name[edge['b']]
+            if a['split'] != b['split'] or a['group_id'] != b['group_id']:
+                raise ValueError('仍存在跨分区的候选关联，拒绝训练')
+        if any(r['split'] != 'train' for name, r in by_name.items() if name.startswith('PartA_')):
+            raise ValueError('PartA 来源隔离策略被破坏')
     return {'status': 'exact_duplicates_removed_conflicts_quarantined',
             'manifest_sha256': fingerprint, 'images': len(rows),
             'difficult_policy': audit['difficult_policy'],
-            'scene_independence': 'user_grouped_not_manually_verified' if audit['grouping'] == 'user_scene_groups' else 'not_verified'}
+            'scene_independence': ('retrieved_risks_isolated_not_exhaustive' if isolation else
+                'user_grouped_not_manually_verified' if audit['grouping'] == 'user_scene_groups' else 'not_verified'),
+            **({'isolation_constraints_sha256': audit['isolation_constraints_sha256'],
+                'review_decisions_sha256': audit['review_decisions_sha256']} if isolation else {})}
 
 
 def latest_training(record_path=TRAINING_RECORD):

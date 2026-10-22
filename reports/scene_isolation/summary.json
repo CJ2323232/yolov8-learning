@@ -1,0 +1,42 @@
+{
+  "splits": {
+    "train": {
+      "images": 6488,
+      "objects": {
+        "0": 7248,
+        "1": 102502
+      }
+    },
+    "val": {
+      "images": 511,
+      "objects": {
+        "0": 762,
+        "1": 4623
+      }
+    },
+    "test": {
+      "images": 508,
+      "objects": {
+        "0": 946,
+        "1": 3929
+      }
+    }
+  },
+  "moved_images": 491,
+  "reviewed_pair_counts": {
+    "same": 10,
+    "different": 9,
+    "unsure": 1
+  },
+  "manifest_sha256": "5781ecdffa173010f539189b15565220f5e2ac597b5f8ea72f5cf7b1e8bf63e4",
+  "isolation_policy": {
+    "candidate_edges": 20466,
+    "PartA_policy": "entire source family in train; NOT a claim that all images are one scene",
+    "bucket_assignment": "largest original split; ties train then val then test; PartA forced train",
+    "human_different_policy": "retain decisions, never merge confirmed scene IDs; risk buckets may co-locate different scenes",
+    "candidate_cross_split_edges": 0,
+    "confirmed_same_cross_split_edges": 0,
+    "scene_independence_proven": false
+  },
+  "limitations": "Only retrieved risks and the PartA source family are isolated; undiscovered relations may remain. Val/test exclude classroom PartA and do not establish generalization to unseen classrooms. Historical weights have seen members of this dataset and are not a clean baseline. Quarantined source variants remain in the original clean dataset; none are reintroduced."
+}

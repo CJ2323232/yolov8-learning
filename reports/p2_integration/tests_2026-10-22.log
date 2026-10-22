@@ -1,0 +1,132 @@
+test_changed_label_rejected_before_inference (tests.test_error_analysis.ErrorAnalysisTests.test_changed_label_rejected_before_inference) ... ok
+test_duplicate_detection_is_not_two_true_positives (tests.test_error_analysis.ErrorAnalysisTests.test_duplicate_detection_is_not_two_true_positives) ... ok
+test_empty_predictions_and_empty_gt (tests.test_error_analysis.ErrorAnalysisTests.test_empty_predictions_and_empty_gt) ... ok
+test_localization_below_threshold_is_not_a_hit (tests.test_error_analysis.ErrorAnalysisTests.test_localization_below_threshold_is_not_a_hit) ... ok
+test_match_all_sizes_before_counting_small_misses (tests.test_error_analysis.ErrorAnalysisTests.test_match_all_sizes_before_counting_small_misses) ... ok
+test_perfect_overlap_wrong_class_is_false_positive_and_miss (tests.test_error_analysis.ErrorAnalysisTests.test_perfect_overlap_wrong_class_is_false_positive_and_miss) ... ok
+test_size_bins_use_fixed_reference_scale_and_exact_boundaries (tests.test_error_analysis.ErrorAnalysisTests.test_size_bins_use_fixed_reference_scale_and_exact_boundaries) ... ok
+test_uses_best_available_gt_in_crowded_scene (tests.test_error_analysis.ErrorAnalysisTests.test_uses_best_available_gt_in_crowded_scene) ... ok
+test_merged_boxes_keep_original_coordinates_classes_and_rgb (tests.test_helmet_inference.InferenceTests.test_merged_boxes_keep_original_coordinates_classes_and_rgb) ... ok
+test_no_detections_still_returns_a_valid_original_size_result (tests.test_helmet_inference.InferenceTests.test_no_detections_still_returns_a_valid_original_size_result) ... ok
+test_normal_path_never_loads_sahi (tests.test_helmet_inference.InferenceTests.test_normal_path_never_loads_sahi) ... ok
+test_partial_same_class_boxes_merge_but_other_class_remains (tests.test_helmet_inference.InferenceTests.test_partial_same_class_boxes_merge_but_other_class_remains) ... ok
+test_resolution_applies_to_normal_only_and_preserves_sahi_protocol (tests.test_helmet_inference.InferenceTests.test_resolution_applies_to_normal_only_and_preserves_sahi_protocol) ... ok
+test_single_tile_bypasses_existing_sahi_adapter (tests.test_helmet_inference.InferenceTests.test_single_tile_bypasses_existing_sahi_adapter) ... ok
+test_single_tile_sliced_mode_preserves_normal_output_without_sahi (tests.test_helmet_inference.InferenceTests.test_single_tile_sliced_mode_preserves_normal_output_without_sahi) ... ok
+test_slice_count_agrees_with_sahi_at_boundaries (tests.test_helmet_inference.InferenceTests.test_slice_count_agrees_with_sahi_at_boundaries) ... ok
+test_sliced_requests_reuse_weights_and_apply_current_confidence (tests.test_helmet_inference.InferenceTests.test_sliced_requests_reuse_weights_and_apply_current_confidence) ... ok
+Transferred 355/355 items from pretrained weights
+Transferred 437/437 items from pretrained weights
+test_both_variants_have_identical_common_pretrained_parameters (tests.test_helmet_models.InitializedModelTests.test_both_variants_have_identical_common_pretrained_parameters) ... ok
+test_initialization_preserves_callers_cpu_rng (tests.test_helmet_models.InitializedModelTests.test_initialization_preserves_callers_cpu_rng) ... Transferred 437/437 items from pretrained weights
+ok
+test_object_load_prevents_yaml_training_from_losing_initialization (tests.test_helmet_models.InitializedModelTests.test_object_load_prevents_yaml_training_from_losing_initialization) ... Transferred 355/355 items from pretrained weights
+Transferred 437/437 items from pretrained weights
+ok
+test_p2_exposes_four_scales_and_finite_synthetic_prediction (tests.test_helmet_models.InitializedModelTests.test_p2_exposes_four_scales_and_finite_synthetic_prediction) ... ok
+test_model_variant_and_checkpoint_are_forwarded_to_training (tests.test_helmet_models.ModelInputTests.test_model_variant_and_checkpoint_are_forwarded_to_training) ... ok
+test_project_yaml_cannot_silently_train_from_random_initialization (tests.test_helmet_models.ModelInputTests.test_project_yaml_cannot_silently_train_from_random_initialization) ... ok
+test_resume_cannot_apply_new_initialization (tests.test_helmet_models.ModelInputTests.test_resume_cannot_apply_new_initialization) ... ok
+test_wrong_checkpoint_is_rejected_before_model_construction (tests.test_helmet_models.ModelInputTests.test_wrong_checkpoint_is_rejected_before_model_construction) ... ok
+test_featureless_images_cannot_claim_scene_match (tests.test_legacy_review.LegacyScreeningTests.test_featureless_images_cannot_claim_scene_match) ... ok
+test_geometric_relation_detects_same_scene_shift (tests.test_legacy_review.LegacyScreeningTests.test_geometric_relation_detects_same_scene_shift) ... ok
+test_identical_decoded_pixels_detect_different_file_encodings (tests.test_legacy_review.LegacyScreeningTests.test_identical_decoded_pixels_detect_different_file_encodings) ... ok
+test_unrelated_textures_do_not_pass_geometry (tests.test_legacy_review.LegacyScreeningTests.test_unrelated_textures_do_not_pass_geometry) ... ok
+test_contradictory_human_decisions_fail_instead_of_silent_override (tests.test_scene_isolation.SceneIsolationTests.test_contradictory_human_decisions_fail_instead_of_silent_override) ... ok
+test_dry_run_never_imports_model_or_changes_training_record (tests.test_scene_isolation.SceneIsolationTests.test_dry_run_never_imports_model_or_changes_training_record) ... ok
+test_part_a_is_a_source_hold_in_not_a_confirmed_scene (tests.test_scene_isolation.SceneIsolationTests.test_part_a_is_a_source_hold_in_not_a_confirmed_scene) ... ok
+test_risk_buckets_do_not_rewrite_human_different_or_expand_confirmed_scenes (tests.test_scene_isolation.SceneIsolationTests.test_risk_buckets_do_not_rewrite_human_different_or_expand_confirmed_scenes) ... ok
+test_training_profiles_change_only_resolution_and_output_name (tests.test_scene_isolation.SceneIsolationTests.test_training_profiles_change_only_resolution_and_output_name) ... ok
+test_versioned_copy_is_independent_and_tampered_evidence_is_rejected (tests.test_scene_isolation.SceneIsolationTests.test_versioned_copy_is_independent_and_tampered_evidence_is_rejected) ... ok
+test_artifact_binds_incremented_run_and_detects_model_tampering (tests.test_workflow.WorkflowTests.test_artifact_binds_incremented_run_and_detects_model_tampering) ... ok
+test_changed_label_or_extra_image_cannot_reuse_audit (tests.test_workflow.WorkflowTests.test_changed_label_or_extra_image_cannot_reuse_audit) ... ok
+test_conflicts_quarantined_identical_deduplicated_and_replay_stable (tests.test_workflow.WorkflowTests.test_conflicts_quarantined_identical_deduplicated_and_replay_stable) ... ok
+test_difficult_metadata_preserved_and_unknown_class_fails (tests.test_workflow.WorkflowTests.test_difficult_metadata_preserved_and_unknown_class_fails) ... ok
+test_invalid_edges_nonfinite_and_duplicate_rows_rejected (tests.test_workflow.WorkflowTests.test_invalid_edges_nonfinite_and_duplicate_rows_rejected) ... ok
+test_jpeg_eoi_repaired_in_copy_before_fingerprinting (tests.test_workflow.WorkflowTests.test_jpeg_eoi_repaired_in_copy_before_fingerprinting) ... ok
+test_legacy_model_cannot_establish_new_split_baseline (tests.test_workflow.WorkflowTests.test_legacy_model_cannot_establish_new_split_baseline) ... usage: python -m unittest [-h] [--model MODEL] [--pretrained PRETRAINED]
+                          [--source SOURCE] [--data DATA] [--device DEVICE]
+                          [--epochs EPOCHS] [--imgsz IMGSZ] [--batch BATCH]
+                          [--seed SEED] [--name NAME] [--project PROJECT]
+                          [--conf CONF] [--split {val,test}]
+                          [--optimizer {AdamW,SGD}] [--lr0 LR0] [--lrf LRF]
+                          [--weight-decay WEIGHT_DECAY] [--momentum MOMENTUM]
+                          [--warmup-epochs WARMUP_EPOCHS]
+                          [--warmup-bias-lr WARMUP_BIAS_LR] [--mosaic MOSAIC]
+                          [--close-mosaic CLOSE_MOSAIC] [--scale SCALE]
+                          [--translate TRANSLATE] [--mixup MIXUP] [--nbs NBS]
+                          [--dry-run] [--resume] [--allow-legacy-data]
+                          [--training-record TRAINING_RECORD]
+                          {check,predict,train,val}
+python -m unittest: error: 历史公开模型见过旧划分数据，不能用于新划分基准；请从官方预训练权重新训练。
+ok
+test_no_training_reference_never_silently_evaluates_legacy_model (tests.test_workflow.WorkflowTests.test_no_training_reference_never_silently_evaluates_legacy_model) ... ok
+test_prediction_batch_is_effective_and_fingerprinted (tests.test_workflow.WorkflowTests.test_prediction_batch_is_effective_and_fingerprinted) ... ok
+test_scene_group_is_never_split (tests.test_workflow.WorkflowTests.test_scene_group_is_never_split) ... ok
+test_swapped_class_mapping_rejected (tests.test_workflow.WorkflowTests.test_swapped_class_mapping_rejected) ... ok
+test_train_module_import_does_not_start_training (tests.test_workflow.WorkflowTests.test_train_module_import_does_not_start_training) ... ok
+test_unverified_legacy_data_rejected_by_default (tests.test_workflow.WorkflowTests.test_unverified_legacy_data_rejected_by_default) ... ok
+
+----------------------------------------------------------------------
+Ran 48 tests in 0.946s
+
+OK
+{
+  "status": "preflight_only_no_training_or_prediction",
+  "arguments": {
+    "mode": "train",
+    "model": "yolov8n.pt",
+    "pretrained": null,
+    "source": "https://ultralytics.com/images/bus.jpg",
+    "data": "fixture.yaml",
+    "device": "auto",
+    "epochs": 3,
+    "imgsz": 640,
+    "batch": 2,
+    "seed": 0,
+    "name": null,
+    "project": "runs",
+    "conf": null,
+    "split": "val",
+    "optimizer": "AdamW",
+    "lr0": 0.001667,
+    "lrf": 0.01,
+    "weight_decay": 0.0005,
+    "momentum": 0.9,
+    "warmup_epochs": 3,
+    "warmup_bias_lr": 0.0,
+    "mosaic": 1.0,
+    "close_mosaic": 10,
+    "scale": 0.5,
+    "translate": 0.1,
+    "mixup": 0.0,
+    "nbs": 64,
+    "dry_run": true,
+    "resume": false,
+    "allow_legacy_data": false,
+    "training_record": "<PROJECT_ROOT>/runs/latest_helmet_training.json"
+  },
+  "dataset": {
+    "status": "other_dataset"
+  },
+  "model_sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+  "initialization": null,
+  "planned_evaluation": {
+    "split": "val",
+    "AP_conf": 0.001,
+    "nms_iou": 0.7,
+    "max_det": 300
+  },
+  "limitations": "No device memory or training speed measured. Dataset risk retrieval is not exhaustive."
+}
+{
+  "python": "3.14.7",
+  "system": "Darwin",
+  "machine": "arm64",
+  "torch": "test",
+  "ultralytics": "test",
+  "selected_device": "cpu",
+  "cuda_available": false,
+  "mps_available": false
+}
+完成，结果目录：<TEMP_PATH>

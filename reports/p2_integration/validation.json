@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "tests_passed": 48,
+  "preflight_variants": [
+    "standard640",
+    "p2640",
+    "p2960"
+  ],
+  "baseline_and_p2_train_options_equal_except_architecture_and_name": true,
+  "shared_pretrained_parameters_identical": true,
+  "real_two_training_images_forward_loss_backward_passed": true,
+  "optimizer_steps": 0,
+  "checkpoints_saved": 0,
+  "formal_training_performed": false,
+  "accuracy_improvement_measured": false,
+  "protected_inputs_unchanged": true,
+  "modified_code_sha256": {
+    "helmet_models.py": "e1cb3602975e200b629718530fecd827e5f7a60185d48d3c1c61017f80c88bbc",
+    "train_helmet.py": "b475f497d9d21d8ca54eb8491c9e65ad515310b452054301211a8d958798fb3e",
+    "run.py": "fd94b70a91195cf7d9f75a8743cb97b0440eed482697a4ef76068ccb57a33377"
+  },
+  "hardware_limitations": "CPU functional validation only; accelerator memory/speed and full-epoch runtime not measured."
+}

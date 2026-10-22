@@ -10,7 +10,7 @@ A computer vision practice project using **Ultralytics YOLOv8n and SHWD**, cover
 
 *Upload an image, adjust confidence, inspect counts and download the result. The screenshot shows the standard-inference interface; its training-set membership is unverified, so it is not independent test evidence.*
 
-> **Status:** Existing weights run without retraining. Duplicate leakage was found in the historical split; auditing, workflow fixes and a screened-test reassessment are complete. Evaluation limits are stated below. Full training on the new split has not been completed.
+> **Status:** Existing weights run without retraining. Duplicate leakage was found in the historical split; auditing, workflow fixes and a screened-test reassessment are complete. Evaluation limits are stated below. The author reports completion of standard/P2 training; final artifacts await archival and verification. No P2 accuracy gain is claimed. [Latest protocol and evidence](reports/p2_progress.md).
 
 ## Implemented work
 
@@ -23,6 +23,8 @@ A computer vision practice project using **Ultralytics YOLOv8n and SHWD**, cover
 | Evaluation | 416/640/960 input-size experiment; unchanged-model reassessment with per-class metrics | [Size experiment](reports/size_comparison.md) · [Reassessment](reports/legacy_test_reassessment.md) |
 | Application and analysis | Gradio UI and qualitative analysis of false positives and challenging scenes | [App](app.py) · [Cases](reports/failure_cases.md) |
 | Sliced inference evaluation | SAHI integration, 640/960/1280 comparison, single-tile fix and 529-image recheck with negative results retained | [Evaluation](reports/sahi_evaluation.md) · [Code](helmet_inference.py) |
+
+Additional work: conservative scene-risk isolation (6,488/511/508 images), official standard/P2 variants with matched shared-layer initialization, ordinary inference at 640/960, and checkpoint-preserving Mac-to-Windows migration. [Data evidence](reports/scene_isolation/README.md) · [P2](docs/P2.md) · [Migration](docs/WINDOWS_MIGRATION.md).
 
 The work focuses on data handling, experiments and integration. The detector architecture and training framework are provided by Ultralytics; no new detector architecture is proposed.
 
@@ -108,9 +110,9 @@ Source: [SHWD](https://github.com/njvisionpower/Safety-Helmet-Wearing-Dataset). 
 
 Flow: **VOC images/XML → conversion and validation → deduplication, quarantine and split → training and artifact registration → evaluation/inference → Gradio**.
 
-Auditing quarantined **74 conflicting image variants across 37 groups** and generated a **6,005 / 750 / 752** train/validation/test split. Cross-split exact-image duplication was removed; near-duplicate and scene grouping review remains necessary. The historical checkpoint cannot serve as an independent baseline on this reshuffled split.
+Auditing quarantined **74 conflicting image variants across 37 groups** and generated a **6,005 / 750 / 752** train/validation/test split. A subsequent conservative risk-group assignment retained all 7,507 accepted images and moved 491, yielding **6,488 / 511 / 508**. Retrieved candidate edges no longer cross splits. All 1,999 PartA classroom images are in training; this is not exhaustive scene-independence proof or an unseen-classroom benchmark. The historical checkpoint cannot serve as an independent baseline on this reshuffled split.
 
-Historical experiments, corrected code and small-scale workflow checks are recorded separately. **Full new-split training has not been completed.** Review scene grouping before starting a new baseline, then follow the [training workflow](docs/WORKFLOW.md). Historical 1/5/50-epoch records are not three independent from-scratch controlled experiments.
+Historical experiments, corrected code and small-scale workflow checks are recorded separately. **Final standard/P2 artifacts are pending verification after author-reported completion.** Follow the [training workflow](docs/WORKFLOW.md) and [comparison protocol](reports/p2_progress.md). Historical 1/5/50-epoch records are not three independent from-scratch controlled experiments.
 
 | Entry points | Purpose |
 | --- | --- |
@@ -127,7 +129,7 @@ Historical experiments, corrected code and small-scale workflow checks are recor
 
 - Analyze false positives and misses using existing annotations, including size and occlusion effects.
 - Repeat model and end-to-end timing; choose operating confidence on validation data.
-- Complete scene grouping and external annotations before new baseline/model-size experiments.
+- Archive final standard/P2 artifacts, audit comparability, select operating settings on validation data, then evaluate a frozen protocol on test data.
 
 Video detection, batch uploads and public hosting are not implemented. Suitability for real safety-management decisions has not been established.
 

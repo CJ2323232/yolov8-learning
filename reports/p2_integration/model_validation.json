@@ -1,0 +1,161 @@
+{
+  "status": "passed",
+  "variants": {
+    "standard": {
+      "status": "passed",
+      "input_shape": [
+        2,
+        3,
+        640,
+        640
+      ],
+      "detection_feature_shapes": [
+        [
+          2,
+          64,
+          80,
+          80
+        ],
+        [
+          2,
+          128,
+          40,
+          40
+        ],
+        [
+          2,
+          256,
+          20,
+          20
+        ]
+      ],
+      "strides": [
+        8,
+        16,
+        32
+      ],
+      "classes": 2,
+      "parameters": 3011238,
+      "common_pretrained_tensors": 210,
+      "shared_parameters_sha256": "c79aa296d7bfb36995d01c2630d0072993bddb7d40f6f48eb5df325404be7ddb",
+      "trainer_handoff_all_state_equal": true,
+      "loss_components": {
+        "box_loss": 4.60576057434082,
+        "cls_loss": 4.293682098388672,
+        "dfl_loss": 4.301031112670898
+      },
+      "gradient_tensors_checked": 183,
+      "gradients_finite": true,
+      "finest_scale_classification_gradient_nonzero": true,
+      "all_parameter_values_unchanged": true,
+      "optimizer_steps": 0,
+      "checkpoints_saved": 0,
+      "loss_and_backward_seconds": 0.20758366701193154
+    },
+    "p2": {
+      "status": "passed",
+      "input_shape": [
+        2,
+        3,
+        640,
+        640
+      ],
+      "detection_feature_shapes": [
+        [
+          2,
+          32,
+          160,
+          160
+        ],
+        [
+          2,
+          64,
+          80,
+          80
+        ],
+        [
+          2,
+          128,
+          40,
+          40
+        ],
+        [
+          2,
+          256,
+          20,
+          20
+        ]
+      ],
+      "strides": [
+        4,
+        8,
+        16,
+        32
+      ],
+      "classes": 2,
+      "parameters": 2926824,
+      "common_pretrained_tensors": 210,
+      "shared_parameters_sha256": "c79aa296d7bfb36995d01c2630d0072993bddb7d40f6f48eb5df325404be7ddb",
+      "trainer_handoff_all_state_equal": true,
+      "loss_components": {
+        "box_loss": 2.29252028465271,
+        "cls_loss": 4.5913238525390625,
+        "dfl_loss": 4.501626968383789
+      },
+      "gradient_tensors_checked": 226,
+      "gradients_finite": true,
+      "finest_scale_classification_gradient_nonzero": true,
+      "all_parameter_values_unchanged": true,
+      "optimizer_steps": 0,
+      "checkpoints_saved": 0,
+      "loss_and_backward_seconds": 0.30326904100365937
+    }
+  },
+  "dataset": {
+    "status": "exact_duplicates_removed_conflicts_quarantined",
+    "manifest_sha256": "5781ecdffa173010f539189b15565220f5e2ac597b5f8ea72f5cf7b1e8bf63e4",
+    "images": 7507,
+    "difficult_policy": "include_as_ordinary",
+    "scene_independence": "retrieved_risks_isolated_not_exhaustive",
+    "isolation_constraints_sha256": "afcacf6d160443637813879f37f4b6d507a05c75c9941c2271ebe8c500766efb",
+    "review_decisions_sha256": "86a47e191957f5abc0be1099629ba680f68d1703a718008c149a72fad4e83887"
+  },
+  "samples": [
+    {
+      "split": "train",
+      "image": "images/train/000000.jpg",
+      "label": "labels/train/000000.txt",
+      "image_sha256": "0ee3bddce1e6b9d50ec7756a16101bc43d596bf9bc46f40d9b43707443ae8abf",
+      "label_sha256": "1eaf78deb5c425c68c0171cc3c9d6614d49f5aa4a9895b109cc832a726466702",
+      "source_image_sha256": "0ee3bddce1e6b9d50ec7756a16101bc43d596bf9bc46f40d9b43707443ae8abf",
+      "group_id": "ISOLATION_00000",
+      "confirmed_scene_id": "CONFIRMED_00000"
+    },
+    {
+      "split": "train",
+      "image": "images/train/000002.jpg",
+      "label": "labels/train/000002.txt",
+      "image_sha256": "171cbeaae261ec978f46524539751f9c5557a2f831a48299f2556e2cc68806ac",
+      "label_sha256": "6f97aadec49ef9b6f396b9e27b1aaf356a90088d8a008802dec1334b9c027d03",
+      "source_image_sha256": "8405be4671c1f23e3a7e8d1f1d971d4d7241fd9f7117f3bda09e1b12a3b2b30b",
+      "group_id": "ISOLATION_00001",
+      "confirmed_scene_id": "CONFIRMED_00001"
+    }
+  ],
+  "sample_preprocessing": "deterministic letterbox to 640; no stochastic augmentation; loss plumbing only",
+  "environment": {
+    "python": "3.14.7",
+    "torch": "2.14.0",
+    "ultralytics": "8.4.164",
+    "device": "cpu",
+    "threads": 4,
+    "mps_available": false,
+    "cuda_available": false
+  },
+  "protected_files_unchanged": true,
+  "formal_training_performed": false,
+  "optimizer_steps": 0,
+  "checkpoints_saved": 0,
+  "accuracy_metrics_computed": false,
+  "hardware_limitations": "CPU functional validation only; accelerator memory/speed and full-epoch runtime not measured."
+}

@@ -38,7 +38,7 @@ python split_dataset.py
 - 使用 seed=42 固定分配；图片、标签、内容哈希与组编号写入 split_manifest.csv。
 - dataset_audit.json 保存冲突清单、划分统计、JPEG 处理和评价协议；annotation_metadata.csv 保存原始 VOC 标记。
 
-本机已生成 6,005 / 750 / 752 张的新划分，隔离 74 张。它只消除了完全相同的跨集合图片；近重复和场景独立性仍需人工核查。
+此步骤生成首轮 6,005 / 750 / 752 张划分，隔离 74 张，仅处理内容重复。当前实验进一步使用 6,488 / 511 / 508 的场景风险隔离版本；复现当前实验须继续按[数据版本说明](../reports/scene_isolation/README.md)恢复并核验清单。
 
 有同一视频/场景信息时，可传入完整 CSV（image,group_id）：
 
@@ -51,10 +51,12 @@ python split_dataset.py --groups-file scene_groups.csv --output helmet_dataset_g
 ## 3. 新训练与产物登记
 
 ```bash
-python train_helmet.py
+python train_helmet.py --variant standard --data datasets/helmet_scene_isolated_v1/data.yaml --dry-run
+python train_helmet.py --variant standard --data datasets/helmet_scene_isolated_v1/data.yaml
+# P2 对照使用 --variant p2，其余协议相同
 ```
 
-默认使用 helmet_dataset_clean/data.yaml，从官方 yolov8n.pt 开始新训练：50 轮、640、batch=4、seed=0、AdamW、lr0=0.001667、momentum/beta1=0.9、warmup_bias_lr=0、线性学习率调度。参数通过 run.py 显式传递；有效参数另存 effective_args.json，不把请求参数冒充全部生效参数。
+先按 [P2说明](P2.md)准备根目录官方 yolov8n.pt。当前标准/P2入口采用相同的共有层0..15迁移协议：50轮、640、batch=2、seed=0、AdamW、lr0=0.001667、momentum/beta1=0.9、warmup_bias_lr=0、线性学习率调度。用 --data 明确选择隔离版本；本地登记缺失时默认回退首轮去重版本，不能混为同一实验。参数通过 run.py 显式传递；有效参数另存 effective_args.json，不把请求参数冒充全部生效参数。
 
 训练前后都会核对完整数据清单。成功生成 best.pt 后：
 1. 在实际输出目录保存 training_artifact.json。
@@ -71,10 +73,10 @@ python train_helmet.py --epochs 30 --device cpu --name helmet_clean_seed1 --seed
 恢复中断的新训练，必须明确给出 last.pt：
 
 ```bash
-python train_helmet.py --model runs/实际目录/weights/last.pt --resume
+python run.py train --model runs/实际目录/weights/last.pt --data datasets/helmet_scene_isolated_v1/data.yaml --resume
 ```
 
-恢复只接受带有匹配数据身份记录的 checkpoint。历史未登记模型不能静默恢复成新基准；已完成训练的 last.pt 可能已被库移除优化器状态，也不适合作为继续恢复的起点。
+上述命令适用于原机器上的恢复；跨设备路径迁移见 [Windows迁移说明](WINDOWS_MIGRATION.md)。恢复只接受带有匹配数据身份记录的 checkpoint。历史未登记模型不能静默恢复成新基准；已完成训练的 last.pt 可能已被库移除优化器状态，也不适合作为继续恢复的起点。
 
 ## 4. 评价与推理
 

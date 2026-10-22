@@ -1,0 +1,22 @@
+{
+  "archive": "local transfer package (not redistributed)",
+  "archive_sha256": "f82e744e25389121adf67fb57f937c96ff2ff4da9d0d34ee722a3cb42bf8fdd8",
+  "archive_bytes": 1177891380,
+  "payload_files": 15070,
+  "completed_epochs": 13,
+  "next_epoch": 14,
+  "total_epochs": 50,
+  "dataset": {
+    "status": "exact_duplicates_removed_conflicts_quarantined",
+    "manifest_sha256": "5781ecdffa173010f539189b15565220f5e2ac597b5f8ea72f5cf7b1e8bf63e4",
+    "images": 7507,
+    "difficult_policy": "include_as_ordinary",
+    "scene_independence": "retrieved_risks_isolated_not_exhaustive",
+    "isolation_constraints_sha256": "afcacf6d160443637813879f37f4b6d507a05c75c9941c2271ebe8c500766efb",
+    "review_decisions_sha256": "86a47e191957f5abc0be1099629ba680f68d1703a718008c149a72fad4e83887"
+  },
+  "checkpoint_sha256": "d83cd02e4c0c87e5ffc4950fe325d284d3b101135e8d74bfa75d046c92e1a7dc",
+  "all_archive_payload_sha256_verified": true,
+  "source_files_unchanged": true,
+  "windows_cuda_execution_tested_on_this_mac": false
+}

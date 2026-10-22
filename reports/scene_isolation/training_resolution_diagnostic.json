@@ -1,0 +1,16 @@
+{
+  "hat": {
+    "objects": 7248,
+    "short_side_below_8px_at_640": 156,
+    "short_side_below_16px_at_640": 829,
+    "short_side_below_8px_at_960": 33,
+    "short_side_below_16px_at_960": 362
+  },
+  "person": {
+    "objects": 102502,
+    "short_side_below_8px_at_640": 8903,
+    "short_side_below_16px_at_640": 64988,
+    "short_side_below_8px_at_960": 169,
+    "short_side_below_16px_at_960": 34206
+  }
+}

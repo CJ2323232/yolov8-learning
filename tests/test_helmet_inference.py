@@ -9,6 +9,20 @@ from helmet_inference import HelmetPredictor, NORMAL_MODE, SLICED_MODE, count_sl
 
 
 class InferenceTests(unittest.TestCase):
+    def test_resolution_applies_to_normal_only_and_preserves_sahi_protocol(self):
+        image = Image.new('RGB', (400, 300))
+        names = {0: 'hat', 1: 'person'}
+        model = SimpleNamespace(names=names, predict=Mock(return_value=[sahi_to_result([], image, names)]))
+        predictor = HelmetPredictor(model, 'cpu')
+        _, _, details = predictor.predict(image, 0.25, NORMAL_MODE, 960)
+        self.assertEqual(model.predict.call_args.kwargs['imgsz'], 960)
+        self.assertEqual(details['imgsz'], 960)
+        _, _, details = predictor.predict(image, 0.25, SLICED_MODE, 960)
+        self.assertEqual(model.predict.call_args.kwargs['imgsz'], 640)
+        self.assertEqual(details['imgsz'], 640)
+        with self.assertRaisesRegex(ValueError, '640 或 960'):
+            predictor.predict(image, 0.25, NORMAL_MODE, 800)
+
     def test_merged_boxes_keep_original_coordinates_classes_and_rgb(self):
         image = Image.new("RGB", (1000, 800), (220, 10, 30))
         box = SimpleNamespace(

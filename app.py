@@ -30,12 +30,13 @@ if model.task != 'detect' or model.names != {0: 'hat', 1: 'person'}:
 predictor = HelmetPredictor(model, DEVICE)
 
 
-def detect(image: Image.Image | None, conf: float, mode: str = NORMAL_MODE):
+def detect(image: Image.Image | None, conf: float, mode: str = NORMAL_MODE,
+           ordinary_imgsz: int = 640):
     if image is None:
         return None, "请先上传一张图片。"
 
     try:
-        annotated, counts, details = predictor.predict(image, conf, mode)
+        annotated, counts, details = predictor.predict(image, conf, mode, ordinary_imgsz)
     except (ImportError, ValueError) as exc:
         raise gr.Error(str(exc)) from exc
 
@@ -45,7 +46,8 @@ def detect(image: Image.Image | None, conf: float, mode: str = NORMAL_MODE):
         summary += "\n" + "\n".join(f"{name}: {count} 个" for name, count in counts.items())
     else:
         summary += "\n没有检测到超过当前阈值的目标，可适当降低 conf 试试。"
-    summary += f"\n检测方式：{mode}；本次处理耗时：{details['seconds']:.2f} 秒。"
+    summary += (f"\n检测方式：{mode}；输入分辨率上限：{details['imgsz']}。"
+                f"\n检测与绘图耗时：{details['seconds']:.2f} 秒（首次调用可能更慢，不代表稳定速度）。")
     if mode == SLICED_MODE:
         summary += f"\n切片数：{details['tiles']}（640×640，重叠 20%）。"
         if details['tiles'] == 1:
@@ -62,6 +64,8 @@ demo = gr.Interface(
         gr.Slider(minimum=0.05, maximum=0.95, value=0.25, step=0.05, label="置信度阈值 conf"),
         gr.Radio(choices=[NORMAL_MODE, SLICED_MODE], value=NORMAL_MODE,
                  label="检测方式", info="大图中的远处目标可尝试切片检测，处理通常更慢。"),
+        gr.Dropdown(choices=[640, 960], value=640, label="普通检测输入分辨率",
+                    info="960 可保留更多小目标细节，通常更慢，也可能增加误检；SAHI 保持原有 640 设置。"),
     ],
     outputs=[
         gr.Image(label="检测结果（可以保存图片）"),
