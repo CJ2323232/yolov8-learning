@@ -1,0 +1,30 @@
+{
+  "note": "Hashes of original local source files BEFORE path redaction; CSV and PNG bytes copied unchanged. Public JSON/YAML remove local paths and nvidia-smi process listing. Weights retained locally; SHA256 in summary.json.",
+  "files": {
+    "standard": {
+      "results.csv": "bd5a8bc43875980a42188048308ec6a7771cd874be39ebdea54f58ba5c91c077",
+      "args.yaml": "8c70bfb18d2958394f59103924f4bb1b7a2a7ef8b23fba3c7729404d32128362",
+      "effective_args.json": "bc56bd2335ecff744bddfed2b2e0eaacabde94753cacd37b4dae759b291ccfba",
+      "environment.json": "bb624a821ef6a8508b310b56b95da1959676ce14fdf904b73e40c8c5f418e662",
+      "initialization.json": "de9f7a2e98917975c83cf1b895f1650367e32ef41ae146dbf3a1fa9aad78eb44",
+      "input_identity.json": "f8443e5d2b0472c6729c3c3565fbaef1d6b13ce93102d5b02283c4361e2c3321",
+      "training_artifact.json": "ba754e2a680cec1d99363afe7cb3cef18500d4c8d1d3ab7323f6dfa45472b68c",
+      "command.json": "af542bc27e0b90a8c8b57c86e85e8059bca5c4334b4271913ea0514dcbba2c88",
+      "migration_events.json": "f090e054a0fb3cb84db9612a3707fc9164f81c9064080fa11f1b2386d6f2d06d",
+      "results.png": "a3ad6a8912c8d98c80936baab962c5783d2ec64b5ddffa17e1cfd23909af6ddc",
+      "BoxPR_curve.png": "aafe564c80182a932a34d6a8bb32a47fbd17f27ef333f9e16d1ad94063bea3bb"
+    },
+    "p2": {
+      "results.csv": "5c2a845b83134ed02f8fa75f0e4f8c04cde290aac51b1130274faa59ad64e579",
+      "args.yaml": "f1dc729a585f45a4b8a03edee39e19bc438e902eeea84118ffcf00cb1d5b27e8",
+      "effective_args.json": "e366c4edec58e74b31683bdf206ae8e9457962625c902fc29926343515c2dfdd",
+      "environment.json": "c01f6269c2c8378ba48fbb60dde2f6f038dacffd6eb05c7b690fb8386631c132",
+      "initialization.json": "221250cd1633c55dabdcccd0e2db2f42da1c59dbdb6b65b57b273a4463e77566",
+      "input_identity.json": "7843b3e7c7e55de3d9e05024e69b3b39b75e4c01922b5792fc5d637d2ff7a357",
+      "training_artifact.json": "15516e4641e9efd7dc477c4e098360edb86e2f874b733145152fdb0b32a111f6",
+      "command.json": "2f8f1bcb07af748cd63a7450cfddd171547345565dc067513a181b47b903c7d2",
+      "results.png": "796dcc5f300b08046c746a29ce54f4394d51e25f48c59301b85064ff8474f7f8",
+      "BoxPR_curve.png": "25016dffd9fc4a656151600bd77f259fc862ebcf54a65347e84d77624fa2ab2a"
+    }
+  }
+}

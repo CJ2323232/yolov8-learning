@@ -1,0 +1,14 @@
+{
+  "python": "3.10.10",
+  "system": "Windows",
+  "machine": "AMD64",
+  "torch": "2.14.0+cu126",
+  "torchvision": "0.29.0+cu126",
+  "ultralytics": "8.4.164",
+  "selected_device": "0",
+  "cuda_runtime": "12.6",
+  "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+  "vram_bytes": 6441926656,
+  "cuda_available": true,
+  "migration_note": "Epoch-boundary resume from Mac MPS to Windows CUDA; not bitwise equivalent."
+}

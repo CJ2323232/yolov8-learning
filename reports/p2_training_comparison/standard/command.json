@@ -1,0 +1,7 @@
+{
+  "entry": "resume_windows.py",
+  "resume": true,
+  "model": "<PROJECT_ROOT>/runs/helmet_standard_isolated_640_windows/weights/last.pt",
+  "data": "<PROJECT_ROOT>/datasets/helmet_scene_isolated_v1/data_windows.yaml",
+  "device": "0"
+}

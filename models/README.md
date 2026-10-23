@@ -21,4 +21,4 @@
 
 ## 模型结构配置
 
-configs/保存standard/P2的两类nano网络蓝图和来源记录，不是训练好的权重。它们通过helmet_models.py从同一官方yolov8n.pt迁移共有层0..15，新增/分歧部分保持初始化。详见 [P2说明](../docs/P2.md)。作者已反馈两版训练完成，最终检查点尚未提交本仓库核验；这里的公开演示权重未替换为 P2。
+configs/保存standard/P2的两类nano网络蓝图和来源记录，不是训练好的权重。它们通过helmet_models.py从同一官方yolov8n.pt迁移共有层0..15，新增/分歧部分保持初始化。详见 [P2说明](../docs/P2.md)。两版50轮检查点已在本地核验，SHA256与验证结果见[结果汇总](../reports/p2_training_comparison/summary.json)。新权重尚未发布为下载资产；这里的公开演示权重未替换为P2。

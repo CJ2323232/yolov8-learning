@@ -1,0 +1,84 @@
+[
+  {
+    "time": "2026-10-19T14:01:15.092937+00:00",
+    "checkpoint_sha256": "d83cd02e4c0c87e5ffc4950fe325d284d3b101135e8d74bfa75d046c92e1a7dc",
+    "completed_epochs": 13,
+    "next_epoch": 14,
+    "source_environment": {
+      "python": "3.14.7",
+      "system": "Darwin",
+      "machine": "arm64",
+      "torch": "2.14.0",
+      "ultralytics": "8.4.164",
+      "selected_device": "mps",
+      "cuda_available": false,
+      "mps_available": true
+    },
+    "resumed_environment": {
+      "python": "3.10.10",
+      "system": "Windows",
+      "machine": "AMD64",
+      "torch": "2.14.0+cu126",
+      "torchvision": "0.29.0+cu126",
+      "ultralytics": "8.4.164",
+      "selected_device": "0",
+      "cuda_runtime": "12.6",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "vram_bytes": 6441926656,
+      "cuda_available": true,
+      "migration_note": "Epoch-boundary resume from Mac MPS to Windows CUDA; not bitwise equivalent."
+    },
+    "runtime_amp_enabled": true,
+    "dataset": {
+      "status": "exact_duplicates_removed_conflicts_quarantined",
+      "manifest_sha256": "5781ecdffa173010f539189b15565220f5e2ac597b5f8ea72f5cf7b1e8bf63e4",
+      "images": 7507,
+      "difficult_policy": "include_as_ordinary",
+      "scene_independence": "retrieved_risks_isolated_not_exhaustive",
+      "isolation_constraints_sha256": "afcacf6d160443637813879f37f4b6d507a05c75c9941c2271ebe8c500766efb",
+      "review_decisions_sha256": "86a47e191957f5abc0be1099629ba680f68d1703a718008c149a72fad4e83887"
+    },
+    "strict_bitwise_reproducibility": false
+  },
+  {
+    "time": "2026-10-20T01:22:44.510099+00:00",
+    "checkpoint_sha256": "692f7584ec1209a326c7251672a20dc7cf581b9ae012457d5c146719b9e0d3e3",
+    "completed_epochs": 31,
+    "next_epoch": 32,
+    "source_environment": {
+      "python": "3.14.7",
+      "system": "Darwin",
+      "machine": "arm64",
+      "torch": "2.14.0",
+      "ultralytics": "8.4.164",
+      "selected_device": "mps",
+      "cuda_available": false,
+      "mps_available": true
+    },
+    "resumed_environment": {
+      "python": "3.10.10",
+      "system": "Windows",
+      "machine": "AMD64",
+      "torch": "2.14.0+cu126",
+      "torchvision": "0.29.0+cu126",
+      "ultralytics": "8.4.164",
+      "selected_device": "0",
+      "cuda_runtime": "12.6",
+      "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "vram_bytes": 6441926656,
+      "cuda_available": true,
+      "migration_note": "Epoch-boundary resume from Mac MPS to Windows CUDA; not bitwise equivalent."
+    },
+    "runtime_amp_enabled": true,
+    "dataset": {
+      "status": "exact_duplicates_removed_conflicts_quarantined",
+      "manifest_sha256": "5781ecdffa173010f539189b15565220f5e2ac597b5f8ea72f5cf7b1e8bf63e4",
+      "images": 7507,
+      "difficult_policy": "include_as_ordinary",
+      "scene_independence": "retrieved_risks_isolated_not_exhaustive",
+      "isolation_constraints_sha256": "afcacf6d160443637813879f37f4b6d507a05c75c9941c2271ebe8c500766efb",
+      "review_decisions_sha256": "86a47e191957f5abc0be1099629ba680f68d1703a718008c149a72fad4e83887"
+    },
+    "strict_bitwise_reproducibility": false
+  }
+]

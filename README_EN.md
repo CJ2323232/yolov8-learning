@@ -10,7 +10,7 @@ A computer vision practice project using **Ultralytics YOLOv8n and SHWD**, cover
 
 *Upload an image, adjust confidence, inspect counts and download the result. The screenshot shows the standard-inference interface; its training-set membership is unverified, so it is not independent test evidence.*
 
-> **Status:** Existing weights run without retraining. Duplicate leakage was found in the historical split; auditing, workflow fixes and a screened-test reassessment are complete. Evaluation limits are stated below. The author reports completion of standard/P2 training; final artifacts await archival and verification. No P2 accuracy gain is claimed. [Latest protocol and evidence](reports/p2_progress.md).
+> **Status:** Existing weights run without retraining. Duplicate leakage was found in the historical split; auditing, workflow fixes and a screened-test reassessment are complete. Evaluation limits are stated below. Both 50-epoch runs and checkpoint hashes are verified. On the same 511-image validation split, best-epoch mAP50–95 is 60.244% (standard) versus 61.301% (P2), a 1.057-point difference in this run. Standard used MPS→CUDA resume; this is not a strict single-variable or multi-seed result. [Logs, curves and limitations](reports/p2_training_comparison/README.md). [Latest protocol and evidence](reports/p2_progress.md).
 
 ## Implemented work
 
@@ -112,7 +112,7 @@ Flow: **VOC images/XML → conversion and validation → deduplication, quaranti
 
 Auditing quarantined **74 conflicting image variants across 37 groups** and generated a **6,005 / 750 / 752** train/validation/test split. A subsequent conservative risk-group assignment retained all 7,507 accepted images and moved 491, yielding **6,488 / 511 / 508**. Retrieved candidate edges no longer cross splits. All 1,999 PartA classroom images are in training; this is not exhaustive scene-independence proof or an unseen-classroom benchmark. The historical checkpoint cannot serve as an independent baseline on this reshuffled split.
 
-Historical experiments, corrected code and small-scale workflow checks are recorded separately. **Final standard/P2 artifacts are pending verification after author-reported completion.** Follow the [training workflow](docs/WORKFLOW.md) and [comparison protocol](reports/p2_progress.md). Historical 1/5/50-epoch records are not three independent from-scratch controlled experiments.
+Historical experiments, corrected code and small-scale workflow checks are recorded separately. **Final standard/P2 artifacts have been verified and training-validation results published.** Fixed-confidence size-stratified recall and latency remain to be measured. Follow the [training workflow](docs/WORKFLOW.md) and [comparison protocol](reports/p2_progress.md). Historical 1/5/50-epoch records are not three independent from-scratch controlled experiments.
 
 | Entry points | Purpose |
 | --- | --- |
@@ -129,7 +129,7 @@ Historical experiments, corrected code and small-scale workflow checks are recor
 
 - Analyze false positives and misses using existing annotations, including size and occlusion effects.
 - Repeat model and end-to-end timing; choose operating confidence on validation data.
-- Archive final standard/P2 artifacts, audit comparability, select operating settings on validation data, then evaluate a frozen protocol on test data.
+- Use the verified best checkpoints for fixed-confidence, size-stratified validation and latency measurements; freeze settings before test evaluation.
 
 Video detection, batch uploads and public hosting are not implemented. Suitability for real safety-management decisions has not been established.
 

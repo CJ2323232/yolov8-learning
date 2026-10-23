@@ -1,0 +1,110 @@
+{
+  "date": "2026-10-23",
+  "scope": "existing training validation logs and best checkpoint metadata; no new inference or training",
+  "evaluation_split": "val",
+  "validation_images": 511,
+  "runs": {
+    "standard": {
+      "completed_epochs": 50,
+      "best_epoch_from_csv": 40,
+      "best_metrics": {
+        "metrics/precision(B)": 0.8916,
+        "metrics/recall(B)": 0.86152,
+        "metrics/mAP50(B)": 0.91584,
+        "metrics/mAP50-95(B)": 0.60244
+      },
+      "last_epoch_metrics": {
+        "metrics/precision(B)": 0.90621,
+        "metrics/recall(B)": 0.85574,
+        "metrics/mAP50(B)": 0.91502,
+        "metrics/mAP50-95(B)": 0.60064
+      },
+      "best_checkpoint_sha256": "15dd7f9b51930a6a4a03cbf0b9d86092fbaa1938c70c2167035bb767d5bc9b8b",
+      "best_checkpoint_bytes": 6250993,
+      "checkpoint_metrics_match_csv": true,
+      "names": {
+        "0": "hat",
+        "1": "person"
+      },
+      "strides": [
+        8,
+        16,
+        32
+      ],
+      "dataset": {
+        "status": "exact_duplicates_removed_conflicts_quarantined",
+        "manifest_sha256": "5781ecdffa173010f539189b15565220f5e2ac597b5f8ea72f5cf7b1e8bf63e4",
+        "images": 7507,
+        "difficult_policy": "include_as_ordinary",
+        "scene_independence": "retrieved_risks_isolated_not_exhaustive",
+        "isolation_constraints_sha256": "afcacf6d160443637813879f37f4b6d507a05c75c9941c2271ebe8c500766efb",
+        "review_decisions_sha256": "86a47e191957f5abc0be1099629ba680f68d1703a718008c149a72fad4e83887"
+      }
+    },
+    "p2": {
+      "completed_epochs": 50,
+      "best_epoch_from_csv": 48,
+      "best_metrics": {
+        "metrics/precision(B)": 0.90248,
+        "metrics/recall(B)": 0.86829,
+        "metrics/mAP50(B)": 0.92995,
+        "metrics/mAP50-95(B)": 0.61301
+      },
+      "last_epoch_metrics": {
+        "metrics/precision(B)": 0.89643,
+        "metrics/recall(B)": 0.87191,
+        "metrics/mAP50(B)": 0.92792,
+        "metrics/mAP50-95(B)": 0.61246
+      },
+      "best_checkpoint_sha256": "c6322674f5ddda41b2354551d283d8fb386a3be1e56a1d50666b29d2a2f70e23",
+      "best_checkpoint_bytes": 6231693,
+      "checkpoint_metrics_match_csv": true,
+      "names": {
+        "0": "hat",
+        "1": "person"
+      },
+      "strides": [
+        4,
+        8,
+        16,
+        32
+      ],
+      "dataset": {
+        "status": "exact_duplicates_removed_conflicts_quarantined",
+        "manifest_sha256": "5781ecdffa173010f539189b15565220f5e2ac597b5f8ea72f5cf7b1e8bf63e4",
+        "images": 7507,
+        "difficult_policy": "include_as_ordinary",
+        "scene_independence": "retrieved_risks_isolated_not_exhaustive",
+        "isolation_constraints_sha256": "afcacf6d160443637813879f37f4b6d507a05c75c9941c2271ebe8c500766efb",
+        "review_decisions_sha256": "86a47e191957f5abc0be1099629ba680f68d1703a718008c149a72fad4e83887"
+      }
+    }
+  },
+  "same_dataset_identity": true,
+  "same_shared_pretrained_initialization": true,
+  "different_effective_args": {
+    "model": [
+      "<PROJECT_ROOT>/runs/helmet_standard_isolated_640_windows/weights/last.pt",
+      "<PROJECT_ROOT>/models/configs/helmet_yolov8n_p2.yaml"
+    ],
+    "save_dir": [
+      "<PROJECT_ROOT>/runs/helmet_standard_isolated_640_windows",
+      "<PROJECT_ROOT>/runs/helmet_p2_isolated_640_windows"
+    ],
+    "name": [
+      "helmet_standard_isolated_640_windows",
+      "helmet_p2_isolated_640_windows"
+    ],
+    "resume": [
+      "<PROJECT_ROOT>/runs/helmet_standard_isolated_640_windows/weights/last.pt",
+      false
+    ]
+  },
+  "limitations": [
+    "single seed per variant",
+    "standard resumed from MPS to CUDA; p2 recorded on Windows CUDA",
+    "not fixed-confidence precision/recall",
+    "small-object stratified recall not measured",
+    "test results and latency benchmark not yet run"
+  ]
+}
