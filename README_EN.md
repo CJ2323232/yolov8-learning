@@ -28,6 +28,20 @@ Additional work: conservative scene-risk isolation (6,488/511/508 images), offic
 
 The work focuses on data handling, experiments and integration. The detector architecture and training framework are provided by Ultralytics; no new detector architecture is proposed.
 
+## Measured data-governance outcomes
+
+This comparison uses the **first content-clean split** and the subsequent scene-risk isolation split, both containing 7,507 accepted images.
+
+| Data-quality measure | Before | After |
+| --- | ---: | ---: |
+| Retrieved candidate pairs spanning splits | 20,466 | **0** |
+| Human-confirmed same-scene pairs spanning splits | 10 | **0** |
+| PartA classroom images in validation / test | 206 / 200 | **0 / 0** |
+| Retained images | 7,507 | **7,507** |
+
+491 images changed partition; image/label hashes in the manifests stayed identical. The 20,466 candidates involve 2,126 distinct images; pairs are neither image counts nor confirmed leakage cases. The result demonstrates isolation of retrieved risks, not exhaustive scene independence or a measured accuracy improvement. Val/test exclude PartA, limiting unseen-classroom claims. [Evidence and recomputation](reports/scene_isolation/README.md) · [Old/new baseline settings](reports/baseline_evolution.md).
+
+
 ## Quick start
 
 **No training or full dataset download is required.** Download the repository ZIP, or use these macOS / Linux commands:

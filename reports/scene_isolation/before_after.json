@@ -1,0 +1,38 @@
+{
+  "comparison": "first content-clean split versus conservative scene-risk isolation",
+  "before": {
+    "images": 7507,
+    "splits": {
+      "test": 752,
+      "train": 6005,
+      "val": 750
+    },
+    "retrieved_candidate_cross_split_pairs": 20466,
+    "human_confirmed_same_cross_split_pairs": 10,
+    "part_a_images": {
+      "train": 1593,
+      "val": 206,
+      "test": 200
+    }
+  },
+  "after": {
+    "images": 7507,
+    "splits": {
+      "test": 508,
+      "train": 6488,
+      "val": 511
+    },
+    "retrieved_candidate_cross_split_pairs": 0,
+    "human_confirmed_same_cross_split_pairs": 0,
+    "part_a_images": {
+      "train": 1999,
+      "val": 0,
+      "test": 0
+    }
+  },
+  "retrieved_candidate_pairs": 20466,
+  "unique_images_in_candidates": 2126,
+  "moved_images": 491,
+  "image_and_label_hashes_unchanged_in_manifests": true,
+  "scope": "Manifest comparison only; does not read image bytes, establish exhaustive scene independence, or measure model accuracy."
+}
