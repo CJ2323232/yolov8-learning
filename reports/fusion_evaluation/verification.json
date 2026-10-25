@@ -1,0 +1,41 @@
+{
+  "training_performed": false,
+  "model_weights_changed": false,
+  "all_7507_image_label_hashes_and_isolation_constraints_verified": true,
+  "old_prediction_and_review_source_files_unchanged": true,
+  "prior_standard_and_p2_conf025_counts_reproduced_exactly": true,
+  "test_thresholds_frozen_before_test_inference": true,
+  "validation_selection_verified_by_full_rematching": true,
+  "test_predictions_per_model": 508,
+  "validation_predictions_per_model": 511,
+  "zero_area_boxes_discarded": {
+    "val_standard": 6,
+    "val_p2": 0,
+    "test_standard": 0,
+    "test_p2": 0
+  },
+  "per_model_images_at_max_det": {
+    "val_standard": 0,
+    "val_p2": 8,
+    "test_standard": 1,
+    "test_p2": 6
+  },
+  "gpu_memory_measured": false,
+  "gradio_default_changed": false,
+  "github_published": false,
+  "requested_torch_threads": 4,
+  "benchmark_effective_torch_threads": 8,
+  "thread_protocol_deviation": "Ultralytics CPU select_device resets requested 4 to NUM_THREADS (8 here). Effective benchmark value recorded and asserted each call; inference uses the same library initialization, per-image thread count was not logged.",
+  "selection_sha256": "bbc461c6692b378c90bbef6d413f1944892f75dce68933085f081567fd7115b5",
+  "artifact_sha256": {
+    "protocol.json": "081d518e08ab0d58e09691eb0fb4695705934b5c02949019d524cf266eec842c",
+    "experiment.py": "973b27c32b2c8f7800bbc0721eea9f8646fe44e1367a47e4eed0bbb2aa5b6a22",
+    "benchmark.py": "cce05e79cbc26d77a56b63236e703a40722c2cf359c44efb453b5604d36088f5",
+    "test_experiment.py": "98ae33cb79df2d9d59205c8244eda5efbeda6d74393e5d2c568604e73b9e36bb",
+    "tests.log": "13be9a82b985f89d772e75ca9adbfcbd7d79f4043ae1c9298e82fd19ed585ae4",
+    "validation_curves.json": "00f37322a9d2217937eb6b537f2dbd32d1c20ba6dacdc990e36ce051c2aab6db",
+    "val_results.json": "e79eb513b76e0ce3112e77d93a917914b1348440b6a48b03904ee636d75b6e7a",
+    "test_results.json": "dfea52166a4f60348c346227840ae05035ee677ec682afeff4ca9cbeb0c1534a",
+    "benchmark_results.json": "aa142696f54d66946c60f53dfd25573d5c5e8d3f7a4923fae56f67f2784ce28e"
+  }
+}

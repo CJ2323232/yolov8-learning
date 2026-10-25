@@ -1,4 +1,18 @@
-# 已训练的模型
+# 模型目录
+
+| 模型 | 当前用途 | 公开状态 |
+|---|---|---|
+| 历史YOLOv8n | 快速体验与历史记录 | v1.0.0可下载；不可用于复现新成绩 |
+| 新标准版 / P2 | 隔离数据上的50轮实验、融合应用 | 权重本地已核验，尚未发布下载 |
+| P2＋CBAM | 待执行的新对照 | 只有结构和训练代码，没有训练权重 |
+
+新标准版SHA256：`15dd7f9b51930a6a4a03cbf0b9d86092fbaa1938c70c2167035bb767d5bc9b8b`。
+
+新P2 SHA256：`c6322674f5ddda41b2354551d283d8fb386a3be1e56a1d50666b29d2a2f70e23`。
+
+加载路径和阈值见[fusion_config.json](fusion_config.json)，迁移与环境变量见[应用说明](../docs/FUSION.md)。历史演示模型不能改名替代这两份权重。
+
+## 历史演示权重
 
 > 2026-10-13 审计更新：本页模型和数值来自已发现重复泄漏的旧划分，只作历史/定性记录，不代表新划分性能。[修复说明](../docs/FIXES_2026-10-13.md)。
 
@@ -16,7 +30,7 @@
 
 模型基于 [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)，使用遵循其 [AGPL-3.0 / Enterprise 条款](https://www.ultralytics.com/license)。数据来源为 [SHWD](https://github.com/njvisionpower/Safety-Helmet-Wearing-Dataset)。不附带原始训练图片，不承诺新场景的准确性。
 
-新训练模型由 `runs/latest_helmet_training.json` 登记，测试和网页优先读取该记录，不会静默把历史权重当成新训练产物。
+原训练流程通过 `runs/latest_helmet_training.json` 登记模型；新版网页根据[fusion_config.json](fusion_config.json)分别加载标准/P2，在有核验P2时优先使用P2。历史模型明确单列为演示模式。CBAM使用独立实验登记，不自动替换网页模型。
 
 
 ## 模型结构配置

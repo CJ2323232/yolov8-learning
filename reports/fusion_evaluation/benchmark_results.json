@@ -1,0 +1,1246 @@
+{
+  "p2": {
+    "method": "p2",
+    "sample_images": 24,
+    "timed_calls": 48,
+    "mean_ms": 33.55080475,
+    "median_ms": 30.262813,
+    "p95_ms": 46.351402199999995,
+    "throughput_images_per_second": 29.80554438116719,
+    "process_peak_rss_mib": 937.671875,
+    "rss_scope": "whole isolated Python process including imports, warmup and consistency checks; CPU RAM, not VRAM",
+    "records": [
+      {
+        "image": "images/val/000022.jpg",
+        "repeat": 0,
+        "ms": 31.296791,
+        "detections": 2
+      },
+      {
+        "image": "images/val/000258.jpg",
+        "repeat": 0,
+        "ms": 32.237833,
+        "detections": 5
+      },
+      {
+        "image": "images/val/000478.jpg",
+        "repeat": 0,
+        "ms": 34.684042,
+        "detections": 1
+      },
+      {
+        "image": "images/val/000757.jpg",
+        "repeat": 0,
+        "ms": 31.069959,
+        "detections": 1
+      },
+      {
+        "image": "images/val/001007.jpg",
+        "repeat": 0,
+        "ms": 43.322917,
+        "detections": 3
+      },
+      {
+        "image": "images/val/001188.jpg",
+        "repeat": 0,
+        "ms": 30.636959,
+        "detections": 1
+      },
+      {
+        "image": "images/val/001443.jpg",
+        "repeat": 0,
+        "ms": 30.548625,
+        "detections": 2
+      },
+      {
+        "image": "images/val/001668.jpg",
+        "repeat": 0,
+        "ms": 31.581458,
+        "detections": 1
+      },
+      {
+        "image": "images/val/PartB_00257.jpg",
+        "repeat": 0,
+        "ms": 29.944083,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_00482.jpg",
+        "repeat": 0,
+        "ms": 29.652125,
+        "detections": 14
+      },
+      {
+        "image": "images/val/PartB_00686.jpg",
+        "repeat": 0,
+        "ms": 29.583959,
+        "detections": 9
+      },
+      {
+        "image": "images/val/PartB_00890.jpg",
+        "repeat": 0,
+        "ms": 41.555792,
+        "detections": 23
+      },
+      {
+        "image": "images/val/PartB_01103.jpg",
+        "repeat": 0,
+        "ms": 111.884166,
+        "detections": 21
+      },
+      {
+        "image": "images/val/PartB_01325.jpg",
+        "repeat": 0,
+        "ms": 33.96325,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_01583.jpg",
+        "repeat": 0,
+        "ms": 30.497417,
+        "detections": 5
+      },
+      {
+        "image": "images/val/PartB_01753.jpg",
+        "repeat": 0,
+        "ms": 29.7065,
+        "detections": 18
+      },
+      {
+        "image": "images/val/PartB_02011.jpg",
+        "repeat": 0,
+        "ms": 30.703333,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_02200.jpg",
+        "repeat": 0,
+        "ms": 29.268667,
+        "detections": 15
+      },
+      {
+        "image": "images/val/part2_000089.jpg",
+        "repeat": 0,
+        "ms": 47.982125,
+        "detections": 1
+      },
+      {
+        "image": "images/val/part2_000395.jpg",
+        "repeat": 0,
+        "ms": 26.301209,
+        "detections": 2
+      },
+      {
+        "image": "images/val/part2_000909.jpg",
+        "repeat": 0,
+        "ms": 36.60425,
+        "detections": 5
+      },
+      {
+        "image": "images/val/part2_001299.jpg",
+        "repeat": 0,
+        "ms": 22.543916,
+        "detections": 8
+      },
+      {
+        "image": "images/val/part2_001840.jpg",
+        "repeat": 0,
+        "ms": 26.955625,
+        "detections": 5
+      },
+      {
+        "image": "images/val/part2_002388.jpg",
+        "repeat": 0,
+        "ms": 30.014208,
+        "detections": 4
+      },
+      {
+        "image": "images/val/part2_002388.jpg",
+        "repeat": 1,
+        "ms": 29.388792,
+        "detections": 4
+      },
+      {
+        "image": "images/val/part2_001840.jpg",
+        "repeat": 1,
+        "ms": 26.57775,
+        "detections": 5
+      },
+      {
+        "image": "images/val/part2_001299.jpg",
+        "repeat": 1,
+        "ms": 21.9065,
+        "detections": 8
+      },
+      {
+        "image": "images/val/part2_000909.jpg",
+        "repeat": 1,
+        "ms": 35.353458,
+        "detections": 5
+      },
+      {
+        "image": "images/val/part2_000395.jpg",
+        "repeat": 1,
+        "ms": 25.4755,
+        "detections": 2
+      },
+      {
+        "image": "images/val/part2_000089.jpg",
+        "repeat": 1,
+        "ms": 39.871125,
+        "detections": 1
+      },
+      {
+        "image": "images/val/PartB_02200.jpg",
+        "repeat": 1,
+        "ms": 28.656417,
+        "detections": 15
+      },
+      {
+        "image": "images/val/PartB_02011.jpg",
+        "repeat": 1,
+        "ms": 30.204417,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_01753.jpg",
+        "repeat": 1,
+        "ms": 28.680083,
+        "detections": 18
+      },
+      {
+        "image": "images/val/PartB_01583.jpg",
+        "repeat": 1,
+        "ms": 30.321209,
+        "detections": 5
+      },
+      {
+        "image": "images/val/PartB_01325.jpg",
+        "repeat": 1,
+        "ms": 27.716375,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_01103.jpg",
+        "repeat": 1,
+        "ms": 59.736208,
+        "detections": 21
+      },
+      {
+        "image": "images/val/PartB_00890.jpg",
+        "repeat": 1,
+        "ms": 36.272084,
+        "detections": 23
+      },
+      {
+        "image": "images/val/PartB_00686.jpg",
+        "repeat": 1,
+        "ms": 29.932334,
+        "detections": 9
+      },
+      {
+        "image": "images/val/PartB_00482.jpg",
+        "repeat": 1,
+        "ms": 29.033375,
+        "detections": 14
+      },
+      {
+        "image": "images/val/PartB_00257.jpg",
+        "repeat": 1,
+        "ms": 29.182792,
+        "detections": 6
+      },
+      {
+        "image": "images/val/001668.jpg",
+        "repeat": 1,
+        "ms": 31.120375,
+        "detections": 1
+      },
+      {
+        "image": "images/val/001443.jpg",
+        "repeat": 1,
+        "ms": 30.162708,
+        "detections": 2
+      },
+      {
+        "image": "images/val/001188.jpg",
+        "repeat": 1,
+        "ms": 29.021917,
+        "detections": 1
+      },
+      {
+        "image": "images/val/001007.jpg",
+        "repeat": 1,
+        "ms": 36.3975,
+        "detections": 3
+      },
+      {
+        "image": "images/val/000757.jpg",
+        "repeat": 1,
+        "ms": 29.924333,
+        "detections": 1
+      },
+      {
+        "image": "images/val/000478.jpg",
+        "repeat": 1,
+        "ms": 32.377166,
+        "detections": 1
+      },
+      {
+        "image": "images/val/000258.jpg",
+        "repeat": 1,
+        "ms": 30.761417,
+        "detections": 5
+      },
+      {
+        "image": "images/val/000022.jpg",
+        "repeat": 1,
+        "ms": 29.825584,
+        "detections": 2
+      }
+    ],
+    "requested_torch_threads": 4,
+    "torch_threads": 8,
+    "thread_note": "Ultralytics select_device resets torch threads during CPU setup. Record effective value after warmup; all timed calls assert the same value.",
+    "machine": "macOS-26.6-arm64-arm-64bit-Mach-O",
+    "device": "cpu",
+    "cuda_vram_measured": false,
+    "scope": "CPU resident-model single-image wall time including disk image decoding, prediction, fusion and final filtering; excludes model loading, rendering, saving, UI/network. 8 effective threads. Warm filesystem cache.",
+    "fusion_outputs_match_evaluation": true,
+    "selection_sha256": "bbc461c6692b378c90bbef6d413f1944892f75dce68933085f081567fd7115b5",
+    "script_sha256": "cce05e79cbc26d77a56b63236e703a40722c2cf359c44efb453b5604d36088f5"
+  },
+  "ensemble_nms": {
+    "method": "ensemble_nms",
+    "sample_images": 24,
+    "timed_calls": 48,
+    "mean_ms": 57.4374930625,
+    "median_ms": 49.126979500000004,
+    "p95_ms": 102.97971414999994,
+    "throughput_images_per_second": 17.41023061211708,
+    "process_peak_rss_mib": 1048.015625,
+    "rss_scope": "whole isolated Python process including imports, warmup and consistency checks; CPU RAM, not VRAM",
+    "records": [
+      {
+        "image": "images/val/000022.jpg",
+        "repeat": 0,
+        "ms": 48.36,
+        "detections": 2
+      },
+      {
+        "image": "images/val/000258.jpg",
+        "repeat": 0,
+        "ms": 59.931458,
+        "detections": 4
+      },
+      {
+        "image": "images/val/000478.jpg",
+        "repeat": 0,
+        "ms": 73.247875,
+        "detections": 1
+      },
+      {
+        "image": "images/val/000757.jpg",
+        "repeat": 0,
+        "ms": 57.424833,
+        "detections": 1
+      },
+      {
+        "image": "images/val/001007.jpg",
+        "repeat": 0,
+        "ms": 69.560167,
+        "detections": 5
+      },
+      {
+        "image": "images/val/001188.jpg",
+        "repeat": 0,
+        "ms": 53.119625,
+        "detections": 1
+      },
+      {
+        "image": "images/val/001443.jpg",
+        "repeat": 0,
+        "ms": 54.135791,
+        "detections": 3
+      },
+      {
+        "image": "images/val/001668.jpg",
+        "repeat": 0,
+        "ms": 56.259166,
+        "detections": 1
+      },
+      {
+        "image": "images/val/PartB_00257.jpg",
+        "repeat": 0,
+        "ms": 53.677333,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_00482.jpg",
+        "repeat": 0,
+        "ms": 70.498375,
+        "detections": 14
+      },
+      {
+        "image": "images/val/PartB_00686.jpg",
+        "repeat": 0,
+        "ms": 47.714625,
+        "detections": 9
+      },
+      {
+        "image": "images/val/PartB_00890.jpg",
+        "repeat": 0,
+        "ms": 58.762167,
+        "detections": 23
+      },
+      {
+        "image": "images/val/PartB_01103.jpg",
+        "repeat": 0,
+        "ms": 123.10025,
+        "detections": 20
+      },
+      {
+        "image": "images/val/PartB_01325.jpg",
+        "repeat": 0,
+        "ms": 45.346584,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_01583.jpg",
+        "repeat": 0,
+        "ms": 47.999625,
+        "detections": 5
+      },
+      {
+        "image": "images/val/PartB_01753.jpg",
+        "repeat": 0,
+        "ms": 47.143709,
+        "detections": 19
+      },
+      {
+        "image": "images/val/PartB_02011.jpg",
+        "repeat": 0,
+        "ms": 48.324,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_02200.jpg",
+        "repeat": 0,
+        "ms": 46.315416,
+        "detections": 16
+      },
+      {
+        "image": "images/val/part2_000089.jpg",
+        "repeat": 0,
+        "ms": 70.534459,
+        "detections": 1
+      },
+      {
+        "image": "images/val/part2_000395.jpg",
+        "repeat": 0,
+        "ms": 42.941833,
+        "detections": 2
+      },
+      {
+        "image": "images/val/part2_000909.jpg",
+        "repeat": 0,
+        "ms": 57.218209,
+        "detections": 7
+      },
+      {
+        "image": "images/val/part2_001299.jpg",
+        "repeat": 0,
+        "ms": 34.832916,
+        "detections": 9
+      },
+      {
+        "image": "images/val/part2_001840.jpg",
+        "repeat": 0,
+        "ms": 42.488291,
+        "detections": 5
+      },
+      {
+        "image": "images/val/part2_002388.jpg",
+        "repeat": 0,
+        "ms": 48.588125,
+        "detections": 4
+      },
+      {
+        "image": "images/val/part2_002388.jpg",
+        "repeat": 1,
+        "ms": 47.51975,
+        "detections": 4
+      },
+      {
+        "image": "images/val/part2_001840.jpg",
+        "repeat": 1,
+        "ms": 42.280375,
+        "detections": 5
+      },
+      {
+        "image": "images/val/part2_001299.jpg",
+        "repeat": 1,
+        "ms": 35.197333,
+        "detections": 9
+      },
+      {
+        "image": "images/val/part2_000909.jpg",
+        "repeat": 1,
+        "ms": 57.326875,
+        "detections": 7
+      },
+      {
+        "image": "images/val/part2_000395.jpg",
+        "repeat": 1,
+        "ms": 40.5195,
+        "detections": 2
+      },
+      {
+        "image": "images/val/part2_000089.jpg",
+        "repeat": 1,
+        "ms": 188.095709,
+        "detections": 1
+      },
+      {
+        "image": "images/val/PartB_02200.jpg",
+        "repeat": 1,
+        "ms": 53.96325,
+        "detections": 16
+      },
+      {
+        "image": "images/val/PartB_02011.jpg",
+        "repeat": 1,
+        "ms": 53.73275,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_01753.jpg",
+        "repeat": 1,
+        "ms": 60.174,
+        "detections": 19
+      },
+      {
+        "image": "images/val/PartB_01583.jpg",
+        "repeat": 1,
+        "ms": 48.854042,
+        "detections": 5
+      },
+      {
+        "image": "images/val/PartB_01325.jpg",
+        "repeat": 1,
+        "ms": 44.796583,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_01103.jpg",
+        "repeat": 1,
+        "ms": 118.989166,
+        "detections": 20
+      },
+      {
+        "image": "images/val/PartB_00890.jpg",
+        "repeat": 1,
+        "ms": 61.66425,
+        "detections": 23
+      },
+      {
+        "image": "images/val/PartB_00686.jpg",
+        "repeat": 1,
+        "ms": 47.539042,
+        "detections": 9
+      },
+      {
+        "image": "images/val/PartB_00482.jpg",
+        "repeat": 1,
+        "ms": 47.4425,
+        "detections": 14
+      },
+      {
+        "image": "images/val/PartB_00257.jpg",
+        "repeat": 1,
+        "ms": 49.280292,
+        "detections": 6
+      },
+      {
+        "image": "images/val/001668.jpg",
+        "repeat": 1,
+        "ms": 50.2605,
+        "detections": 1
+      },
+      {
+        "image": "images/val/001443.jpg",
+        "repeat": 1,
+        "ms": 47.776125,
+        "detections": 3
+      },
+      {
+        "image": "images/val/001188.jpg",
+        "repeat": 1,
+        "ms": 46.79675,
+        "detections": 1
+      },
+      {
+        "image": "images/val/001007.jpg",
+        "repeat": 1,
+        "ms": 61.4525,
+        "detections": 5
+      },
+      {
+        "image": "images/val/000757.jpg",
+        "repeat": 1,
+        "ms": 48.232542,
+        "detections": 1
+      },
+      {
+        "image": "images/val/000478.jpg",
+        "repeat": 1,
+        "ms": 50.902292,
+        "detections": 1
+      },
+      {
+        "image": "images/val/000258.jpg",
+        "repeat": 1,
+        "ms": 48.973667,
+        "detections": 4
+      },
+      {
+        "image": "images/val/000022.jpg",
+        "repeat": 1,
+        "ms": 47.705042,
+        "detections": 2
+      }
+    ],
+    "requested_torch_threads": 4,
+    "torch_threads": 8,
+    "thread_note": "Ultralytics select_device resets torch threads during CPU setup. Record effective value after warmup; all timed calls assert the same value.",
+    "machine": "macOS-26.6-arm64-arm-64bit-Mach-O",
+    "device": "cpu",
+    "cuda_vram_measured": false,
+    "scope": "CPU resident-model single-image wall time including disk image decoding, prediction, fusion and final filtering; excludes model loading, rendering, saving, UI/network. 8 effective threads. Warm filesystem cache.",
+    "fusion_outputs_match_evaluation": true,
+    "selection_sha256": "bbc461c6692b378c90bbef6d413f1944892f75dce68933085f081567fd7115b5",
+    "script_sha256": "cce05e79cbc26d77a56b63236e703a40722c2cf359c44efb453b5604d36088f5"
+  },
+  "standard": {
+    "method": "standard",
+    "sample_images": 24,
+    "timed_calls": 48,
+    "mean_ms": 21.242244833333334,
+    "median_ms": 19.4475415,
+    "p95_ms": 26.488276649999996,
+    "throughput_images_per_second": 47.07600387087149,
+    "process_peak_rss_mib": 796.78125,
+    "rss_scope": "whole isolated Python process including imports, warmup and consistency checks; CPU RAM, not VRAM",
+    "records": [
+      {
+        "image": "images/val/000022.jpg",
+        "repeat": 0,
+        "ms": 19.794584,
+        "detections": 1
+      },
+      {
+        "image": "images/val/000258.jpg",
+        "repeat": 0,
+        "ms": 21.031125,
+        "detections": 4
+      },
+      {
+        "image": "images/val/000478.jpg",
+        "repeat": 0,
+        "ms": 22.447083,
+        "detections": 1
+      },
+      {
+        "image": "images/val/000757.jpg",
+        "repeat": 0,
+        "ms": 19.305875,
+        "detections": 1
+      },
+      {
+        "image": "images/val/001007.jpg",
+        "repeat": 0,
+        "ms": 24.173583,
+        "detections": 5
+      },
+      {
+        "image": "images/val/001188.jpg",
+        "repeat": 0,
+        "ms": 18.410334,
+        "detections": 1
+      },
+      {
+        "image": "images/val/001443.jpg",
+        "repeat": 0,
+        "ms": 19.657625,
+        "detections": 3
+      },
+      {
+        "image": "images/val/001668.jpg",
+        "repeat": 0,
+        "ms": 20.732792,
+        "detections": 1
+      },
+      {
+        "image": "images/val/PartB_00257.jpg",
+        "repeat": 0,
+        "ms": 18.965666,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_00482.jpg",
+        "repeat": 0,
+        "ms": 18.489917,
+        "detections": 14
+      },
+      {
+        "image": "images/val/PartB_00686.jpg",
+        "repeat": 0,
+        "ms": 18.524833,
+        "detections": 9
+      },
+      {
+        "image": "images/val/PartB_00890.jpg",
+        "repeat": 0,
+        "ms": 26.984416,
+        "detections": 22
+      },
+      {
+        "image": "images/val/PartB_01103.jpg",
+        "repeat": 0,
+        "ms": 59.276209,
+        "detections": 18
+      },
+      {
+        "image": "images/val/PartB_01325.jpg",
+        "repeat": 0,
+        "ms": 18.856917,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_01583.jpg",
+        "repeat": 0,
+        "ms": 19.705958,
+        "detections": 5
+      },
+      {
+        "image": "images/val/PartB_01753.jpg",
+        "repeat": 0,
+        "ms": 18.417167,
+        "detections": 19
+      },
+      {
+        "image": "images/val/PartB_02011.jpg",
+        "repeat": 0,
+        "ms": 19.641666,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_02200.jpg",
+        "repeat": 0,
+        "ms": 17.86875,
+        "detections": 17
+      },
+      {
+        "image": "images/val/part2_000089.jpg",
+        "repeat": 0,
+        "ms": 24.33775,
+        "detections": 1
+      },
+      {
+        "image": "images/val/part2_000395.jpg",
+        "repeat": 0,
+        "ms": 17.895708,
+        "detections": 2
+      },
+      {
+        "image": "images/val/part2_000909.jpg",
+        "repeat": 0,
+        "ms": 22.515042,
+        "detections": 6
+      },
+      {
+        "image": "images/val/part2_001299.jpg",
+        "repeat": 0,
+        "ms": 15.29975,
+        "detections": 9
+      },
+      {
+        "image": "images/val/part2_001840.jpg",
+        "repeat": 0,
+        "ms": 17.137625,
+        "detections": 5
+      },
+      {
+        "image": "images/val/part2_002388.jpg",
+        "repeat": 0,
+        "ms": 19.131125,
+        "detections": 3
+      },
+      {
+        "image": "images/val/part2_002388.jpg",
+        "repeat": 1,
+        "ms": 18.604708,
+        "detections": 3
+      },
+      {
+        "image": "images/val/part2_001840.jpg",
+        "repeat": 1,
+        "ms": 16.922042,
+        "detections": 5
+      },
+      {
+        "image": "images/val/part2_001299.jpg",
+        "repeat": 1,
+        "ms": 15.327667,
+        "detections": 9
+      },
+      {
+        "image": "images/val/part2_000909.jpg",
+        "repeat": 1,
+        "ms": 22.423167,
+        "detections": 6
+      },
+      {
+        "image": "images/val/part2_000395.jpg",
+        "repeat": 1,
+        "ms": 17.747167,
+        "detections": 2
+      },
+      {
+        "image": "images/val/part2_000089.jpg",
+        "repeat": 1,
+        "ms": 24.03025,
+        "detections": 1
+      },
+      {
+        "image": "images/val/PartB_02200.jpg",
+        "repeat": 1,
+        "ms": 17.983209,
+        "detections": 17
+      },
+      {
+        "image": "images/val/PartB_02011.jpg",
+        "repeat": 1,
+        "ms": 19.518834,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_01753.jpg",
+        "repeat": 1,
+        "ms": 18.213084,
+        "detections": 19
+      },
+      {
+        "image": "images/val/PartB_01583.jpg",
+        "repeat": 1,
+        "ms": 19.4855,
+        "detections": 5
+      },
+      {
+        "image": "images/val/PartB_01325.jpg",
+        "repeat": 1,
+        "ms": 18.465666,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_01103.jpg",
+        "repeat": 1,
+        "ms": 47.436875,
+        "detections": 18
+      },
+      {
+        "image": "images/val/PartB_00890.jpg",
+        "repeat": 1,
+        "ms": 25.566875,
+        "detections": 22
+      },
+      {
+        "image": "images/val/PartB_00686.jpg",
+        "repeat": 1,
+        "ms": 18.519209,
+        "detections": 9
+      },
+      {
+        "image": "images/val/PartB_00482.jpg",
+        "repeat": 1,
+        "ms": 18.323375,
+        "detections": 14
+      },
+      {
+        "image": "images/val/PartB_00257.jpg",
+        "repeat": 1,
+        "ms": 18.816666,
+        "detections": 6
+      },
+      {
+        "image": "images/val/001668.jpg",
+        "repeat": 1,
+        "ms": 20.821083,
+        "detections": 1
+      },
+      {
+        "image": "images/val/001443.jpg",
+        "repeat": 1,
+        "ms": 19.468292,
+        "detections": 3
+      },
+      {
+        "image": "images/val/001188.jpg",
+        "repeat": 1,
+        "ms": 18.618083,
+        "detections": 1
+      },
+      {
+        "image": "images/val/001007.jpg",
+        "repeat": 1,
+        "ms": 23.33225,
+        "detections": 5
+      },
+      {
+        "image": "images/val/000757.jpg",
+        "repeat": 1,
+        "ms": 19.426791,
+        "detections": 1
+      },
+      {
+        "image": "images/val/000478.jpg",
+        "repeat": 1,
+        "ms": 21.598875,
+        "detections": 1
+      },
+      {
+        "image": "images/val/000258.jpg",
+        "repeat": 1,
+        "ms": 20.667625,
+        "detections": 4
+      },
+      {
+        "image": "images/val/000022.jpg",
+        "repeat": 1,
+        "ms": 19.708959,
+        "detections": 1
+      }
+    ],
+    "requested_torch_threads": 4,
+    "torch_threads": 8,
+    "thread_note": "Ultralytics select_device resets torch threads during CPU setup. Record effective value after warmup; all timed calls assert the same value.",
+    "machine": "macOS-26.6-arm64-arm-64bit-Mach-O",
+    "device": "cpu",
+    "cuda_vram_measured": false,
+    "scope": "CPU resident-model single-image wall time including disk image decoding, prediction, fusion and final filtering; excludes model loading, rendering, saving, UI/network. 8 effective threads. Warm filesystem cache.",
+    "fusion_outputs_match_evaluation": true,
+    "selection_sha256": "bbc461c6692b378c90bbef6d413f1944892f75dce68933085f081567fd7115b5",
+    "script_sha256": "cce05e79cbc26d77a56b63236e703a40722c2cf359c44efb453b5604d36088f5"
+  },
+  "ensemble_wbf": {
+    "method": "ensemble_wbf",
+    "sample_images": 24,
+    "timed_calls": 48,
+    "mean_ms": 53.91028129166667,
+    "median_ms": 48.9274585,
+    "p95_ms": 70.03495459999999,
+    "throughput_images_per_second": 18.549337455499007,
+    "process_peak_rss_mib": 1055.640625,
+    "rss_scope": "whole isolated Python process including imports, warmup and consistency checks; CPU RAM, not VRAM",
+    "records": [
+      {
+        "image": "images/val/000022.jpg",
+        "repeat": 0,
+        "ms": 49.105375,
+        "detections": 3
+      },
+      {
+        "image": "images/val/000258.jpg",
+        "repeat": 0,
+        "ms": 49.821541,
+        "detections": 3
+      },
+      {
+        "image": "images/val/000478.jpg",
+        "repeat": 0,
+        "ms": 52.014833,
+        "detections": 1
+      },
+      {
+        "image": "images/val/000757.jpg",
+        "repeat": 0,
+        "ms": 48.243,
+        "detections": 1
+      },
+      {
+        "image": "images/val/001007.jpg",
+        "repeat": 0,
+        "ms": 60.086792,
+        "detections": 5
+      },
+      {
+        "image": "images/val/001188.jpg",
+        "repeat": 0,
+        "ms": 47.08625,
+        "detections": 1
+      },
+      {
+        "image": "images/val/001443.jpg",
+        "repeat": 0,
+        "ms": 48.066416,
+        "detections": 3
+      },
+      {
+        "image": "images/val/001668.jpg",
+        "repeat": 0,
+        "ms": 50.007084,
+        "detections": 1
+      },
+      {
+        "image": "images/val/PartB_00257.jpg",
+        "repeat": 0,
+        "ms": 47.930125,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_00482.jpg",
+        "repeat": 0,
+        "ms": 51.997,
+        "detections": 14
+      },
+      {
+        "image": "images/val/PartB_00686.jpg",
+        "repeat": 0,
+        "ms": 52.687292,
+        "detections": 9
+      },
+      {
+        "image": "images/val/PartB_00890.jpg",
+        "repeat": 0,
+        "ms": 64.158084,
+        "detections": 23
+      },
+      {
+        "image": "images/val/PartB_01103.jpg",
+        "repeat": 0,
+        "ms": 109.834792,
+        "detections": 20
+      },
+      {
+        "image": "images/val/PartB_01325.jpg",
+        "repeat": 0,
+        "ms": 63.645792,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_01583.jpg",
+        "repeat": 0,
+        "ms": 48.173292,
+        "detections": 5
+      },
+      {
+        "image": "images/val/PartB_01753.jpg",
+        "repeat": 0,
+        "ms": 48.325791,
+        "detections": 18
+      },
+      {
+        "image": "images/val/PartB_02011.jpg",
+        "repeat": 0,
+        "ms": 48.42275,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_02200.jpg",
+        "repeat": 0,
+        "ms": 46.763375,
+        "detections": 16
+      },
+      {
+        "image": "images/val/part2_000089.jpg",
+        "repeat": 0,
+        "ms": 68.976375,
+        "detections": 1
+      },
+      {
+        "image": "images/val/part2_000395.jpg",
+        "repeat": 0,
+        "ms": 40.578375,
+        "detections": 2
+      },
+      {
+        "image": "images/val/part2_000909.jpg",
+        "repeat": 0,
+        "ms": 56.021042,
+        "detections": 7
+      },
+      {
+        "image": "images/val/part2_001299.jpg",
+        "repeat": 0,
+        "ms": 35.148583,
+        "detections": 9
+      },
+      {
+        "image": "images/val/part2_001840.jpg",
+        "repeat": 0,
+        "ms": 42.529708,
+        "detections": 5
+      },
+      {
+        "image": "images/val/part2_002388.jpg",
+        "repeat": 0,
+        "ms": 48.199792,
+        "detections": 3
+      },
+      {
+        "image": "images/val/part2_002388.jpg",
+        "repeat": 1,
+        "ms": 47.591542,
+        "detections": 3
+      },
+      {
+        "image": "images/val/part2_001840.jpg",
+        "repeat": 1,
+        "ms": 42.418625,
+        "detections": 5
+      },
+      {
+        "image": "images/val/part2_001299.jpg",
+        "repeat": 1,
+        "ms": 35.000709,
+        "detections": 9
+      },
+      {
+        "image": "images/val/part2_000909.jpg",
+        "repeat": 1,
+        "ms": 57.159083,
+        "detections": 7
+      },
+      {
+        "image": "images/val/part2_000395.jpg",
+        "repeat": 1,
+        "ms": 40.341666,
+        "detections": 2
+      },
+      {
+        "image": "images/val/part2_000089.jpg",
+        "repeat": 1,
+        "ms": 63.583042,
+        "detections": 1
+      },
+      {
+        "image": "images/val/PartB_02200.jpg",
+        "repeat": 1,
+        "ms": 47.4005,
+        "detections": 16
+      },
+      {
+        "image": "images/val/PartB_02011.jpg",
+        "repeat": 1,
+        "ms": 48.411292,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_01753.jpg",
+        "repeat": 1,
+        "ms": 47.730875,
+        "detections": 18
+      },
+      {
+        "image": "images/val/PartB_01583.jpg",
+        "repeat": 1,
+        "ms": 48.887042,
+        "detections": 5
+      },
+      {
+        "image": "images/val/PartB_01325.jpg",
+        "repeat": 1,
+        "ms": 44.319,
+        "detections": 6
+      },
+      {
+        "image": "images/val/PartB_01103.jpg",
+        "repeat": 1,
+        "ms": 145.391834,
+        "detections": 20
+      },
+      {
+        "image": "images/val/PartB_00890.jpg",
+        "repeat": 1,
+        "ms": 62.752,
+        "detections": 23
+      },
+      {
+        "image": "images/val/PartB_00686.jpg",
+        "repeat": 1,
+        "ms": 52.57925,
+        "detections": 9
+      },
+      {
+        "image": "images/val/PartB_00482.jpg",
+        "repeat": 1,
+        "ms": 52.311333,
+        "detections": 14
+      },
+      {
+        "image": "images/val/PartB_00257.jpg",
+        "repeat": 1,
+        "ms": 52.998416,
+        "detections": 6
+      },
+      {
+        "image": "images/val/001668.jpg",
+        "repeat": 1,
+        "ms": 70.604959,
+        "detections": 1
+      },
+      {
+        "image": "images/val/001443.jpg",
+        "repeat": 1,
+        "ms": 48.871542,
+        "detections": 3
+      },
+      {
+        "image": "images/val/001188.jpg",
+        "repeat": 1,
+        "ms": 46.738125,
+        "detections": 1
+      },
+      {
+        "image": "images/val/001007.jpg",
+        "repeat": 1,
+        "ms": 56.961334,
+        "detections": 5
+      },
+      {
+        "image": "images/val/000757.jpg",
+        "repeat": 1,
+        "ms": 48.574291,
+        "detections": 1
+      },
+      {
+        "image": "images/val/000478.jpg",
+        "repeat": 1,
+        "ms": 50.625458,
+        "detections": 1
+      },
+      {
+        "image": "images/val/000258.jpg",
+        "repeat": 1,
+        "ms": 49.65025,
+        "detections": 3
+      },
+      {
+        "image": "images/val/000022.jpg",
+        "repeat": 1,
+        "ms": 48.967875,
+        "detections": 3
+      }
+    ],
+    "requested_torch_threads": 4,
+    "torch_threads": 8,
+    "thread_note": "Ultralytics select_device resets torch threads during CPU setup. Record effective value after warmup; all timed calls assert the same value.",
+    "machine": "macOS-26.6-arm64-arm-64bit-Mach-O",
+    "device": "cpu",
+    "cuda_vram_measured": false,
+    "scope": "CPU resident-model single-image wall time including disk image decoding, prediction, fusion and final filtering; excludes model loading, rendering, saving, UI/network. 8 effective threads. Warm filesystem cache.",
+    "fusion_outputs_match_evaluation": true,
+    "selection_sha256": "bbc461c6692b378c90bbef6d413f1944892f75dce68933085f081567fd7115b5",
+    "script_sha256": "cce05e79cbc26d77a56b63236e703a40722c2cf359c44efb453b5604d36088f5"
+  }
+}

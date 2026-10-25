@@ -1,0 +1,11 @@
+{
+  "parent_config": "models/configs/helmet_yolov8n_p2.yaml",
+  "parent_config_sha256": "0a23f0a4ec217ed375b33fac9ed0a2d842ec1943f387427b26800520f13dd4e1",
+  "config": "models/configs/helmet_yolov8n_p2_cbam.yaml",
+  "config_sha256": "8684dee3f7c199a7b4d19e701c5a02ae1b0c2b3c5460cbbc51d4b3a229a4a24d",
+  "paper": "https://openaccess.thecvf.com/content_ECCV_2018/html/Sanghyun_Woo_Convolutional_Block_Attention_ECCV_2018_paper.html",
+  "reference_code": "https://github.com/Jongchan/attention-module/blob/master/MODELS/cbam.py",
+  "implementation": "Independent paper-mechanism implementation: avg+max shared biased MLP (1x1 convolution equivalent), reduction 16; channel then spatial; spatial max+mean, 7x7 convolution without BN. Not byte-identical to author code; author spatial gate includes BN. Not the Ultralytics avg-only channel gate.",
+  "ultralytics_checked": "8.4.164",
+  "status": "structure_only_not_trained"
+}

@@ -7,10 +7,15 @@ from workflow import ROOT
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description='安全帽训练：--variant standard/p2，--profile baseline640/highres960；其余参数见 run.py --help')
+    parser = argparse.ArgumentParser(description='安全帽训练：--variant standard/p2/p2_cbam，--profile baseline640/highres960；其余参数见 run.py --help')
     parser.add_argument('--profile', choices=['baseline640', 'highres960'], default='baseline640')
-    parser.add_argument('--variant', choices=['standard', 'p2'], default='standard')
+    parser.add_argument('--variant', choices=['standard', 'p2', 'p2_cbam'], default='standard')
     profile, extra = parser.parse_known_args(sys.argv[1:] if argv is None else argv)
+    if profile.variant == 'p2_cbam':
+        if profile.profile != 'baseline640':
+            parser.error('P2+CBAM 正式对照固定640输入，不接受highres960')
+        from train_p2_cbam import main as cbam_main
+        return cbam_main(extra)
     if any(arg.split('=')[0] in ('--model', '--pretrained') for arg in extra):
         parser.error('此入口固定 standard/P2 结构与官方初始化；自定义模型请使用 run.py')
     registry = ROOT/'datasets/current_training_dataset.json'

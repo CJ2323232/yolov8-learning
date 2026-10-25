@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "models": {
+    "standard": {
+      "path": "runs2/helmet_standard_isolated_640_windows/weights/best.pt",
+      "sha256": "15dd7f9b51930a6a4a03cbf0b9d86092fbaa1938c70c2167035bb767d5bc9b8b"
+    },
+    "p2": {
+      "path": "runs2/helmet_p2_isolated_640_windows/weights/best.pt",
+      "sha256": "c6322674f5ddda41b2354551d283d8fb386a3be1e56a1d50666b29d2a2f70e23"
+    }
+  },
+  "thresholds": {
+    "standard": 0.29,
+    "p2": 0.25,
+    "ensemble_nms": 0.3,
+    "ensemble_wbf": 0.17
+  },
+  "input_confidence": 0.01,
+  "fusion_iou": 0.55,
+  "wbf_output_floor": 0.005,
+  "max_det": 300,
+  "per_model_nms_iou": 0.7,
+  "imgsz": 640,
+  "selection_source": "error_analysis/fusion_operating_point_2026-10-24/selection.json",
+  "dataset_manifest_sha256": "5781ecdffa173010f539189b15565220f5e2ac597b5f8ea72f5cf7b1e8bf63e4"
+}

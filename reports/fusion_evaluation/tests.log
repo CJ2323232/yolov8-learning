@@ -1,0 +1,10 @@
+test_other_class_cannot_match_and_counts_conserve (test_experiment.EvaluationTests.test_other_class_cannot_match_and_counts_conserve) ... ok
+test_selection_respects_budget_and_tie_breaks (test_experiment.EvaluationTests.test_selection_respects_budget_and_tie_breaks) ... ok
+test_threshold_prefix_reproduces_full_rematching (test_experiment.EvaluationTests.test_threshold_prefix_reproduces_full_rematching) ... ok
+test_wbf_keeps_low_score_singleton_before_final_threshold (test_experiment.EvaluationTests.test_wbf_keeps_low_score_singleton_before_final_threshold) ... ok
+test_zero_area_boundary_box_filtered_but_invalid_boxes_rejected (test_experiment.EvaluationTests.test_zero_area_boundary_box_filtered_but_invalid_boxes_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
