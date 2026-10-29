@@ -1,0 +1,427 @@
+{
+  "created_at_utc": "2026-10-28T12:34:52.148171+00:00",
+  "scope": "post_hoc_completion_on_existing_previously_explored_test_set",
+  "prior_knowledge": "Five model overall validation and GPU test scores were already known. Freeze this completion protocol before size/fixed-conf analysis and latency; not a preregistered blind evaluation.",
+  "dataset": {
+    "status": "exact_duplicates_removed_conflicts_quarantined",
+    "manifest_sha256": "5781ecdffa173010f539189b15565220f5e2ac597b5f8ea72f5cf7b1e8bf63e4",
+    "images": 7507,
+    "difficult_policy": "include_as_ordinary",
+    "scene_independence": "retrieved_risks_isolated_not_exhaustive",
+    "isolation_constraints_sha256": "afcacf6d160443637813879f37f4b6d507a05c75c9941c2271ebe8c500766efb",
+    "review_decisions_sha256": "86a47e191957f5abc0be1099629ba680f68d1703a718008c149a72fad4e83887"
+  },
+  "models": [
+    {
+      "id": "01_standard",
+      "label": "标准版",
+      "source": "run/helmet_standard_isolated_640_windows",
+      "best_sha256": "15dd7f9b51930a6a4a03cbf0b9d86092fbaa1938c70c2167035bb767d5bc9b8b",
+      "last_sha256": "5afdbe8cc7cd71178120c4c3e5e38f1c932ef4246b471c53aa10cce258a50614",
+      "results_csv_sha256": "bd5a8bc43875980a42188048308ec6a7771cd874be39ebdea54f58ba5c91c077",
+      "epochs": 50,
+      "best_epoch": 40,
+      "training_parameter_checks": 67,
+      "training_parameter_differences": {},
+      "code_files_verified": [],
+      "validation_map50_95": 0.60244,
+      "test_map50": 0.8674150882276288,
+      "test_map50_95": 0.5757454172867924,
+      "historical_remaining_state_equal": null,
+      "cbam_initial_state_sha256": null,
+      "checkpoint_structure": {
+        "parameters": 3011238,
+        "strides": [
+          8.0,
+          16.0,
+          32.0
+        ],
+        "cbam": [],
+        "forward_input": [
+          1,
+          3,
+          640,
+          640
+        ],
+        "forward_output": [
+          1,
+          6,
+          8400
+        ],
+        "finite_output": true,
+        "mode": "cpu_float32_eval",
+        "optimizer_steps": 0
+      }
+    },
+    {
+      "id": "02_standard_P3_CBAM",
+      "label": "标准版+P3-CBAM",
+      "source": "run/helmet_standard_p3_cbam_isolated_640_windows",
+      "best_sha256": "8dec06cfff37c47b2ab933dc2dbd7a1f90ffec23fcdad25443bcb151e4117ab0",
+      "last_sha256": "b50b8a4bdbf22dc232faf8071493ce4f13f049ab34aca247d4e72f6c557af722",
+      "results_csv_sha256": "d4b479339721b174ca02652ebdbadf57f35c6d74b8d915e97039f05c16c92482",
+      "epochs": 50,
+      "best_epoch": 46,
+      "training_parameter_checks": 67,
+      "training_parameter_differences": {},
+      "code_files_verified": [
+        "tools/p3_cbam_standard/spec.json",
+        "tools/p3_cbam_standard/train.py",
+        "tools/p3_cbam_standard/model.py",
+        "tools/p3_cbam_standard/check.py",
+        "tools/p3_cbam_standard/helmet_yolov8n_standard_p3_cbam.yaml",
+        "tools/p3_cbam_standard/sources.json",
+        "tools/p3_cbam_standard/protocol.json",
+        "helmet_cbam.py",
+        "helmet_models.py",
+        "workflow.py",
+        "models/configs/helmet_yolov8n.yaml",
+        "models/configs/sources.json",
+        "tools/p3_cbam_standard/reference_parameters.json"
+      ],
+      "validation_map50_95": 0.6045,
+      "test_map50": 0.8706354708423967,
+      "test_map50_95": 0.5756212825820956,
+      "historical_remaining_state_equal": false,
+      "cbam_initial_state_sha256": "96bea8895f1d3d4df1f805aa20cefdd5def9e9e524322ec99fae24be0e3724a9",
+      "checkpoint_structure": {
+        "parameters": 3011916,
+        "strides": [
+          8.0,
+          16.0,
+          32.0
+        ],
+        "cbam": [
+          {
+            "index": 22,
+            "from": 15,
+            "channels": 64,
+            "parameters": 678
+          }
+        ],
+        "forward_input": [
+          1,
+          3,
+          640,
+          640
+        ],
+        "forward_output": [
+          1,
+          6,
+          8400
+        ],
+        "finite_output": true,
+        "mode": "cpu_float32_eval",
+        "optimizer_steps": 0
+      }
+    },
+    {
+      "id": "03_P2",
+      "label": "原始P2",
+      "source": "run/helmet_p2_isolated_640_windows",
+      "best_sha256": "c6322674f5ddda41b2354551d283d8fb386a3be1e56a1d50666b29d2a2f70e23",
+      "last_sha256": "51d15dc8c79f038edab6dd89b7902cc2f091751b74bcada2cf8bf343e7ee265c",
+      "results_csv_sha256": "5c2a845b83134ed02f8fa75f0e4f8c04cde290aac51b1130274faa59ad64e579",
+      "epochs": 50,
+      "best_epoch": 48,
+      "training_parameter_checks": 67,
+      "training_parameter_differences": {},
+      "code_files_verified": [],
+      "validation_map50_95": 0.61301,
+      "test_map50": 0.8678027857427824,
+      "test_map50_95": 0.5818261003278324,
+      "historical_remaining_state_equal": null,
+      "cbam_initial_state_sha256": null,
+      "checkpoint_structure": {
+        "parameters": 2926824,
+        "strides": [
+          4.0,
+          8.0,
+          16.0,
+          32.0
+        ],
+        "cbam": [],
+        "forward_input": [
+          1,
+          3,
+          640,
+          640
+        ],
+        "forward_output": [
+          1,
+          6,
+          34000
+        ],
+        "finite_output": true,
+        "mode": "cpu_float32_eval",
+        "optimizer_steps": 0
+      }
+    },
+    {
+      "id": "04_P2_P3_CBAM",
+      "label": "P2+P3-CBAM",
+      "source": "run/helmet_p2_p3_cbam_isolated_640_windows",
+      "best_sha256": "553d67ca469c2699f2ba272eb7c7423bf8c53d79e5aa05d7a3daab690a85f591",
+      "last_sha256": "97696253a18ddd4457ecf2a2d02aa1e7467f46a14064ed8a46d720512a9e1844",
+      "results_csv_sha256": "16d9b0ca43c989de48805626d531df9e141d9618427c40dbe5e5a956da9e8d82",
+      "epochs": 50,
+      "best_epoch": 39,
+      "training_parameter_checks": 67,
+      "training_parameter_differences": {},
+      "code_files_verified": [
+        "tools/p3_cbam_p2/spec.json",
+        "tools/p3_cbam_p2/train.py",
+        "tools/p3_cbam_p2/model.py",
+        "tools/p3_cbam_p2/check.py",
+        "tools/p3_cbam_p2/helmet_yolov8n_p2_p3_cbam.yaml",
+        "tools/p3_cbam_p2/sources.json",
+        "tools/p3_cbam_p2/protocol.json",
+        "helmet_cbam.py",
+        "helmet_models.py",
+        "workflow.py",
+        "models/configs/helmet_yolov8n_p2.yaml",
+        "models/configs/sources.json",
+        "tools/p3_cbam_p2/reference_parameters.json"
+      ],
+      "validation_map50_95": 0.60962,
+      "test_map50": 0.8768928808361376,
+      "test_map50_95": 0.5841023868231923,
+      "historical_remaining_state_equal": true,
+      "cbam_initial_state_sha256": "96bea8895f1d3d4df1f805aa20cefdd5def9e9e524322ec99fae24be0e3724a9",
+      "checkpoint_structure": {
+        "parameters": 2927502,
+        "strides": [
+          4.0,
+          8.0,
+          16.0,
+          32.0
+        ],
+        "cbam": [
+          {
+            "index": 28,
+            "from": 21,
+            "channels": 64,
+            "parameters": 678
+          }
+        ],
+        "forward_input": [
+          1,
+          3,
+          640,
+          640
+        ],
+        "forward_output": [
+          1,
+          6,
+          34000
+        ],
+        "finite_output": true,
+        "mode": "cpu_float32_eval",
+        "optimizer_steps": 0
+      }
+    },
+    {
+      "id": "05_P2_P2_CBAM",
+      "label": "P2+P2-CBAM",
+      "source": "run/helmet_p2_cbam_isolated_640_windows",
+      "best_sha256": "4349cd89a8bfd8b26b4fbe6f45cd588e2cd7f34f4c78835ee98f424bf2491ecb",
+      "last_sha256": "2c9dac80517cb7602769a5bd618a1d90b448497748336646ba7e85b5265eb461",
+      "results_csv_sha256": "329afa17792f500500934bdfa0e109297828b4b277d36b241e50d51d959085e0",
+      "epochs": 50,
+      "best_epoch": 44,
+      "training_parameter_checks": 67,
+      "training_parameter_differences": {},
+      "code_files_verified": [],
+      "validation_map50_95": 0.608,
+      "test_map50": 0.8701920449456622,
+      "test_map50_95": 0.5753219450105707,
+      "historical_remaining_state_equal": null,
+      "cbam_initial_state_sha256": "43629c43e03c366dc3a62cbfdc0e24cd55948ee5914b90f23df014c232121334",
+      "checkpoint_structure": {
+        "parameters": 2927084,
+        "strides": [
+          4.0,
+          8.0,
+          16.0,
+          32.0
+        ],
+        "cbam": [
+          {
+            "index": 28,
+            "from": 18,
+            "channels": 32,
+            "parameters": 260
+          }
+        ],
+        "forward_input": [
+          1,
+          3,
+          640,
+          640
+        ],
+        "forward_output": [
+          1,
+          6,
+          34000
+        ],
+        "finite_output": true,
+        "mode": "cpu_float32_eval",
+        "optimizer_steps": 0
+      }
+    }
+  ],
+  "fixed_confidence": 0.25,
+  "matching_iou": 0.5,
+  "prediction": {
+    "imgsz": 640,
+    "conf": 0.001,
+    "iou": 0.7,
+    "max_det": 300,
+    "rect": true,
+    "half": false,
+    "batch": 1,
+    "device": "cpu",
+    "augment": false,
+    "save": false,
+    "verbose": false
+  },
+  "size_ap": {
+    "implementation": "pycocotools2.0.11 official COCOeval bbox",
+    "area": "original-image GT box width*height, no input-resize scaling",
+    "ranges": "official inclusive [0,32²], [32²,96²], [96²,1e10]; exact boundary belongs to adjacent ranges",
+    "maxDets": [
+      1,
+      10,
+      300
+    ],
+    "iou": ".50:.05:.95",
+    "recall_grid": "101 points",
+    "names": "COCO bbox AP@300, not standard COCO AP@100 or Ultralytics GPU AP",
+    "ignore": "official area ignore and unmatched-detection-area rules; never filter GT before matching"
+  },
+  "fixed_metrics": {
+    "matching": "existing project stable score-ordered class-aware one-to-one IoU>=.5; all GT before GT-size grouping",
+    "overall": "micro TP/FP/FN/P/R/F1 at conf=.25",
+    "sizes": "disjoint original-area groups: <32², [32²,96²), >=96²; no size-specific FP/P because unmatched detections have no GT size",
+    "short_side": "GT short side * 640/max(original_width,original_height); bins <8,8–16,16–32,>=32; cumulative helmet<16 as tiny-head proxy, not measured distance",
+    "labels": "hat=helmeted head, person=bare head; difficult treated as ordinary; unmatched predictions can include missing labels"
+  },
+  "benchmark": {
+    "split": "val",
+    "images": [
+      "images/val/000022.jpg",
+      "images/val/000195.jpg",
+      "images/val/000382.jpg",
+      "images/val/000512.jpg",
+      "images/val/000729.jpg",
+      "images/val/000953.jpg",
+      "images/val/001086.jpg",
+      "images/val/001236.jpg",
+      "images/val/001431.jpg",
+      "images/val/001610.jpg",
+      "images/val/PartB_00077.jpg",
+      "images/val/PartB_00306.jpg",
+      "images/val/PartB_00468.jpg",
+      "images/val/PartB_00624.jpg",
+      "images/val/PartB_00749.jpg",
+      "images/val/PartB_00932.jpg",
+      "images/val/PartB_01078.jpg",
+      "images/val/PartB_01229.jpg",
+      "images/val/PartB_01423.jpg",
+      "images/val/PartB_01593.jpg",
+      "images/val/PartB_01730.jpg",
+      "images/val/PartB_01906.jpg",
+      "images/val/PartB_02072.jpg",
+      "images/val/PartB_02230.jpg",
+      "images/val/PartB_02396.jpg",
+      "images/val/part2_000286.jpg",
+      "images/val/part2_000567.jpg",
+      "images/val/part2_000936.jpg",
+      "images/val/part2_001204.jpg",
+      "images/val/part2_001593.jpg",
+      "images/val/part2_001946.jpg",
+      "images/val/part2_002388.jpg"
+    ],
+    "images_per_model": 32,
+    "rounds": 5,
+    "warmup_calls_per_model": 5,
+    "threads": 8,
+    "interop_threads": 1,
+    "opencv_threads": 1,
+    "device": "cpu",
+    "precision": "FP32",
+    "batch": 1,
+    "conf": 0.25,
+    "order": "rotate five model order once per round; identical seeded shuffled image order for each model within round",
+    "seed": 20261028,
+    "core": "resident model: read/decode image, RGB conversion, preprocess, forward, NMS, copy boxes and class counting",
+    "rendered": "core plus prediction drawing and PNG encoding in memory (compression3)",
+    "excluded": "model import/loading, UI/browser/network, disk output and concurrent user work; filesystem caches are warm",
+    "stability": "report 5 round means, median, P95 and coefficient of variation; not multi-seed training stability",
+    "cold_start": "model constructor loading time separately, not whole application cold-start"
+  },
+  "uncertainty": {
+    "resamples": 2000,
+    "seed": 20261028,
+    "unit": "retrieved-risk group_id, paired model results; groups may not be exhaustive true independent scenes",
+    "quantities": "microF1 and helmet recall differences; uncertainty conditional on single trained models, not repeated-training evidence"
+  },
+  "selection_policy": "Existing P2 remains the reference deployment candidate. Describe Pareto tradeoffs across fixed-conf F1, helmet precision/recall, size metrics and CPU latency; do not claim a tiny test AP gain guarantees a better system. No new threshold search or checkpoint selection on test; any recommendation is retrospective, not a new blind proof.",
+  "environment": {
+    "python": "3.14.7",
+    "platform": "macOS-26.6-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "torch": "2.14.0",
+    "ultralytics": "8.4.164",
+    "numpy": "2.5.3",
+    "pycocotools": "2.0.11"
+  },
+  "metric_library_files": {
+    "metrics_dependencies/pycocotools/coco.py": "4a234fc502c6e622f044747312d6a696652545f527e766c98bedf5aa4ca77f41",
+    "metrics_dependencies/pycocotools/mask.py": "4d4788f995971c97c5548f0bd19941f6ec1faaf5d0d7fb6ec489256ff872c617",
+    "metrics_dependencies/pycocotools/_mask.abi3.so": "fc9679e7615c67c01b51ec7792c2633ba5cda4f793524ffbb22012ab5143c087",
+    "metrics_dependencies/pycocotools/__init__.py": "d02e91fe125b82e6e5f0642b897f7439094506d06f32771b40d00170deb8eae1",
+    "metrics_dependencies/pycocotools/cocoeval.py": "988485f79624cd42ceed9335d284df4cdcdf7b3d583e052fcbed2dd6bccf0267"
+  },
+  "protected_sources": {
+    "tools/final_evaluation/evaluate.py": "7d0c53c33f7934f9cf87ac85789686e2263529d6bfd7aac840046ffef33bab99",
+    "helmet_cbam.py": "ddba103489aacaf223dfee4f353ae3cf6511a208456188b3cbc084b097e55d2f",
+    "analyze_detection_errors.py": "edfd97f11cd970597c6e71705df0300a1b64bcde43ad2b5c1f5303e4ce6261d7",
+    "workflow.py": "41f2d970f153a2d0bc43d09a2d7279159601a280456e5262e003309eea97c95b",
+    "run/helmet_standard_isolated_640_windows/weights/best.pt": "15dd7f9b51930a6a4a03cbf0b9d86092fbaa1938c70c2167035bb767d5bc9b8b",
+    "run/helmet_standard_isolated_640_windows/weights/last.pt": "5afdbe8cc7cd71178120c4c3e5e38f1c932ef4246b471c53aa10cce258a50614",
+    "run/helmet_standard_isolated_640_windows/results.csv": "bd5a8bc43875980a42188048308ec6a7771cd874be39ebdea54f58ba5c91c077",
+    "run/helmet_standard_isolated_640_windows/effective_args.json": "bc56bd2335ecff744bddfed2b2e0eaacabde94753cacd37b4dae759b291ccfba",
+    "run/helmet_standard_isolated_640_windows/initialization.json": "de9f7a2e98917975c83cf1b895f1650367e32ef41ae146dbf3a1fa9aad78eb44",
+    "run/helmet_standard_isolated_640_windows/input_identity.json": "f8443e5d2b0472c6729c3c3565fbaef1d6b13ce93102d5b02283c4361e2c3321",
+    "run/helmet_standard_p3_cbam_isolated_640_windows/weights/best.pt": "8dec06cfff37c47b2ab933dc2dbd7a1f90ffec23fcdad25443bcb151e4117ab0",
+    "run/helmet_standard_p3_cbam_isolated_640_windows/weights/last.pt": "b50b8a4bdbf22dc232faf8071493ce4f13f049ab34aca247d4e72f6c557af722",
+    "run/helmet_standard_p3_cbam_isolated_640_windows/results.csv": "d4b479339721b174ca02652ebdbadf57f35c6d74b8d915e97039f05c16c92482",
+    "run/helmet_standard_p3_cbam_isolated_640_windows/effective_args.json": "2afd84bb77ac7db1005f214a03280c8cb9dbda2ee96b14cda44aa64f87e59fd0",
+    "run/helmet_standard_p3_cbam_isolated_640_windows/initialization.json": "def0ce5c0f51ff46c55f35c7bded254e3aa924d5fd304e157deb6ee5e0866acc",
+    "run/helmet_standard_p3_cbam_isolated_640_windows/input_identity.json": "1a49fa3fa7e8e7e266859dffe5d1edcf2c6364d7adad190f3d69578248a3fab6",
+    "run/helmet_p2_isolated_640_windows/weights/best.pt": "c6322674f5ddda41b2354551d283d8fb386a3be1e56a1d50666b29d2a2f70e23",
+    "run/helmet_p2_isolated_640_windows/weights/last.pt": "51d15dc8c79f038edab6dd89b7902cc2f091751b74bcada2cf8bf343e7ee265c",
+    "run/helmet_p2_isolated_640_windows/results.csv": "5c2a845b83134ed02f8fa75f0e4f8c04cde290aac51b1130274faa59ad64e579",
+    "run/helmet_p2_isolated_640_windows/effective_args.json": "e366c4edec58e74b31683bdf206ae8e9457962625c902fc29926343515c2dfdd",
+    "run/helmet_p2_isolated_640_windows/initialization.json": "221250cd1633c55dabdcccd0e2db2f42da1c59dbdb6b65b57b273a4463e77566",
+    "run/helmet_p2_isolated_640_windows/input_identity.json": "7843b3e7c7e55de3d9e05024e69b3b39b75e4c01922b5792fc5d637d2ff7a357",
+    "run/helmet_p2_p3_cbam_isolated_640_windows/weights/best.pt": "553d67ca469c2699f2ba272eb7c7423bf8c53d79e5aa05d7a3daab690a85f591",
+    "run/helmet_p2_p3_cbam_isolated_640_windows/weights/last.pt": "97696253a18ddd4457ecf2a2d02aa1e7467f46a14064ed8a46d720512a9e1844",
+    "run/helmet_p2_p3_cbam_isolated_640_windows/results.csv": "16d9b0ca43c989de48805626d531df9e141d9618427c40dbe5e5a956da9e8d82",
+    "run/helmet_p2_p3_cbam_isolated_640_windows/effective_args.json": "79b6ed6cbcdcc9d2ce542e8b8d5a2edb7673610af5d61b4bdac0bca0b4911b8a",
+    "run/helmet_p2_p3_cbam_isolated_640_windows/initialization.json": "2184f130bc6548c8894fcf77e32e74c478f26f0e53bb288c5a139c16cf4b76d9",
+    "run/helmet_p2_p3_cbam_isolated_640_windows/input_identity.json": "a5e3bc2a484848147f042df34cd2dcad751d274a16960e7c8c376cc15b759037",
+    "run/helmet_p2_cbam_isolated_640_windows/weights/best.pt": "4349cd89a8bfd8b26b4fbe6f45cd588e2cd7f34f4c78835ee98f424bf2491ecb",
+    "run/helmet_p2_cbam_isolated_640_windows/weights/last.pt": "2c9dac80517cb7602769a5bd618a1d90b448497748336646ba7e85b5265eb461",
+    "run/helmet_p2_cbam_isolated_640_windows/results.csv": "329afa17792f500500934bdfa0e109297828b4b277d36b241e50d51d959085e0",
+    "run/helmet_p2_cbam_isolated_640_windows/effective_args.json": "d7ed4b4bfb1b7a296d7a9cc1845a6cc27c067e90099f58c401eca285c50d747f",
+    "run/helmet_p2_cbam_isolated_640_windows/initialization.json": "0090bc92edd3f93d4849bd1064f46897536f711c402fb5e89b20dced512de0c7",
+    "run/helmet_p2_cbam_isolated_640_windows/input_identity.json": "7d7fc3d877febff24993d9630555633c850ced0269d4dd8470101bdf1f2c3542"
+  },
+  "evaluation_script_sha256": "7d0c53c33f7934f9cf87ac85789686e2263529d6bfd7aac840046ffef33bab99",
+  "optimizer_steps": 0,
+  "references": [
+    "https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocotools/cocoeval.py"
+  ]
+}

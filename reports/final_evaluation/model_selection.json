@@ -1,0 +1,21 @@
+{
+  "recommended_model": "03_P2",
+  "recommended_confidence": 0.25,
+  "no_runtime_registry_change": true,
+  "reason": "P2 retains the best validation AP and highest micro F1 at the common .25 operating point; P3-CBAM recovers20 more targets but produces142 more unmatched predictions, including45 more helmet predictions. CPU speeds are close; do not claim a meaningful speed/stability advantage.",
+  "p3_cbam_minus_p2": {
+    "tp": 20,
+    "fp": 142,
+    "fn": -20,
+    "micro_f1_pp": -1.023005567851154,
+    "helmet_fp": 45,
+    "helmet_tp": 2,
+    "core_mean_ratio": 1.0169311121343019
+  },
+  "limits": [
+    "Retrospective recommendation on previously used data, not a new external blind decision.",
+    "Fixedconf.25 is a common diagnostic point, not evidence of best achievable calibration for every model.",
+    "No repeated training seeds or independent hardware benchmark; runtime variation is not training stability.",
+    "Recommendation retained as documentation; application code and thresholds are unchanged."
+  ]
+}

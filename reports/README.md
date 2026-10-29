@@ -2,13 +2,15 @@
 
 ## 当前实验入口
 
+**2026-10-28：五组50轮、尺寸AP、共同conf=.25与CPU完整处理计时均已完成，当前推荐P2。** [最终评价与模型选择](final_evaluation/README.md)。
+
 | 阶段 | 报告 | 状态 |
 |---|---|---|
 | 数据治理 | [分组隔离](scene_isolation/README.md) · [基线变化](baseline_evolution.md) | 已完成已检索风险隔离，未知关系仍可能存在 |
 | 标准 / P2 | [50轮训练对照](p2_training_comparison/README.md) | 单次运行，设备迁移差异已披露 |
 | SAHI | [切片消融与修复](sahi_evaluation.md) | 已完成，未作为默认方案 |
 | 融合 | [验证选阈值、冻结测试与速度](fusion_evaluation/README.md) | 已完成，无新训练 |
-| P2＋CBAM | [结构](../docs/P2_CBAM.md) · [正式训练入口](../docs/P2_CBAM_TRAINING.md) | 准备完成，尚未训练 |
+| 五组P2/CBAM结构对照 | [完整结果、尺寸与固定工作点](final_evaluation/README.md) | 五组已训练评价；负结果保留，当前推荐P2 |
 
 ## 历史记录及范围
 

@@ -1,0 +1,276 @@
+{
+  "date": "2026-10-28",
+  "status": "passed",
+  "records": [
+    {
+      "id": "01_standard",
+      "label": "标准版",
+      "source": "run/helmet_standard_isolated_640_windows",
+      "best_sha256": "15dd7f9b51930a6a4a03cbf0b9d86092fbaa1938c70c2167035bb767d5bc9b8b",
+      "last_sha256": "5afdbe8cc7cd71178120c4c3e5e38f1c932ef4246b471c53aa10cce258a50614",
+      "results_csv_sha256": "bd5a8bc43875980a42188048308ec6a7771cd874be39ebdea54f58ba5c91c077",
+      "epochs": 50,
+      "best_epoch": 40,
+      "training_parameter_checks": 67,
+      "training_parameter_differences": {},
+      "code_files_verified": [],
+      "validation_map50_95": 0.60244,
+      "test_map50": 0.8674150882276288,
+      "test_map50_95": 0.5757454172867924,
+      "historical_remaining_state_equal": null,
+      "cbam_initial_state_sha256": null,
+      "checkpoint_structure": {
+        "parameters": 3011238,
+        "strides": [
+          8.0,
+          16.0,
+          32.0
+        ],
+        "cbam": [],
+        "forward_input": [
+          1,
+          3,
+          640,
+          640
+        ],
+        "forward_output": [
+          1,
+          6,
+          8400
+        ],
+        "finite_output": true,
+        "mode": "cpu_float32_eval",
+        "optimizer_steps": 0
+      }
+    },
+    {
+      "id": "02_standard_P3_CBAM",
+      "label": "标准版+P3-CBAM",
+      "source": "run/helmet_standard_p3_cbam_isolated_640_windows",
+      "best_sha256": "8dec06cfff37c47b2ab933dc2dbd7a1f90ffec23fcdad25443bcb151e4117ab0",
+      "last_sha256": "b50b8a4bdbf22dc232faf8071493ce4f13f049ab34aca247d4e72f6c557af722",
+      "results_csv_sha256": "d4b479339721b174ca02652ebdbadf57f35c6d74b8d915e97039f05c16c92482",
+      "epochs": 50,
+      "best_epoch": 46,
+      "training_parameter_checks": 67,
+      "training_parameter_differences": {},
+      "code_files_verified": [
+        "tools/p3_cbam_standard/spec.json",
+        "tools/p3_cbam_standard/train.py",
+        "tools/p3_cbam_standard/model.py",
+        "tools/p3_cbam_standard/check.py",
+        "tools/p3_cbam_standard/helmet_yolov8n_standard_p3_cbam.yaml",
+        "tools/p3_cbam_standard/sources.json",
+        "tools/p3_cbam_standard/protocol.json",
+        "helmet_cbam.py",
+        "helmet_models.py",
+        "workflow.py",
+        "models/configs/helmet_yolov8n.yaml",
+        "models/configs/sources.json",
+        "tools/p3_cbam_standard/reference_parameters.json"
+      ],
+      "validation_map50_95": 0.6045,
+      "test_map50": 0.8706354708423967,
+      "test_map50_95": 0.5756212825820956,
+      "historical_remaining_state_equal": false,
+      "cbam_initial_state_sha256": "96bea8895f1d3d4df1f805aa20cefdd5def9e9e524322ec99fae24be0e3724a9",
+      "checkpoint_structure": {
+        "parameters": 3011916,
+        "strides": [
+          8.0,
+          16.0,
+          32.0
+        ],
+        "cbam": [
+          {
+            "index": 22,
+            "from": 15,
+            "channels": 64,
+            "parameters": 678
+          }
+        ],
+        "forward_input": [
+          1,
+          3,
+          640,
+          640
+        ],
+        "forward_output": [
+          1,
+          6,
+          8400
+        ],
+        "finite_output": true,
+        "mode": "cpu_float32_eval",
+        "optimizer_steps": 0
+      }
+    },
+    {
+      "id": "03_P2",
+      "label": "原始P2",
+      "source": "run/helmet_p2_isolated_640_windows",
+      "best_sha256": "c6322674f5ddda41b2354551d283d8fb386a3be1e56a1d50666b29d2a2f70e23",
+      "last_sha256": "51d15dc8c79f038edab6dd89b7902cc2f091751b74bcada2cf8bf343e7ee265c",
+      "results_csv_sha256": "5c2a845b83134ed02f8fa75f0e4f8c04cde290aac51b1130274faa59ad64e579",
+      "epochs": 50,
+      "best_epoch": 48,
+      "training_parameter_checks": 67,
+      "training_parameter_differences": {},
+      "code_files_verified": [],
+      "validation_map50_95": 0.61301,
+      "test_map50": 0.8678027857427824,
+      "test_map50_95": 0.5818261003278324,
+      "historical_remaining_state_equal": null,
+      "cbam_initial_state_sha256": null,
+      "checkpoint_structure": {
+        "parameters": 2926824,
+        "strides": [
+          4.0,
+          8.0,
+          16.0,
+          32.0
+        ],
+        "cbam": [],
+        "forward_input": [
+          1,
+          3,
+          640,
+          640
+        ],
+        "forward_output": [
+          1,
+          6,
+          34000
+        ],
+        "finite_output": true,
+        "mode": "cpu_float32_eval",
+        "optimizer_steps": 0
+      }
+    },
+    {
+      "id": "04_P2_P3_CBAM",
+      "label": "P2+P3-CBAM",
+      "source": "run/helmet_p2_p3_cbam_isolated_640_windows",
+      "best_sha256": "553d67ca469c2699f2ba272eb7c7423bf8c53d79e5aa05d7a3daab690a85f591",
+      "last_sha256": "97696253a18ddd4457ecf2a2d02aa1e7467f46a14064ed8a46d720512a9e1844",
+      "results_csv_sha256": "16d9b0ca43c989de48805626d531df9e141d9618427c40dbe5e5a956da9e8d82",
+      "epochs": 50,
+      "best_epoch": 39,
+      "training_parameter_checks": 67,
+      "training_parameter_differences": {},
+      "code_files_verified": [
+        "tools/p3_cbam_p2/spec.json",
+        "tools/p3_cbam_p2/train.py",
+        "tools/p3_cbam_p2/model.py",
+        "tools/p3_cbam_p2/check.py",
+        "tools/p3_cbam_p2/helmet_yolov8n_p2_p3_cbam.yaml",
+        "tools/p3_cbam_p2/sources.json",
+        "tools/p3_cbam_p2/protocol.json",
+        "helmet_cbam.py",
+        "helmet_models.py",
+        "workflow.py",
+        "models/configs/helmet_yolov8n_p2.yaml",
+        "models/configs/sources.json",
+        "tools/p3_cbam_p2/reference_parameters.json"
+      ],
+      "validation_map50_95": 0.60962,
+      "test_map50": 0.8768928808361376,
+      "test_map50_95": 0.5841023868231923,
+      "historical_remaining_state_equal": true,
+      "cbam_initial_state_sha256": "96bea8895f1d3d4df1f805aa20cefdd5def9e9e524322ec99fae24be0e3724a9",
+      "checkpoint_structure": {
+        "parameters": 2927502,
+        "strides": [
+          4.0,
+          8.0,
+          16.0,
+          32.0
+        ],
+        "cbam": [
+          {
+            "index": 28,
+            "from": 21,
+            "channels": 64,
+            "parameters": 678
+          }
+        ],
+        "forward_input": [
+          1,
+          3,
+          640,
+          640
+        ],
+        "forward_output": [
+          1,
+          6,
+          34000
+        ],
+        "finite_output": true,
+        "mode": "cpu_float32_eval",
+        "optimizer_steps": 0
+      }
+    },
+    {
+      "id": "05_P2_P2_CBAM",
+      "label": "P2+P2-CBAM",
+      "source": "run/helmet_p2_cbam_isolated_640_windows",
+      "best_sha256": "4349cd89a8bfd8b26b4fbe6f45cd588e2cd7f34f4c78835ee98f424bf2491ecb",
+      "last_sha256": "2c9dac80517cb7602769a5bd618a1d90b448497748336646ba7e85b5265eb461",
+      "results_csv_sha256": "329afa17792f500500934bdfa0e109297828b4b277d36b241e50d51d959085e0",
+      "epochs": 50,
+      "best_epoch": 44,
+      "training_parameter_checks": 67,
+      "training_parameter_differences": {},
+      "code_files_verified": [],
+      "validation_map50_95": 0.608,
+      "test_map50": 0.8701920449456622,
+      "test_map50_95": 0.5753219450105707,
+      "historical_remaining_state_equal": null,
+      "cbam_initial_state_sha256": "43629c43e03c366dc3a62cbfdc0e24cd55948ee5914b90f23df014c232121334",
+      "checkpoint_structure": {
+        "parameters": 2927084,
+        "strides": [
+          4.0,
+          8.0,
+          16.0,
+          32.0
+        ],
+        "cbam": [
+          {
+            "index": 28,
+            "from": 18,
+            "channels": 32,
+            "parameters": 260
+          }
+        ],
+        "forward_input": [
+          1,
+          3,
+          640,
+          640
+        ],
+        "forward_output": [
+          1,
+          6,
+          34000
+        ],
+        "finite_output": true,
+        "mode": "cpu_float32_eval",
+        "optimizer_steps": 0
+      }
+    }
+  ],
+  "test_images_verified": 508,
+  "test_objects": {
+    "0": 946,
+    "1": 3929
+  },
+  "source_files_modified": false,
+  "optimizer_steps": 0,
+  "notes": [
+    "Forward checks use CPU FP32 and zero input, not a new accuracy or speed experiment.",
+    "Standard baseline and standard P3-CBAM historical non-pretrained initial states differ.",
+    "Existing test set was previously explored; not an external blind test.",
+    "Training-completion metadata is historical; subsequent test evaluation is stored separately."
+  ]
+}

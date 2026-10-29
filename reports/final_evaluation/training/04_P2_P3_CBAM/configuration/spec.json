@@ -1,0 +1,23 @@
+{
+  "variant": "p2",
+  "feature_source": 21,
+  "cbam_index": 28,
+  "base_detect": 28,
+  "detect_index": 29,
+  "detect_inputs": [
+    18,
+    28,
+    24,
+    27
+  ],
+  "strides": [
+    4,
+    8,
+    16,
+    32
+  ],
+  "channels": 64,
+  "reduction": 16,
+  "kernel": 7,
+  "cbam_seed": 0
+}

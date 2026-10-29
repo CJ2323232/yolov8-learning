@@ -1,0 +1,21 @@
+{
+  "variant": "standard",
+  "feature_source": 15,
+  "cbam_index": 22,
+  "base_detect": 22,
+  "detect_index": 23,
+  "detect_inputs": [
+    22,
+    18,
+    21
+  ],
+  "strides": [
+    8,
+    16,
+    32
+  ],
+  "channels": 64,
+  "reduction": 16,
+  "kernel": 7,
+  "cbam_seed": 0
+}

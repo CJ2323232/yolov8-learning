@@ -4,7 +4,7 @@
 |---|---|---|
 | 历史YOLOv8n | 快速体验与历史记录 | v1.0.0可下载；不可用于复现新成绩 |
 | 新标准版 / P2 | 隔离数据上的50轮实验、融合应用 | 权重本地已核验，尚未发布下载 |
-| P2＋CBAM | 待执行的新对照 | 只有结构和训练代码，没有训练权重 |
+| 两种P3 CBAM与旧P2位置CBAM | 五组结构对照已完成；当前不替换P2默认 | 本地训练权重已核验，尚未发布下载 |
 
 新标准版SHA256：`15dd7f9b51930a6a4a03cbf0b9d86092fbaa1938c70c2167035bb767d5bc9b8b`。
 
@@ -36,3 +36,15 @@
 ## 模型结构配置
 
 configs/保存standard/P2的两类nano网络蓝图和来源记录，不是训练好的权重。它们通过helmet_models.py从同一官方yolov8n.pt迁移共有层0..15，新增/分歧部分保持初始化。详见 [P2说明](../docs/P2.md)。两版50轮检查点已在本地核验，SHA256与验证结果见[结果汇总](../reports/p2_training_comparison/summary.json)。新权重尚未发布为下载资产；这里的公开演示权重未替换为P2。
+
+## 五组已完成模型（2026-10-28）
+
+|模型|best.pt SHA256|
+|---|---|
+|标准版|`15dd7f9b51930a6a4a03cbf0b9d86092fbaa1938c70c2167035bb767d5bc9b8b`|
+|标准版+P3-CBAM|`8dec06cfff37c47b2ab933dc2dbd7a1f90ffec23fcdad25443bcb151e4117ab0`|
+|原始P2|`c6322674f5ddda41b2354551d283d8fb386a3be1e56a1d50666b29d2a2f70e23`|
+|P2+P3-CBAM|`553d67ca469c2699f2ba272eb7c7423bf8c53d79e5aa05d7a3daab690a85f591`|
+|P2+P2-CBAM|`4349cd89a8bfd8b26b4fbe6f45cd588e2cd7f34f4c78835ee98f424bf2491ecb`|
+
+[五组尺寸、固定工作点与效率评价](../reports/final_evaluation/README.md)。当前推荐P2、conf=.25；P3 CBAM在固定工作点的误检代价更大。模型可用性以本页下载状态为准，本地已存在不等于已发布。

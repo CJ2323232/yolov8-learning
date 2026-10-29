@@ -1,0 +1,7 @@
+{
+  "time": "2026-10-27T14:24:29.939792+00:00",
+  "variant": "standard_p3_cbam",
+  "best_sha256": "8dec06cfff37c47b2ab933dc2dbd7a1f90ffec23fcdad25443bcb151e4117ab0",
+  "test_evaluated": false,
+  "note": "Best selected on validation; no new blind test claim"
+}

@@ -1,0 +1,874 @@
+{
+  "variant": "p2_p3_cbam",
+  "protocol": {
+    "schema_version": 1,
+    "experiment": "p2_p3_cbam_detection_branch_640_v1",
+    "dataset_manifest_sha256": "5781ecdffa173010f539189b15565220f5e2ac597b5f8ea72f5cf7b1e8bf63e4",
+    "dataset_relative": "datasets/helmet_scene_isolated_v1",
+    "runtime_required": {
+      "ultralytics": "8.4.164",
+      "torch": "2.14.0"
+    },
+    "historical_reference": {
+      "args_file": "runs2/helmet_p2_isolated_640_windows/args.yaml",
+      "args_sha256": "f1dc729a585f45a4b8a03edee39e19bc438e902eeea84118ffcf00cb1d5b27e8",
+      "environment": {
+        "python": "3.10.10",
+        "system": "Windows",
+        "machine": "AMD64",
+        "torch": "2.14.0+cu126",
+        "ultralytics": "8.4.164",
+        "selected_device": "0",
+        "cuda_available": true,
+        "mps_available": false
+      }
+    },
+    "train": {
+      "epochs": 50,
+      "patience": 100,
+      "batch": 2,
+      "imgsz": 640,
+      "workers": 0,
+      "optimizer": "AdamW",
+      "lr0": 0.001667,
+      "lrf": 0.01,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "warmup_epochs": 3,
+      "warmup_momentum": 0.8,
+      "warmup_bias_lr": 0.0,
+      "nbs": 64,
+      "seed": 0,
+      "deterministic": true,
+      "cos_lr": false,
+      "close_mosaic": 10,
+      "amp": true,
+      "fraction": 1.0,
+      "freeze": null,
+      "multi_scale": 0.0,
+      "compile": false,
+      "channels_last": null,
+      "single_cls": false,
+      "rect": false,
+      "cache": false,
+      "val": true,
+      "split": "val",
+      "iou": 0.7,
+      "max_det": 300,
+      "cls_remap": false,
+      "pretrained": true,
+      "box": 7.5,
+      "cls": 0.5,
+      "cls_pw": 0.0,
+      "dfl": 1.5,
+      "hsv_h": 0.015,
+      "hsv_s": 0.7,
+      "hsv_v": 0.4,
+      "degrees": 0.0,
+      "translate": 0.1,
+      "scale": 0.5,
+      "shear": 0.0,
+      "perspective": 0.0,
+      "flipud": 0.0,
+      "fliplr": 0.5,
+      "bgr": 0.0,
+      "mosaic": 1.0,
+      "mixup": 0.0,
+      "cutmix": 0.0,
+      "copy_paste": 0.0,
+      "copy_paste_mode": "flip",
+      "auto_augment": "randaugment",
+      "erasing": 0.4,
+      "dropout": 0.0,
+      "overlap_mask": true,
+      "mask_ratio": 4,
+      "augment": false,
+      "agnostic_nms": false,
+      "time": null,
+      "quantize": null,
+      "distill_model": null,
+      "dis": 6.0,
+      "conf": null,
+      "classes": null,
+      "cfg": null
+    },
+    "operational": {
+      "save": true,
+      "save_period": -1,
+      "plots": true,
+      "exist_ok": false
+    },
+    "initialization": "Parent seed0 non-CBAM states exactly preserved; official common layers0..15. CBAM64/r16/k7 independently initialized from seed0, identical across standard and P2; no fine-tuned helmet checkpoint.",
+    "evaluation": "Select best on val only; no automatic test evaluation; previously explored test is not a new blind holdout",
+    "resume": "epoch-boundary continuation; optimizer/scaler/EMA required; RNG/dataloader replay is not bitwise guaranteed",
+    "comparison_scope": "Single-seed2x2 structural comparison: P2 absent/present x fixed P3 detection-branch CBAM absent/present. P3 is stride8,64channels in both. Classify old P2-branch CBAM separately. Resume differences excluded from main comparison by user instruction; no multi-seed interaction significance claim."
+  },
+  "dataset": {
+    "status": "exact_duplicates_removed_conflicts_quarantined",
+    "manifest_sha256": "5781ecdffa173010f539189b15565220f5e2ac597b5f8ea72f5cf7b1e8bf63e4",
+    "images": 7507,
+    "difficult_policy": "include_as_ordinary",
+    "scene_independence": "retrieved_risks_isolated_not_exhaustive",
+    "isolation_constraints_sha256": "afcacf6d160443637813879f37f4b6d507a05c75c9941c2271ebe8c500766efb",
+    "review_decisions_sha256": "86a47e191957f5abc0be1099629ba680f68d1703a718008c149a72fad4e83887"
+  },
+  "code_identity": {
+    "tools/p3_cbam_p2/spec.json": "64ca6cdfd818b814dba84d43d689f10bcb581547bdbb2c2638410fd7a8f0ea05",
+    "tools/p3_cbam_p2/train.py": "d1c282859be08e7989b86093736682f4a49c226dff54447e96a5aef898051434",
+    "tools/p3_cbam_p2/model.py": "959dccdcd3a2837dc1db46745e714b872663a6db9d3510606ba9403afd9ccc28",
+    "tools/p3_cbam_p2/check.py": "d9a8a32071930005057fe00f6d047ba9cbd8250be7dec34476d82c529a757b8e",
+    "tools/p3_cbam_p2/helmet_yolov8n_p2_p3_cbam.yaml": "985997805ccfe7794ef339ed6a06f95327de2b4c58a9fa0548620a3bc253c383",
+    "tools/p3_cbam_p2/sources.json": "c17467734addb678ea25565329777233c34170bc8ff719098422757bc35eadd8",
+    "tools/p3_cbam_p2/protocol.json": "ffba3ffef8ef229eebc086492b8baf0552b6b61f4f8c920b2d99afc579de644d",
+    "helmet_cbam.py": "ddba103489aacaf223dfee4f353ae3cf6511a208456188b3cbc084b097e55d2f",
+    "helmet_models.py": "e1cb3602975e200b629718530fecd827e5f7a60185d48d3c1c61017f80c88bbc",
+    "workflow.py": "41f2d970f153a2d0bc43d09a2d7279159601a280456e5262e003309eea97c95b",
+    "models/configs/helmet_yolov8n_p2.yaml": "0a23f0a4ec217ed375b33fac9ed0a2d842ec1943f387427b26800520f13dd4e1",
+    "models/configs/sources.json": "76821f5ee8db5327d874661a4640bf6e66532dc27ea5b7023ae9105676e0ccf4",
+    "tools/p3_cbam_p2/reference_parameters.json": "6016363f1acafa0c58e75192d7ddb90d385f66fafc14362c8400ea1028a0c5f7"
+  },
+  "initialization": {
+    "historical_shared_initialization_matches": true,
+    "historical_remaining_state_equal": true,
+    "historical_torch_build": "2.14.0+cu126",
+    "current_torch_build": "2.14.0+cu126",
+    "historical_remaining_check_note": "Different torch builds/platforms may produce different random initial state fingerprints. Windows preflight verifies again; no cross-platform bitwise equality claim.",
+    "status": "initialized_not_trained",
+    "parent_variant": "p2",
+    "seed": 0,
+    "config_sha256": "985997805ccfe7794ef339ed6a06f95327de2b4c58a9fa0548620a3bc253c383",
+    "module_sha256": "959dccdcd3a2837dc1db46745e714b872663a6db9d3510606ba9403afd9ccc28",
+    "cbam_module_sha256": "ddba103489aacaf223dfee4f353ae3cf6511a208456188b3cbc084b097e55d2f",
+    "baseline_initialization": {
+      "variant": "p2",
+      "architecture": "C:\\Users\\李宁远\\Desktop\\yolo\\01_项目代码\\models\\configs\\helmet_yolov8n_p2.yaml",
+      "architecture_sha256": "0a23f0a4ec217ed375b33fac9ed0a2d842ec1943f387427b26800520f13dd4e1",
+      "pretrained": "C:\\Users\\李宁远\\Desktop\\yolo\\01_项目代码\\yolov8n.pt",
+      "pretrained_sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+      "policy": "shared_backbone_and_neck_layers_0_through_15",
+      "shared_layer_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "remaining_layers": "fresh/default initialization, including fixed DFL constants",
+      "coco_class_name_remapping": false,
+      "seed": 0,
+      "loaded_state_tensors": 210,
+      "loaded_tensor_shapes": {
+        "model.0.conv.weight": [
+          16,
+          3,
+          3,
+          3
+        ],
+        "model.0.bn.weight": [
+          16
+        ],
+        "model.0.bn.bias": [
+          16
+        ],
+        "model.0.bn.running_mean": [
+          16
+        ],
+        "model.0.bn.running_var": [
+          16
+        ],
+        "model.0.bn.num_batches_tracked": [],
+        "model.1.conv.weight": [
+          32,
+          16,
+          3,
+          3
+        ],
+        "model.1.bn.weight": [
+          32
+        ],
+        "model.1.bn.bias": [
+          32
+        ],
+        "model.1.bn.running_mean": [
+          32
+        ],
+        "model.1.bn.running_var": [
+          32
+        ],
+        "model.1.bn.num_batches_tracked": [],
+        "model.2.cv1.conv.weight": [
+          32,
+          32,
+          1,
+          1
+        ],
+        "model.2.cv1.bn.weight": [
+          32
+        ],
+        "model.2.cv1.bn.bias": [
+          32
+        ],
+        "model.2.cv1.bn.running_mean": [
+          32
+        ],
+        "model.2.cv1.bn.running_var": [
+          32
+        ],
+        "model.2.cv1.bn.num_batches_tracked": [],
+        "model.2.cv2.conv.weight": [
+          32,
+          48,
+          1,
+          1
+        ],
+        "model.2.cv2.bn.weight": [
+          32
+        ],
+        "model.2.cv2.bn.bias": [
+          32
+        ],
+        "model.2.cv2.bn.running_mean": [
+          32
+        ],
+        "model.2.cv2.bn.running_var": [
+          32
+        ],
+        "model.2.cv2.bn.num_batches_tracked": [],
+        "model.2.m.0.cv1.conv.weight": [
+          16,
+          16,
+          3,
+          3
+        ],
+        "model.2.m.0.cv1.bn.weight": [
+          16
+        ],
+        "model.2.m.0.cv1.bn.bias": [
+          16
+        ],
+        "model.2.m.0.cv1.bn.running_mean": [
+          16
+        ],
+        "model.2.m.0.cv1.bn.running_var": [
+          16
+        ],
+        "model.2.m.0.cv1.bn.num_batches_tracked": [],
+        "model.2.m.0.cv2.conv.weight": [
+          16,
+          16,
+          3,
+          3
+        ],
+        "model.2.m.0.cv2.bn.weight": [
+          16
+        ],
+        "model.2.m.0.cv2.bn.bias": [
+          16
+        ],
+        "model.2.m.0.cv2.bn.running_mean": [
+          16
+        ],
+        "model.2.m.0.cv2.bn.running_var": [
+          16
+        ],
+        "model.2.m.0.cv2.bn.num_batches_tracked": [],
+        "model.3.conv.weight": [
+          64,
+          32,
+          3,
+          3
+        ],
+        "model.3.bn.weight": [
+          64
+        ],
+        "model.3.bn.bias": [
+          64
+        ],
+        "model.3.bn.running_mean": [
+          64
+        ],
+        "model.3.bn.running_var": [
+          64
+        ],
+        "model.3.bn.num_batches_tracked": [],
+        "model.4.cv1.conv.weight": [
+          64,
+          64,
+          1,
+          1
+        ],
+        "model.4.cv1.bn.weight": [
+          64
+        ],
+        "model.4.cv1.bn.bias": [
+          64
+        ],
+        "model.4.cv1.bn.running_mean": [
+          64
+        ],
+        "model.4.cv1.bn.running_var": [
+          64
+        ],
+        "model.4.cv1.bn.num_batches_tracked": [],
+        "model.4.cv2.conv.weight": [
+          64,
+          128,
+          1,
+          1
+        ],
+        "model.4.cv2.bn.weight": [
+          64
+        ],
+        "model.4.cv2.bn.bias": [
+          64
+        ],
+        "model.4.cv2.bn.running_mean": [
+          64
+        ],
+        "model.4.cv2.bn.running_var": [
+          64
+        ],
+        "model.4.cv2.bn.num_batches_tracked": [],
+        "model.4.m.0.cv1.conv.weight": [
+          32,
+          32,
+          3,
+          3
+        ],
+        "model.4.m.0.cv1.bn.weight": [
+          32
+        ],
+        "model.4.m.0.cv1.bn.bias": [
+          32
+        ],
+        "model.4.m.0.cv1.bn.running_mean": [
+          32
+        ],
+        "model.4.m.0.cv1.bn.running_var": [
+          32
+        ],
+        "model.4.m.0.cv1.bn.num_batches_tracked": [],
+        "model.4.m.0.cv2.conv.weight": [
+          32,
+          32,
+          3,
+          3
+        ],
+        "model.4.m.0.cv2.bn.weight": [
+          32
+        ],
+        "model.4.m.0.cv2.bn.bias": [
+          32
+        ],
+        "model.4.m.0.cv2.bn.running_mean": [
+          32
+        ],
+        "model.4.m.0.cv2.bn.running_var": [
+          32
+        ],
+        "model.4.m.0.cv2.bn.num_batches_tracked": [],
+        "model.4.m.1.cv1.conv.weight": [
+          32,
+          32,
+          3,
+          3
+        ],
+        "model.4.m.1.cv1.bn.weight": [
+          32
+        ],
+        "model.4.m.1.cv1.bn.bias": [
+          32
+        ],
+        "model.4.m.1.cv1.bn.running_mean": [
+          32
+        ],
+        "model.4.m.1.cv1.bn.running_var": [
+          32
+        ],
+        "model.4.m.1.cv1.bn.num_batches_tracked": [],
+        "model.4.m.1.cv2.conv.weight": [
+          32,
+          32,
+          3,
+          3
+        ],
+        "model.4.m.1.cv2.bn.weight": [
+          32
+        ],
+        "model.4.m.1.cv2.bn.bias": [
+          32
+        ],
+        "model.4.m.1.cv2.bn.running_mean": [
+          32
+        ],
+        "model.4.m.1.cv2.bn.running_var": [
+          32
+        ],
+        "model.4.m.1.cv2.bn.num_batches_tracked": [],
+        "model.5.conv.weight": [
+          128,
+          64,
+          3,
+          3
+        ],
+        "model.5.bn.weight": [
+          128
+        ],
+        "model.5.bn.bias": [
+          128
+        ],
+        "model.5.bn.running_mean": [
+          128
+        ],
+        "model.5.bn.running_var": [
+          128
+        ],
+        "model.5.bn.num_batches_tracked": [],
+        "model.6.cv1.conv.weight": [
+          128,
+          128,
+          1,
+          1
+        ],
+        "model.6.cv1.bn.weight": [
+          128
+        ],
+        "model.6.cv1.bn.bias": [
+          128
+        ],
+        "model.6.cv1.bn.running_mean": [
+          128
+        ],
+        "model.6.cv1.bn.running_var": [
+          128
+        ],
+        "model.6.cv1.bn.num_batches_tracked": [],
+        "model.6.cv2.conv.weight": [
+          128,
+          256,
+          1,
+          1
+        ],
+        "model.6.cv2.bn.weight": [
+          128
+        ],
+        "model.6.cv2.bn.bias": [
+          128
+        ],
+        "model.6.cv2.bn.running_mean": [
+          128
+        ],
+        "model.6.cv2.bn.running_var": [
+          128
+        ],
+        "model.6.cv2.bn.num_batches_tracked": [],
+        "model.6.m.0.cv1.conv.weight": [
+          64,
+          64,
+          3,
+          3
+        ],
+        "model.6.m.0.cv1.bn.weight": [
+          64
+        ],
+        "model.6.m.0.cv1.bn.bias": [
+          64
+        ],
+        "model.6.m.0.cv1.bn.running_mean": [
+          64
+        ],
+        "model.6.m.0.cv1.bn.running_var": [
+          64
+        ],
+        "model.6.m.0.cv1.bn.num_batches_tracked": [],
+        "model.6.m.0.cv2.conv.weight": [
+          64,
+          64,
+          3,
+          3
+        ],
+        "model.6.m.0.cv2.bn.weight": [
+          64
+        ],
+        "model.6.m.0.cv2.bn.bias": [
+          64
+        ],
+        "model.6.m.0.cv2.bn.running_mean": [
+          64
+        ],
+        "model.6.m.0.cv2.bn.running_var": [
+          64
+        ],
+        "model.6.m.0.cv2.bn.num_batches_tracked": [],
+        "model.6.m.1.cv1.conv.weight": [
+          64,
+          64,
+          3,
+          3
+        ],
+        "model.6.m.1.cv1.bn.weight": [
+          64
+        ],
+        "model.6.m.1.cv1.bn.bias": [
+          64
+        ],
+        "model.6.m.1.cv1.bn.running_mean": [
+          64
+        ],
+        "model.6.m.1.cv1.bn.running_var": [
+          64
+        ],
+        "model.6.m.1.cv1.bn.num_batches_tracked": [],
+        "model.6.m.1.cv2.conv.weight": [
+          64,
+          64,
+          3,
+          3
+        ],
+        "model.6.m.1.cv2.bn.weight": [
+          64
+        ],
+        "model.6.m.1.cv2.bn.bias": [
+          64
+        ],
+        "model.6.m.1.cv2.bn.running_mean": [
+          64
+        ],
+        "model.6.m.1.cv2.bn.running_var": [
+          64
+        ],
+        "model.6.m.1.cv2.bn.num_batches_tracked": [],
+        "model.7.conv.weight": [
+          256,
+          128,
+          3,
+          3
+        ],
+        "model.7.bn.weight": [
+          256
+        ],
+        "model.7.bn.bias": [
+          256
+        ],
+        "model.7.bn.running_mean": [
+          256
+        ],
+        "model.7.bn.running_var": [
+          256
+        ],
+        "model.7.bn.num_batches_tracked": [],
+        "model.8.cv1.conv.weight": [
+          256,
+          256,
+          1,
+          1
+        ],
+        "model.8.cv1.bn.weight": [
+          256
+        ],
+        "model.8.cv1.bn.bias": [
+          256
+        ],
+        "model.8.cv1.bn.running_mean": [
+          256
+        ],
+        "model.8.cv1.bn.running_var": [
+          256
+        ],
+        "model.8.cv1.bn.num_batches_tracked": [],
+        "model.8.cv2.conv.weight": [
+          256,
+          384,
+          1,
+          1
+        ],
+        "model.8.cv2.bn.weight": [
+          256
+        ],
+        "model.8.cv2.bn.bias": [
+          256
+        ],
+        "model.8.cv2.bn.running_mean": [
+          256
+        ],
+        "model.8.cv2.bn.running_var": [
+          256
+        ],
+        "model.8.cv2.bn.num_batches_tracked": [],
+        "model.8.m.0.cv1.conv.weight": [
+          128,
+          128,
+          3,
+          3
+        ],
+        "model.8.m.0.cv1.bn.weight": [
+          128
+        ],
+        "model.8.m.0.cv1.bn.bias": [
+          128
+        ],
+        "model.8.m.0.cv1.bn.running_mean": [
+          128
+        ],
+        "model.8.m.0.cv1.bn.running_var": [
+          128
+        ],
+        "model.8.m.0.cv1.bn.num_batches_tracked": [],
+        "model.8.m.0.cv2.conv.weight": [
+          128,
+          128,
+          3,
+          3
+        ],
+        "model.8.m.0.cv2.bn.weight": [
+          128
+        ],
+        "model.8.m.0.cv2.bn.bias": [
+          128
+        ],
+        "model.8.m.0.cv2.bn.running_mean": [
+          128
+        ],
+        "model.8.m.0.cv2.bn.running_var": [
+          128
+        ],
+        "model.8.m.0.cv2.bn.num_batches_tracked": [],
+        "model.9.cv1.conv.weight": [
+          128,
+          256,
+          1,
+          1
+        ],
+        "model.9.cv1.bn.weight": [
+          128
+        ],
+        "model.9.cv1.bn.bias": [
+          128
+        ],
+        "model.9.cv1.bn.running_mean": [
+          128
+        ],
+        "model.9.cv1.bn.running_var": [
+          128
+        ],
+        "model.9.cv1.bn.num_batches_tracked": [],
+        "model.9.cv2.conv.weight": [
+          256,
+          512,
+          1,
+          1
+        ],
+        "model.9.cv2.bn.weight": [
+          256
+        ],
+        "model.9.cv2.bn.bias": [
+          256
+        ],
+        "model.9.cv2.bn.running_mean": [
+          256
+        ],
+        "model.9.cv2.bn.running_var": [
+          256
+        ],
+        "model.9.cv2.bn.num_batches_tracked": [],
+        "model.12.cv1.conv.weight": [
+          128,
+          384,
+          1,
+          1
+        ],
+        "model.12.cv1.bn.weight": [
+          128
+        ],
+        "model.12.cv1.bn.bias": [
+          128
+        ],
+        "model.12.cv1.bn.running_mean": [
+          128
+        ],
+        "model.12.cv1.bn.running_var": [
+          128
+        ],
+        "model.12.cv1.bn.num_batches_tracked": [],
+        "model.12.cv2.conv.weight": [
+          128,
+          192,
+          1,
+          1
+        ],
+        "model.12.cv2.bn.weight": [
+          128
+        ],
+        "model.12.cv2.bn.bias": [
+          128
+        ],
+        "model.12.cv2.bn.running_mean": [
+          128
+        ],
+        "model.12.cv2.bn.running_var": [
+          128
+        ],
+        "model.12.cv2.bn.num_batches_tracked": [],
+        "model.12.m.0.cv1.conv.weight": [
+          64,
+          64,
+          3,
+          3
+        ],
+        "model.12.m.0.cv1.bn.weight": [
+          64
+        ],
+        "model.12.m.0.cv1.bn.bias": [
+          64
+        ],
+        "model.12.m.0.cv1.bn.running_mean": [
+          64
+        ],
+        "model.12.m.0.cv1.bn.running_var": [
+          64
+        ],
+        "model.12.m.0.cv1.bn.num_batches_tracked": [],
+        "model.12.m.0.cv2.conv.weight": [
+          64,
+          64,
+          3,
+          3
+        ],
+        "model.12.m.0.cv2.bn.weight": [
+          64
+        ],
+        "model.12.m.0.cv2.bn.bias": [
+          64
+        ],
+        "model.12.m.0.cv2.bn.running_mean": [
+          64
+        ],
+        "model.12.m.0.cv2.bn.running_var": [
+          64
+        ],
+        "model.12.m.0.cv2.bn.num_batches_tracked": [],
+        "model.15.cv1.conv.weight": [
+          64,
+          192,
+          1,
+          1
+        ],
+        "model.15.cv1.bn.weight": [
+          64
+        ],
+        "model.15.cv1.bn.bias": [
+          64
+        ],
+        "model.15.cv1.bn.running_mean": [
+          64
+        ],
+        "model.15.cv1.bn.running_var": [
+          64
+        ],
+        "model.15.cv1.bn.num_batches_tracked": [],
+        "model.15.cv2.conv.weight": [
+          64,
+          96,
+          1,
+          1
+        ],
+        "model.15.cv2.bn.weight": [
+          64
+        ],
+        "model.15.cv2.bn.bias": [
+          64
+        ],
+        "model.15.cv2.bn.running_mean": [
+          64
+        ],
+        "model.15.cv2.bn.running_var": [
+          64
+        ],
+        "model.15.cv2.bn.num_batches_tracked": [],
+        "model.15.m.0.cv1.conv.weight": [
+          32,
+          32,
+          3,
+          3
+        ],
+        "model.15.m.0.cv1.bn.weight": [
+          32
+        ],
+        "model.15.m.0.cv1.bn.bias": [
+          32
+        ],
+        "model.15.m.0.cv1.bn.running_mean": [
+          32
+        ],
+        "model.15.m.0.cv1.bn.running_var": [
+          32
+        ],
+        "model.15.m.0.cv1.bn.num_batches_tracked": [],
+        "model.15.m.0.cv2.conv.weight": [
+          32,
+          32,
+          3,
+          3
+        ],
+        "model.15.m.0.cv2.bn.weight": [
+          32
+        ],
+        "model.15.m.0.cv2.bn.bias": [
+          32
+        ],
+        "model.15.m.0.cv2.bn.running_mean": [
+          32
+        ],
+        "model.15.m.0.cv2.bn.running_var": [
+          32
+        ],
+        "model.15.m.0.cv2.bn.num_batches_tracked": []
+      },
+      "loaded_shared_state_sha256": "648bea37715bc6b8d018d73028c0d51492cf504484d69c4bbd9e6d8459ea0e00",
+      "shared_parameters_sha256": "c79aa296d7bfb36995d01c2630d0072993bddb7d40f6f48eb5df325404be7ddb",
+      "remaining_state_unchanged": true,
+      "remaining_state_sha256": "4628ae4719a50001847f7553721047417ea52c0de5388024dc1068567c3c6e4d",
+      "parameters": 2926824,
+      "detection_strides": [
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime": {
+        "torch": "2.14.0+cu126"
+      },
+      "training_performed": false
+    },
+    "mapping": "unchanged0..27; Detect28->29; CBAM28 from21",
+    "mapped_state_tensors": 437,
+    "all_non_cbam_state_equal_to_parent_initial_state": true,
+    "mapped_state_sha256": "a7049e457fb82a6526ad5d2018a5fd6af7373a379e4f37c68698a6ec05995b78",
+    "cbam_state_sha256": "96bea8895f1d3d4df1f805aa20cefdd5def9e9e524322ec99fae24be0e3724a9",
+    "cbam_initialization_seed": 0,
+    "parent_parameters": 2926824,
+    "target_parameters": 2927502,
+    "cbam_parameters": 678,
+    "strides": [
+      4.0,
+      8.0,
+      16.0,
+      32.0
+    ],
+    "p3_feature_channels": 64,
+    "p3_feature_stride": 8,
+    "training_performed": false
+  },
+  "created_at": "2026-10-28T01:30:49.297730+00:00"
+}

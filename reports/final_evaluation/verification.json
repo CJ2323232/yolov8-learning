@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "time": "2026-10-28T12:40:27.992183+00:00",
+  "all7507_image_label_hashes_verified": true,
+  "training_code_and_weights_unchanged": true,
+  "optimizer_steps": 0,
+  "protocol_sha256": "6e9d3baee7e86103b6389a3b304b0a75e27d0c059158459ff7b9ecedae967ca8",
+  "output_sha256": {
+    "protocol.json": "6e9d3baee7e86103b6389a3b304b0a75e27d0c059158459ff7b9ecedae967ca8",
+    "metrics.json": "24bb4235c07ad0c9aaa65e29f6968b3e92a38662d5e610bbc1c749d862858f15",
+    "paired_uncertainty.json": "2bb2063a664fc45444309ae43df7222af2f95bd55a27ec199c917055f7b80409",
+    "benchmark.json": "5bd5319966e8eb69f3d21b0f56209649e52724c7fac6e391cb5d3f94724eec49",
+    "ground_truth_coco.json": "01d3209acc5783602b079f4b12de747062c996e223e624c9e0d4a12b89a94173",
+    "image_metadata.json": "bde67862dea1193703b252762c77582ac33d27109e7eb4616aa43e67c10e84fa",
+    "prediction_verification.json": "3d2cf61e625586e641c6043f239727636020bde31258d6563156a9a71fa46932",
+    "per_image_details.json": "0a728beef1e535c549a6f47a897c102108ab61a549688bdc41b096900f6d4d8a"
+  }
+}

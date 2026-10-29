@@ -1,0 +1,12 @@
+{
+  "dataset": {
+    "status": "exact_duplicates_removed_conflicts_quarantined",
+    "manifest_sha256": "5781ecdffa173010f539189b15565220f5e2ac597b5f8ea72f5cf7b1e8bf63e4",
+    "images": 7507,
+    "difficult_policy": "include_as_ordinary",
+    "scene_independence": "retrieved_risks_isolated_not_exhaustive",
+    "isolation_constraints_sha256": "afcacf6d160443637813879f37f4b6d507a05c75c9941c2271ebe8c500766efb",
+    "review_decisions_sha256": "86a47e191957f5abc0be1099629ba680f68d1703a718008c149a72fad4e83887"
+  },
+  "variant": "standard_p3_cbam"
+}

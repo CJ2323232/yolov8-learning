@@ -9,6 +9,7 @@
 | SAHI | [obss/sahi](https://github.com/obss/sahi)，通过依赖调用，沿用上游许可 |
 | WBF | [作者仓库](https://github.com/ZFTurbo/Weighted-Boxes-Fusion)；本地保留[MIT许可](tools/third_party/LICENSE-WBF)和[版本/文件哈希](tools/third_party/WBF_SOURCE.json) |
 | CBAM | [论文](https://openaccess.thecvf.com/content_ECCV_2018/html/Sanghyun_Woo_Convolutional_Block_Attention_ECCV_2018_paper.html)与[作者实现](https://github.com/Jongchan/attention-module)；本项目按论文机制实现，差异和来源见[记录](models/configs/p2_cbam_sources.json) |
+| COCO评价工具 | [COCO API](https://github.com/cocodataset/cocoapi)，使用pycocotools2.0.11官方bbox评价器，隔离安装；代码和许可沿用上游 |
 | Gradio | [gradio-app/gradio](https://github.com/gradio-app/gradio)，通过依赖调用 |
 
 外部图片只作定性展示，不当作自有标注测试集，来源见[外部图片说明](helmet_external_test/photo_sources.csv)。不因公开可访问就宣称拥有图片再许可权。

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "01_standard",
+    "prediction_sha256": "44be3d0a6fef421cc94a3a1f70f51c191473a5a89748dda8166d576487e74c07",
+    "candidate_cap_images": 9,
+    "direct_conf25_check_images": 12,
+    "max_abs_prediction_difference": 0.0
+  },
+  {
+    "id": "02_standard_P3_CBAM",
+    "prediction_sha256": "f4e752493b1756af9d08cdc8ff8e1921102c136181102d42e97081daa7016ca3",
+    "candidate_cap_images": 7,
+    "direct_conf25_check_images": 12,
+    "max_abs_prediction_difference": 0.0
+  },
+  {
+    "id": "03_P2",
+    "prediction_sha256": "634811030f515f4beb6404006d433f288212ba6e7bc90658f076cc36c8c9e944",
+    "candidate_cap_images": 17,
+    "direct_conf25_check_images": 12,
+    "max_abs_prediction_difference": 0.0
+  },
+  {
+    "id": "04_P2_P3_CBAM",
+    "prediction_sha256": "b7baef4b691d82e68668083fb15ffd4705c0ac8ec3f6926e65181711ecafaa8c",
+    "candidate_cap_images": 24,
+    "direct_conf25_check_images": 12,
+    "max_abs_prediction_difference": 0.0
+  },
+  {
+    "id": "05_P2_P2_CBAM",
+    "prediction_sha256": "bd56c26a86d9a5f9603b863f21e26dfc5484953060c12c5a9560dc42716ddd59",
+    "candidate_cap_images": 23,
+    "direct_conf25_check_images": 12,
+    "max_abs_prediction_difference": 0.0
+  }
+]

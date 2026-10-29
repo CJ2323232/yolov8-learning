@@ -1,0 +1,14 @@
+{
+  "original_area_disjoint_counts": {
+    "small": 2072,
+    "medium": 1908,
+    "large": 895
+  },
+  "exact_32_squared_boundary": 0,
+  "exact_96_squared_boundary": 0,
+  "coco_default_inclusive_counts": {
+    "small": 2072,
+    "medium": 1908,
+    "large": 895
+  }
+}

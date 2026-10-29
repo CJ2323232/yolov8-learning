@@ -35,3 +35,9 @@ project_work/
 
 # Migrated training artifacts
 /runs2/
+
+# Complete Windows imports and local evaluation image copies
+/run/
+/CBAM outputs/
+/05_新增两组实验对比_20261028/
+/06_五组测试集评估_20261028/

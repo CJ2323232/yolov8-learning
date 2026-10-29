@@ -1,0 +1,20 @@
+{
+  "parent_config": "models/configs/helmet_yolov8n.yaml",
+  "parent_config_sha256": "65b2a80a9753d3193773bd1ec8199a17c2c656bae0d2a2af48b13fc072677690",
+  "config": "tools/p3_cbam_standard/helmet_yolov8n_standard_p3_cbam.yaml",
+  "config_sha256": "b7d625ab5aaf4bd9c2848de94901f739e330b2bf9bec654b474a2175919ea970",
+  "cbam_module_sha256": "ddba103489aacaf223dfee4f353ae3cf6511a208456188b3cbc084b097e55d2f",
+  "spec_sha256": "e89e16a24a5e9f7da2e77edb72dac3a8fa66efe851add23e9e6dcf9f90dd7642",
+  "placement": "P3 stride8,64channels, before Detect only; other branches unchanged",
+  "cbam_initialization": "Dedicated CPU torch fork_rng seed0; identical across both new variants",
+  "status": "prepared_not_trained",
+  "legacy_P2_CBAM_excluded_from_primary_four_groups": true,
+  "historical_parent_initialization": {
+    "pretrained_sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+    "shared_parameters_sha256": "c79aa296d7bfb36995d01c2630d0072993bddb7d40f6f48eb5df325404be7ddb",
+    "remaining_state_sha256": "eb7eb61d9bd79b8b3039cbed6b7b21fba48e7ebc7f0b59eb54c01ce30b0e2c5d",
+    "runtime": {
+      "torch": "2.14.0"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "python": "3.10.10",
+  "system": "Windows",
+  "machine": "AMD64",
+  "torch": "2.14.0+cu126",
+  "ultralytics": "8.4.164",
+  "selected_device": "0",
+  "cuda_available": true,
+  "mps_available": false
+}
