@@ -7,18 +7,18 @@
 <!-- online-demo:start -->
 ## Online demo
 
-**[▶ Open the Gradio detector — no sign-up required](https://c16a94844d98ec439e.gradio.live)**
+**[▶ Open the free browser detector — no sign-up required](https://cj2323232-helmet-detection-browser.static.hf.space)**
 
-Upload an original image without prediction overlays. The default is P2 at confidence 0.25; no local installation is required.
+Choose an original image without prediction overlays. P2 runs in the visitor's browser at input 640, confidence 0.25 and class-aware NMS IoU 0.70. The first run downloads approximately 28 MB of model/runtime assets; speed depends on the visitor's device.
 
-> **Temporary demo · updated 2026-11-01:** This demo runs on the maintainer's Mac and needs that computer to stay awake, with its network and process running. Sleep, disconnection or shutdown may make it unavailable; the link can expire or change after a restart. If unavailable, follow the [local quick start](#quick-start) with the published historical demo checkpoint; that checkpoint does not reproduce the online P2 model. Images are processed on the maintainer's device; do not upload sensitive images.
+> **2026-11-01: now hosted as a free Hugging Face Static Space; the maintainer's computer can be off.** The application does not upload images, filenames or EXIF. The host and its official download CDN still receive ordinary web requests. This is a single-model P2 image demo; the full Gradio, model comparison, SAHI and fusion remain available locally. [Model, provenance and privacy](https://huggingface.co/spaces/CJ2323232/helmet-detection-browser/blob/main/MODEL_CARD.md).
 <!-- online-demo:end -->
 
 ![Historical local Gradio demo](assets/gradio_result.png)
 
 Built on Ultralytics YOLOv8n and SHWD. Classes are helmeted heads (`hat`) and bare heads (`person`), not full-body pedestrians. The contribution is data governance, experimental design, evaluation and engineering integration, not a novel backbone or attention mechanism.
 
-**2026-10-28: all five 50-epoch runs, test evaluation, area-stratified AP, fixed-confidence errors and CPU timing are complete. Retain P2 at conf=.25 as the current recommendation.** Public downloads still provide only the historical demo checkpoint; the five new checkpoints are verified locally but are not yet published.
+**2026-10-28: all five 50-epoch runs, test evaluation, area-stratified AP, fixed-confidence errors and CPU timing are complete. Retain P2 at conf=.25 as the current recommendation.** The browser demo provides a metadata-cleaned P2 ONNX artifact. The local quick start still uses the historical demo checkpoint; the five original training checkpoints are not published in this demo. Conversion has limited validation and introduces no new full-dataset AP result.
 
 ## Five-model results
 
