@@ -4,6 +4,16 @@
 
 [中文](README.md) · [Full evaluation](reports/final_evaluation/README.md) · [Documentation](docs/README.md)
 
+<!-- online-demo:start -->
+## Online demo
+
+**[▶ Open the Gradio detector — no sign-up required](https://c16a94844d98ec439e.gradio.live)**
+
+Upload an original image without prediction overlays. The default is P2 at confidence 0.25; no local installation is required.
+
+> **Temporary demo · updated 2026-11-01:** This demo runs on the maintainer's Mac and needs that computer to stay awake, with its network and process running. Sleep, disconnection or shutdown may make it unavailable; the link can expire or change after a restart. If unavailable, follow the [local quick start](#quick-start) with the published historical demo checkpoint; that checkpoint does not reproduce the online P2 model. Images are processed on the maintainer's device; do not upload sensitive images.
+<!-- online-demo:end -->
+
 ![Historical local Gradio demo](assets/gradio_result.png)
 
 Built on Ultralytics YOLOv8n and SHWD. Classes are helmeted heads (`hat`) and bare heads (`person`), not full-body pedestrians. The contribution is data governance, experimental design, evaluation and engineering integration, not a novel backbone or attention mechanism.
