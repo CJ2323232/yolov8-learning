@@ -1,0 +1,42 @@
+{
+  "environment_isolated": true,
+  "source_is_public_snapshot": true,
+  "python": "3.14.7",
+  "device": "cpu",
+  "weight": "historical_v1.0.0_from_public_clone",
+  "weight_sha256": "55be821e9eefdd0a69caf4abd3fdb2a22277059e21ec155222102b32cef2e650",
+  "available_models": [
+    "自选／历史演示模型"
+  ],
+  "formal_experiment_models_available": false,
+  "http_status": 200,
+  "inference_api": "passed",
+  "annotated_image_exists": true,
+  "csv_and_json_exist": true,
+  "image_size": {
+    "width": 1280,
+    "height": 1920
+  },
+  "detections": 1,
+  "parameters": {
+    "imgsz": 640,
+    "conf": 0.25,
+    "nms_iou": 0.7
+  },
+  "not_an_accuracy_or_speed_benchmark": true,
+  "date": "2026-11-02",
+  "platform": "macOS arm64",
+  "source_base_commit": "7d29f4a8dbaf6c1d3b671c5895f4a497c12920a3",
+  "source_changes": "reviewed public source overlay; published bytes to be checked after sync",
+  "training_performed": false,
+  "full_dataset_evaluation_performed": false,
+  "unit_tests_passed": 57,
+  "browser_core_checks_passed": 11,
+  "dependency_check": "No broken requirements found.",
+  "cli_help": "passed",
+  "cli_real_cpu_inference": "passed",
+  "windows_cuda_verified": false,
+  "five_new_pt_available_publicly": false,
+  "original_protected_files_unchanged": 134,
+  "proxy_note": "Local HTTP check passed with NO_PROXY and no_proxy for localhost and 127.0.0.1."
+}

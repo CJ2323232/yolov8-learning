@@ -1,4 +1,7 @@
-# Direct dependencies used by the verified local environment; not a full transitive lock.
+# Application/inference profile: Python >=3.12.
+# These direct versions match the verified macOS Python3.14 environment.
+# Not a transitive lock or the Python3.10 Windows training profile.
+# Historical Windows training: requirements-training-windows.txt.
 ultralytics==8.4.164
 torch==2.14.0
 torchvision==0.29.0

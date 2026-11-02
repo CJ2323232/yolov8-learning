@@ -1,0 +1,7 @@
+.git
+.env
+.env.*
+__pycache__
+*.pyc
+project_work
+DEPLOYMENT_MANIFEST.json

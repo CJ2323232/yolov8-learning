@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "project": "CJ2323232/yolov8-learning",
+  "status": "staged_not_published",
+  "published": false,
+  "release_url": null,
+  "release_tag": null,
+  "recommended_model_id": "03_P2",
+  "recommended_confidence": 0.25,
+  "dataset_manifest_sha256": "5781ecdffa173010f539189b15565220f5e2ac597b5f8ea72f5cf7b1e8bf63e4",
+  "classes": {
+    "0": "hat: helmeted head",
+    "1": "person: bare head, not a full-body detector"
+  },
+  "evidence": {
+    "checkpoint_and_training_verification": "reports/completed_experiments_2026-10-28/verification.json",
+    "gpu_test_metrics": "reports/final_evaluation/original_gpu_test_metrics.json",
+    "model_selection": "reports/final_evaluation/model_selection.json",
+    "license_audit": "docs/license_audit.md"
+  },
+  "source_attribution": {
+    "framework": "https://github.com/ultralytics/ultralytics",
+    "dataset": "https://github.com/njvisionpower/Safety-Helmet-Wearing-Dataset",
+    "attention": "https://openaccess.thecvf.com/content_ECCV_2018/html/Sanghyun_Woo_Convolutional_Block_Attention_ECCV_2018_paper.html",
+    "official_pretrained_sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36"
+  },
+  "code_license": {
+    "spdx": "AGPL-3.0-only",
+    "scope_document": "docs/license_audit.md",
+    "applies_automatically_to_checkpoints": false
+  },
+  "release_gates": {
+    "explicit_user_publish_authorization": "not_granted",
+    "checkpoint_license_status": "pending_dataset_and_pretrained_rights_review",
+    "checkpoint_metadata_privacy_review": "pending",
+    "automatic_publication": "disabled"
+  },
+  "models": [
+    {
+      "id": "01_standard",
+      "label": "标准版",
+      "source": "run/helmet_standard_isolated_640_windows/weights/best.pt",
+      "asset_filename": "helmet_yolov8n_standard.pt",
+      "sha256": "15dd7f9b51930a6a4a03cbf0b9d86092fbaa1938c70c2167035bb767d5bc9b8b",
+      "bytes": 6250993,
+      "configuration": "models/configs/helmet_yolov8n.yaml",
+      "configuration_sha256": "65b2a80a9753d3193773bd1ec8199a17c2c656bae0d2a2af48b13fc072677690",
+      "custom_module": null,
+      "epochs": 50,
+      "best_epoch_selected_on_validation": 40,
+      "parameters": 3011238,
+      "strides": [
+        8.0,
+        16.0,
+        32.0
+      ],
+      "cbam": [],
+      "validation_mAP50_95": 0.60244,
+      "original_gpu_test_mAP50": 0.8674150882276288,
+      "original_gpu_test_mAP50_95": 0.5757454172867924,
+      "download_url": null,
+      "availability": "verified_local_original",
+      "weight_license_status": "pending_dataset_and_pretrained_rights_review",
+      "checkpoint_metadata_privacy_review": "pending_historical_absolute_paths_present"
+    },
+    {
+      "id": "02_standard_P3_CBAM",
+      "label": "标准版+P3-CBAM",
+      "source": "run/helmet_standard_p3_cbam_isolated_640_windows/weights/best.pt",
+      "asset_filename": "helmet_yolov8n_standard_p3_cbam.pt",
+      "sha256": "8dec06cfff37c47b2ab933dc2dbd7a1f90ffec23fcdad25443bcb151e4117ab0",
+      "bytes": 6255079,
+      "configuration": "tools/p3_cbam_standard/helmet_yolov8n_standard_p3_cbam.yaml",
+      "configuration_sha256": "b7d625ab5aaf4bd9c2848de94901f739e330b2bf9bec654b474a2175919ea970",
+      "custom_module": "helmet_cbam.P2CBAM",
+      "epochs": 50,
+      "best_epoch_selected_on_validation": 46,
+      "parameters": 3011916,
+      "strides": [
+        8.0,
+        16.0,
+        32.0
+      ],
+      "cbam": [
+        {
+          "index": 22,
+          "from": 15,
+          "channels": 64,
+          "parameters": 678
+        }
+      ],
+      "validation_mAP50_95": 0.6045,
+      "original_gpu_test_mAP50": 0.8706354708423967,
+      "original_gpu_test_mAP50_95": 0.5756212825820956,
+      "download_url": null,
+      "availability": "verified_local_original",
+      "weight_license_status": "pending_dataset_and_pretrained_rights_review",
+      "checkpoint_metadata_privacy_review": "pending_historical_absolute_paths_present"
+    },
+    {
+      "id": "03_P2",
+      "label": "原始P2",
+      "source": "run/helmet_p2_isolated_640_windows/weights/best.pt",
+      "asset_filename": "helmet_yolov8n_p2.pt",
+      "sha256": "c6322674f5ddda41b2354551d283d8fb386a3be1e56a1d50666b29d2a2f70e23",
+      "bytes": 6231693,
+      "configuration": "models/configs/helmet_yolov8n_p2.yaml",
+      "configuration_sha256": "0a23f0a4ec217ed375b33fac9ed0a2d842ec1943f387427b26800520f13dd4e1",
+      "custom_module": null,
+      "epochs": 50,
+      "best_epoch_selected_on_validation": 48,
+      "parameters": 2926824,
+      "strides": [
+        4.0,
+        8.0,
+        16.0,
+        32.0
+      ],
+      "cbam": [],
+      "validation_mAP50_95": 0.61301,
+      "original_gpu_test_mAP50": 0.8678027857427824,
+      "original_gpu_test_mAP50_95": 0.5818261003278324,
+      "download_url": null,
+      "availability": "verified_local_original",
+      "weight_license_status": "pending_dataset_and_pretrained_rights_review",
+      "checkpoint_metadata_privacy_review": "pending_historical_absolute_paths_present"
+    },
+    {
+      "id": "04_P2_P3_CBAM",
+      "label": "P2+P3-CBAM",
+      "source": "run/helmet_p2_p3_cbam_isolated_640_windows/weights/best.pt",
+      "asset_filename": "helmet_yolov8n_p2_p3_cbam.pt",
+      "sha256": "553d67ca469c2699f2ba272eb7c7423bf8c53d79e5aa05d7a3daab690a85f591",
+      "bytes": 6235843,
+      "configuration": "tools/p3_cbam_p2/helmet_yolov8n_p2_p3_cbam.yaml",
+      "configuration_sha256": "985997805ccfe7794ef339ed6a06f95327de2b4c58a9fa0548620a3bc253c383",
+      "custom_module": "helmet_cbam.P2CBAM",
+      "epochs": 50,
+      "best_epoch_selected_on_validation": 39,
+      "parameters": 2927502,
+      "strides": [
+        4.0,
+        8.0,
+        16.0,
+        32.0
+      ],
+      "cbam": [
+        {
+          "index": 28,
+          "from": 21,
+          "channels": 64,
+          "parameters": 678
+        }
+      ],
+      "validation_mAP50_95": 0.60962,
+      "original_gpu_test_mAP50": 0.8768928808361376,
+      "original_gpu_test_mAP50_95": 0.5841023868231923,
+      "download_url": null,
+      "availability": "verified_local_original",
+      "weight_license_status": "pending_dataset_and_pretrained_rights_review",
+      "checkpoint_metadata_privacy_review": "pending_historical_absolute_paths_present"
+    },
+    {
+      "id": "05_P2_P2_CBAM",
+      "label": "P2+P2-CBAM",
+      "source": "run/helmet_p2_cbam_isolated_640_windows/weights/best.pt",
+      "asset_filename": "helmet_yolov8n_p2_p2_cbam.pt",
+      "sha256": "4349cd89a8bfd8b26b4fbe6f45cd588e2cd7f34f4c78835ee98f424bf2491ecb",
+      "bytes": 6235395,
+      "configuration": "models/configs/helmet_yolov8n_p2_cbam.yaml",
+      "configuration_sha256": "8684dee3f7c199a7b4d19e701c5a02ae1b0c2b3c5460cbbc51d4b3a229a4a24d",
+      "custom_module": "helmet_cbam.P2CBAM",
+      "epochs": 50,
+      "best_epoch_selected_on_validation": 44,
+      "parameters": 2927084,
+      "strides": [
+        4.0,
+        8.0,
+        16.0,
+        32.0
+      ],
+      "cbam": [
+        {
+          "index": 28,
+          "from": 18,
+          "channels": 32,
+          "parameters": 260
+        }
+      ],
+      "validation_mAP50_95": 0.608,
+      "original_gpu_test_mAP50": 0.8701920449456622,
+      "original_gpu_test_mAP50_95": 0.5753219450105707,
+      "download_url": null,
+      "availability": "verified_local_original",
+      "weight_license_status": "pending_dataset_and_pretrained_rights_review",
+      "checkpoint_metadata_privacy_review": "pending_historical_absolute_paths_present"
+    }
+  ]
+}

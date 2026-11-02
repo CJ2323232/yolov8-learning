@@ -1,4 +1,10 @@
 .venv/
+.venv-yolo/
+venv/
+.pytest_cache/
+.ruff_cache/
+outputs/
+/bus.jpg
 __pycache__/
 *.py[cod]
 .DS_Store

@@ -1,0 +1,12 @@
+# Historical training profile: Windows x64, Python3.10.10, CUDA12.6.
+# Direct dependencies extracted from the saved five-model training environments.
+# Exact CUDA builds must be installed from an authorized official wheel source
+# first; see docs/ENVIRONMENTS.md. Do not use the old cu130 migration installer.
+# This is not a full transitive lock and does not reproduce all hardware behavior.
+ultralytics==8.4.164
+torch==2.14.0+cu126
+torchvision==0.29.0+cu126
+numpy==2.2.6
+Pillow==12.3.0
+opencv-python==5.0.0.93
+PyYAML==6.0.3

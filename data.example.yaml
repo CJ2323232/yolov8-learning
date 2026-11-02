@@ -1,4 +1,5 @@
-# 使用前复制为 data.yaml，修改路径，并准备好图片与 YOLO 格式标签。
+# 安全帽类别固定为下列头部类别。相对 path 按本 YAML 所在目录解释。
+# 使用 cli.py check-data/val 统一路径；不要覆盖已有历史 data.yaml。
 path: helmet_dataset
 train: images/train
 val: images/val

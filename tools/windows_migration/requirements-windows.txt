@@ -1,3 +1,8 @@
+# Historical migration-package snapshot: Python >=3.12, not Python3.10 training.
+# The sibling historical installer selects Python3.14/3.12 and CUDA13.0.
+# Keep this standalone package layout; do not use it for the finished comparisons.
+# For the recorded Python3.10.10/CUDA12.6 experiments use the repository-root
+# requirements-training-windows.txt and docs/ENVIRONMENTS.md instead.
 # Direct dependencies. Install the CUDA builds of torch/torchvision first.
 ultralytics==8.4.164
 torch==2.14.0

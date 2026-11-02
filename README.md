@@ -6,7 +6,7 @@
 
 YOLOv8n · P2 · CBAM · SAHI · NMS / WBF · Gradio
 
-[English](README_EN.md) · [快速体验](#快速体验) · [五组结果](#五组结构实验) · [最终评价](reports/final_evaluation/README.md) · [文档](docs/README.md)
+[English](README_EN.md) · [快速体验](#快速体验) · [统一实验报告](docs/experiment_report.md) · [五组结果](#五组结构实验) · [最终评价](reports/final_evaluation/README.md) · [文档](docs/README.md)
 
 </div>
 
@@ -22,13 +22,13 @@ YOLOv8n · P2 · CBAM · SAHI · NMS / WBF · Gradio
 
 ![真实本地安全帽检测演示](assets/gradio_result.png)
 
-*历史界面的真实截图，仅作演示。现有应用支持标准版、P2、NMS/WBF融合；新CBAM权重未自动替换应用默认。*
+*历史本地 Gradio 的真实截图，仅作定性演示，不展示当前全部界面功能。新版支持已配置且可用的五组模型、双模型对照、SAHI 与历史融合；浏览器在线版仅提供 P2 普通检测。*
 
 基于 **Ultralytics YOLOv8n 和 SHWD**，检测戴帽与未戴帽的**头部**。项目围绕三个问题展开：如何控制关联图片泄漏风险？P2对小目标是否有益？注意力或融合的收益是否值得误检和速度代价？
 
 > **2026-10-28：五组50轮训练、统一测试、尺寸AP、固定工作点与完整本地图片处理计时均已完成。当前推荐P2单模型、conf=0.25。** P2＋P3 CBAM在原GPU测试AP上略高，但固定0.25时多出142个未匹配预测，F1下降1.023个百分点。全部五组、包括负结果均保留。
 >
-> **下载范围：** 浏览器演示提供经元信息清理的 P2 ONNX；下方本地快速体验仍用历史演示权重。五组原始 best.pt 未随本次演示发布；导出仅作有限转换验证，没有新增整套 AP 评测。
+> **下载范围：** 浏览器演示已公开独立导出并清理元信息的 P2 ONNX；下面的本地快速体验使用历史演示 PT。五组原始 `best.pt` 尚未发布。历史 PT 不能复现下表成绩；ONNX 仅做有限转换与网页功能核查，没有新增整套 AP 评测。
 
 ## 值得看的工作
 
@@ -44,7 +44,7 @@ YOLOv8n · P2 · CBAM · SAHI · NMS / WBF · Gradio
 
 ## 快速体验
 
-无需训练，先使用已公开的历史演示权重：
+无需训练。应用依赖要求 **Python≥3.12**；历史 Windows Python3.10 训练环境使用独立清单，见[环境说明](docs/ENVIRONMENTS.md)。先使用已公开的历史演示权重进行本地研究演示：
 
 ```bash
 git clone https://github.com/CJ2323232/yolov8-learning.git
@@ -59,6 +59,20 @@ python app.py
 Windows创建环境后使用 `.venv\Scripts\activate.bat` 激活，再执行同样的安装和启动命令。
 
 上传**没有框和文字的原图**，选择“自选／历史演示模型”开始体验。标准版/P2及融合需要对应的新权重，不能用历史权重改名代替。见[模型与权重指纹](models/README.md)、[应用配置](docs/FUSION.md)、[复现范围](docs/REPRODUCIBILITY.md)。
+
+命令行推理可显式选择权重、输入、置信度、NMS IoU、设备和新输出目录。先把有权使用的原图放入 `my_images/example.jpg`：
+
+```bash
+python cli.py predict --weights models/helmet_yolov8n.pt --source my_images/example.jpg --conf 0.25 --iou 0.7 --device cpu --output outputs/example
+```
+
+[完整入口与统一数据路径](docs/ENTRYPOINTS.md) · [五组本地交付清单](models/release_manifest.json) · [模型卡](models/MODEL_CARD.md)。五组原始 PT 仅完成本地交付准备，许可和元信息审查未完成，暂无公开下载地址；已公开的浏览器 P2 ONNX 是独立导出产物，见[模型发布范围](models/README.md#公开浏览器-p2-onnx)。
+
+新版Gradio支持五组可用权重选择、逐框明细、CSV/JSON导出及同图双模型对照；保留普通/SAHI和历史融合。缺少对应权重的选项不提供；P2 可用时优先选择 P2。仅安装历史演示 PT 的新用户使用历史演示选项。见[网页使用与验证说明](docs/GRADIO_DEMO.md)。
+
+程序代码采用 [AGPL-3.0](LICENSE)，保留 WBF 等独立许可；**数据、权重和照片不因根许可证而获得额外授权，不能宣称全部可自由商用**。详见[许可证审计与范围](docs/license_audit.md)。
+
+当前SHWD相关实验按上游学术研究用途范围处理；公开的浏览器 ONNX 保留衍生模型权利限制，五组原始 PT 的再分发仍待审查。这些材料的使用规则不改变代码AGPL本身。[采用的使用与分发规则](docs/license_audit.md#本项目采用的使用与分发规则2026-10-29)。五组训练、验证/测试、尺寸与效率证据已汇总到[统一实验报告](docs/experiment_report.md)，原始成绩不变。
 
 ## 五组结构实验
 
@@ -135,7 +149,9 @@ flowchart LR
 
 [最终实验与复现命令](reports/final_evaluation/README.md) · [五组逐轮数据](reports/final_evaluation/training_history.csv) · [历史SAHI](reports/sahi_evaluation.md) · [历史融合](reports/fusion_evaluation/README.md) · [代码流程](docs/WORKFLOW.md) · [简历与证据](docs/RESUME.md)
 
-后续重点是公开新权重、干净环境复现、新场景评价；更强研究结论再考虑多种子。当前结构实验已收尾，无需继续堆模块。
+后续重点是审查五组原始 PT 的发布条件、完善干净环境的使用验证与新场景评价。独立新环境可在同一电脑创建，不等于已验证 Windows/CUDA、重新训练或复现 AP；具体通过范围以实际验收记录为准。更强研究结论再考虑多种子，当前结构实验已收尾。
+
+2026-11-02 新环境验收：同 Mac 独立环境安装、57 项轻量测试、真实 CPU 推理与 Gradio HTTP 通过；[完整范围与限制](docs/release_checklist.md)。
 
 ## 来源与致谢
 

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; connect-src 'self' https://us.aws.cdn.hf.co; img-src 'self' blob: data:; style-src 'self'; font-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="YOLOv8 P2安全帽检测研究演示。在浏览器本地检测图片，无需账号，无需上传照片。">
+  <title>安全帽检测 · YOLOv8 P2</title>
+  <link rel="stylesheet" href="./style.css"><script defer src="./vendor/ort.min.js"></script><script type="module" src="./app.js"></script>
+</head><body><main>
+  <header><p class="eyebrow">YOLOv8 · P2 · Browser inference</p><h1>安全帽检测</h1>
+    <p class="intro">选择一张图片，在你的浏览器里检测戴帽头部与裸头。</p>
+    <div class="badges" aria-label="演示特点"><span>无需登录</span><span>图片不上传</span><span>普通 P2 单模型</span></div></header>
+  <section class="workspace" aria-label="图片检测">
+    <div class="panel controls"><h2>1. 选择图片</h2>
+      <label class="file-label" for="image-file">本机图片 <span>JPEG / PNG / WebP</span></label>
+      <input id="image-file" type="file" accept="image/jpeg,image/png,image/webp">
+      <p class="hint">最多12 MiB、2400万像素，单边不超过16384像素。不支持SVG、GIF或动画WebP。</p>
+      <p id="image-info" class="file-info">还没有选择图片。</p>
+      <h2>2. 调整与检测</h2>
+      <div class="slider-label"><label for="confidence">置信度 · Confidence</label><output id="confidence-value" for="confidence">0.25</output></div>
+      <input id="confidence" type="range" min="0.05" max="0.95" step="0.01" value="0.25">
+      <div class="slider-label"><label for="nms-iou">NMS IoU</label><output id="iou-value" for="nms-iou">0.70</output></div>
+      <input id="nms-iou" type="range" min="0.10" max="0.95" step="0.01" value="0.70">
+      <p class="hint">降低置信度可能增加检出，也可能增加误检。NMS只抑制同类别重叠框。</p>
+      <div class="actions"><button id="detect" class="primary" disabled>开始检测</button><button id="clear" type="button">清除图片</button></div>
+      <div id="status" role="status" aria-live="polite">选择图片后点击“开始检测”。首次使用会下载模型，请稍候。</div>
+      <p id="model-state" class="hint">模型尚未加载 · 固定输入640 × 640 · FP32 / WASM</p>
+    </div>
+    <div class="panel result-panel"><div class="section-heading"><h2>检测画面</h2><span id="result-tag">等待图片</span></div>
+      <div class="canvas-wrap"><p id="empty-canvas">图片仅在当前浏览器内处理</p><canvas id="result-canvas" aria-label="图片与检测框" hidden></canvas></div>
+      <p id="summary" class="summary">检测结果将在这里显示。</p><p id="timing" class="hint"></p>
+      <div class="downloads"><button id="download-png" type="button" disabled>保存结果 PNG</button><button id="download-csv" type="button" disabled>下载检测 CSV</button></div>
+    </div>
+  </section>
+  <section class="panel table-panel" aria-label="检测明细"><div class="section-heading"><h2>检测明细</h2><span>原图坐标 · xyxy / px</span></div>
+    <div class="table-scroll"><table><thead><tr><th scope="col">编号</th><th scope="col">类别</th><th scope="col">置信度</th><th scope="col">x1</th><th scope="col">y1</th><th scope="col">x2</th><th scope="col">y2</th></tr></thead><tbody id="detections"><tr><td colspan="7">尚未检测。</td></tr></tbody></table></div></section>
+  <section class="notes" aria-label="使用与隐私说明"><h2>使用说明</h2>
+    <p><strong>类别：</strong><code>hat</code> 是戴安全帽的头部；<code>person</code> 是裸头，并非全身行人检测。本演示可能误检或漏检，不能代替现场安全检查。</p>
+    <p><strong>隐私：</strong>图片在浏览器内存中读取和检测，本应用不会上传图片、文件名或EXIF，也不加入统计或遥测。清除图片或关闭页面即可移除本页的图片与结果。托管平台仍可能记录正常网页访问。</p>
+    <p><strong>范围：</strong>这是用于学术研究展示的P2单模型普通检测精简版，不是完整Gradio；不含SAHI、CBAM切换或融合。透明区域以RGB(114,114,114)合成。浏览器缩放与原生OpenCV可能有细微差异，网页耗时也不等于实验中的GPU速度。</p>
+    <p><strong>开放内容：</strong>网页源码和推理模型可以下载；不提供训练数据或原始checkpoint。代码遵循AGPL-3.0，上游数据及模型权利边界见随附说明，不承诺通用商用许可。</p></section>
+  <footer><a href="https://huggingface.co/spaces/CJ2323232/helmet-detection-browser/tree/main">完整在线版、源码与模型 / Source</a><span>·</span><a href="https://huggingface.co/spaces/CJ2323232/helmet-detection-browser/blob/main/MODEL_CARD.md">模型范围</a><span>·</span><a href="https://huggingface.co/spaces/CJ2323232/helmet-detection-browser/blob/main/LICENSE">AGPL-3.0</a></footer>
+</main></body></html>

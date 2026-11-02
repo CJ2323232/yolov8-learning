@@ -1,0 +1,23 @@
+{
+  "status": "public_browser_demo_verified",
+  "date": "2026-11-01",
+  "space": "https://huggingface.co/spaces/CJ2323232/helmet-detection-browser",
+  "demo_url": "https://cj2323232-helmet-detection-browser.static.hf.space",
+  "artifact_url": "https://cj2323232-helmet-detection-browser.static.hf.space/helmet_p2.onnx",
+  "artifact_sha256": "7122cb4675126e230b7b0322bca2ef5eceb34382c3fe9ac914d0fb8a5ac92d91",
+  "artifact_bytes": 12417480,
+  "original_checkpoint_sha256": "c6322674f5ddda41b2354551d283d8fb386a3be1e56a1d50666b29d2a2f70e23",
+  "original_checkpoint_published": false,
+  "code_license": "AGPL-3.0-only",
+  "rights_note": "Academic research demonstration; dataset and derived-model rights incompletely established; no commercial-rights assurance.",
+  "privacy_note": "Metadata-cleaned separate artifact; app does not upload images. Public account and platform request handling remain visible.",
+  "validation": {
+    "same_tensor_cases": 3,
+    "javascript_core_checks": 11,
+    "public_browser_inference": true,
+    "local_test_server_stopped_before_public_success": true,
+    "full_dataset_onnx_AP_reassessment": false,
+    "download_buttons_automated_verification": true
+  },
+  "host_repository_revision": "ba4ff624623537e3f96f5140cd125c7f407e4c20"
+}

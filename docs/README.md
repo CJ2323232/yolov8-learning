@@ -4,6 +4,12 @@
 
 | 想了解什么 | 阅读入口 |
 |---|---|
+| 免费浏览器在线检测、本地 Gradio 与历史托管方案 | [部署说明](DEPLOYMENT.md) · [浏览器模型身份](../models/browser_demo_manifest.json) |
+| 使用新版检测网页与同图对照 | [Gradio使用与验证说明](GRADIO_DEMO.md) |
+| 安装环境与可移植命令 | [应用/历史训练环境](ENVIRONMENTS.md) · [推理、评估与路径](ENTRYPOINTS.md) |
+| 许可范围与交付状态 | [许可证审计](license_audit.md) · [模型卡](../models/MODEL_CARD.md) · [五组清单](../models/release_manifest.json) |
+| 本轮公开与新环境验收 | [发布检查清单](release_checklist.md) |
+| 五组完整实验设置、结果与限制 | [统一实验报告](experiment_report.md) · [机器可读核验](../reports/experiment_report_verification.json) |
 | 先运行一个演示 | [首页快速体验](../README.md#快速体验) · [模型与下载](../models/README.md) |
 | 标准版、P2、融合和SAHI怎么选 | [应用与融合](FUSION.md) · [SAHI](SAHI.md) |
 | 数据怎么处理、代码怎么执行 | [完整流程](WORKFLOW.md) · [数据治理证据](../reports/scene_isolation/README.md) |

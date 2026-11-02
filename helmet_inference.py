@@ -15,6 +15,28 @@ OVERLAP = 0.2
 MAX_SLICES = 256
 
 
+def detection_records(result):
+    """Plain original-image xyxy records, shared by the table and downloads."""
+    def values(array):
+        return array.cpu().tolist() if hasattr(array, 'cpu') else array.tolist()
+    return [{'id': index + 1, 'class_id': int(cls), 'class_name': result.names[int(cls)],
+             'confidence': float(score), 'xyxy': [float(value) for value in box]}
+            for index, (cls, score, box) in enumerate(zip(values(result.boxes.cls),
+                values(result.boxes.conf), values(result.boxes.xyxy)))]
+
+
+def render_result(result, *, show_labels=True, show_conf=True, show_box_ids=False):
+    canvas = result.plot(labels=show_labels, conf=show_conf, line_width=2, font_size=12)
+    if show_box_ids:
+        for row in detection_records(result):
+            x, y = (max(0, int(v)) for v in row['xyxy'][:2])
+            label = f'#{row["id"]}'
+            point = (min(x + 2, max(0, canvas.shape[1] - 20)), min(y + 15, canvas.shape[0] - 2))
+            cv2.putText(canvas, label, point, cv2.FONT_HERSHEY_SIMPLEX, .45, (0, 0, 0), 3, cv2.LINE_AA)
+            cv2.putText(canvas, label, point, cv2.FONT_HERSHEY_SIMPLEX, .45, (255, 255, 255), 1, cv2.LINE_AA)
+    return Image.fromarray(cv2.cvtColor(canvas, cv2.COLOR_BGR2RGB))
+
+
 def count_slices(width, height):
     step = SLICE_SIZE - int(SLICE_SIZE * OVERLAP)
     return (1 + math.ceil(max(0, width - SLICE_SIZE) / step)) * (
@@ -41,13 +63,18 @@ class HelmetPredictor:
         self._sahi_model = None
         self._lock = Lock()
 
-    def predict(self, image, conf, mode=NORMAL_MODE, ordinary_imgsz=640):
+    def predict(self, image, conf, mode=NORMAL_MODE, ordinary_imgsz=640, *, nms_iou=.7,
+                show_labels=True, show_conf=True, show_box_ids=False):
         if mode not in (NORMAL_MODE, SLICED_MODE):
             raise ValueError("请选择普通检测或 SAHI 切片检测。")
         if not math.isfinite(conf) or not 0 <= conf <= 1:
             raise ValueError("置信度必须在 0 到 1 之间。")
         if ordinary_imgsz not in (640, 960):
             raise ValueError("普通检测分辨率请选择 640 或 960。")
+        if not math.isfinite(nms_iou) or not 0 <= nms_iou <= 1:
+            raise ValueError('NMS IoU必须在0到1之间。')
+        if mode == SLICED_MODE and abs(nms_iou - .7) > 1e-9:
+            raise ValueError('SAHI保留原协议，模型NMS IoU固定为0.7。')
         # Keep the published SAHI protocol unchanged, including its single-tile
         # fallback. The new size control applies only to ordinary inference.
         input_size = int(ordinary_imgsz) if mode == NORMAL_MODE else 640
@@ -65,7 +92,7 @@ class HelmetPredictor:
             if mode == NORMAL_MODE or tiles == 1:
                 result = self.model.predict(
                     source=image, conf=conf, imgsz=input_size,
-                    device=self.device, iou=0.7, max_det=300, verbose=False,
+                    device=self.device, iou=nms_iou, max_det=300, verbose=False,
                 )[0]
             else:
                 try:
@@ -81,20 +108,29 @@ class HelmetPredictor:
                         confidence_threshold=conf, image_size=640,
                     )
                 self._sahi_model.confidence_threshold = conf
-                prediction = get_sliced_prediction(
-                    image=image, detection_model=self._sahi_model,
-                    slice_height=SLICE_SIZE, slice_width=SLICE_SIZE,
-                    overlap_height_ratio=OVERLAP, overlap_width_ratio=OVERLAP,
-                    perform_standard_pred=True,
-                    postprocess_type="GREEDYNMM", postprocess_match_metric="IOS",
-                    postprocess_match_threshold=0.5,
-                    postprocess_class_agnostic=False, verbose=0,
-                )
+                # SAHI 0.12.8 does not forward YOLO's iou/max_det. Prevent a
+                # previous ordinary custom request from leaking into its calls.
+                overrides = getattr(self.model, 'overrides', None)
+                if overrides is not None:
+                    self.model.overrides = {**overrides, 'iou': .7, 'max_det': 300}
+                try:
+                    prediction = get_sliced_prediction(
+                        image=image, detection_model=self._sahi_model,
+                        slice_height=SLICE_SIZE, slice_width=SLICE_SIZE,
+                        overlap_height_ratio=OVERLAP, overlap_width_ratio=OVERLAP,
+                        perform_standard_pred=True,
+                        postprocess_type="GREEDYNMM", postprocess_match_metric="IOS",
+                        postprocess_match_threshold=0.5,
+                        postprocess_class_agnostic=False, verbose=0,
+                    )
+                finally:
+                    if overrides is not None:
+                        self.model.overrides = overrides
                 result = sahi_to_result(
                     prediction.object_prediction_list, image, self.model.names,
                 )
 
-            annotated = Image.fromarray(cv2.cvtColor(result.plot(), cv2.COLOR_BGR2RGB))
+            annotated = render_result(result, show_labels=show_labels, show_conf=show_conf, show_box_ids=show_box_ids)
             counts = {}
             for cls in result.boxes.cls.tolist():
                 name = self.model.names[int(cls)]
@@ -102,4 +138,6 @@ class HelmetPredictor:
             return annotated, counts, {
                 "mode": mode, "tiles": tiles, "imgsz": input_size,
                 "seconds": perf_counter() - start,
+                "nms_iou": nms_iou, "detections": detection_records(result),
+                "image_width": image.width, "image_height": image.height,
             }

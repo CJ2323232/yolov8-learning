@@ -18,7 +18,7 @@ Choose an original image without prediction overlays. P2 runs in the visitor's b
 
 Built on Ultralytics YOLOv8n and SHWD. Classes are helmeted heads (`hat`) and bare heads (`person`), not full-body pedestrians. The contribution is data governance, experimental design, evaluation and engineering integration, not a novel backbone or attention mechanism.
 
-**2026-10-28: all five 50-epoch runs, test evaluation, area-stratified AP, fixed-confidence errors and CPU timing are complete. Retain P2 at conf=.25 as the current recommendation.** The browser demo provides a metadata-cleaned P2 ONNX artifact. The local quick start still uses the historical demo checkpoint; the five original training checkpoints are not published in this demo. Conversion has limited validation and introduces no new full-dataset AP result.
+**2026-10-28: all five 50-epoch runs, test evaluation, area-stratified AP, fixed-confidence errors and CPU timing are complete. Retain P2 at conf=.25 as the current recommendation.** A separately exported, metadata-cleaned P2 ONNX is public in the browser demo. The local quick start below uses the historical demo PT. The five original `best.pt` checkpoints are not published. Historical PT cannot reproduce these scores; the ONNX has limited conversion and web-function checks, without a new full-dataset AP evaluation.
 
 ## Five-model results
 
@@ -53,7 +53,7 @@ CPU core timing includes image read/decode, RGB conversion, preprocessing, forwa
 
 ![F1 and latency tradeoff](reports/final_evaluation/latency_tradeoff.png)
 
-P2 has the highest validation AP and fixed-point microF1, with improved small-object AP over Standard. Standard remains the faster resource-constrained option. Both CBAM placements and the SAHI/fusion experiments remain available, including failed tradeoffs. The application/model registry was not silently changed.
+P2 has the highest validation AP and fixed-point microF1, with improved small-object AP over Standard. Standard remains the faster resource-constrained option. Both CBAM placements and the SAHI/fusion experiments are retained, including failed tradeoffs. The local application lists only configured checkpoints that are actually available; the online browser demo exposes P2 ordinary inference only.
 
 ## Quick start
 
@@ -69,7 +69,21 @@ python download_weights.py
 python app.py
 ```
 
-Windows: activate with `.venv\Scripts\activate.bat`. Upload an original image without prediction overlays and select the historical/custom preset. The new Standard/P2 and ensemble presets need their specific checkpoints. [Model availability](models/README.md).
+The application profile requires **Python >=3.12**. The historical Windows Python3.10 training environment has a separate requirements file; see [environment profiles](docs/ENVIRONMENTS.md). Windows: activate with `.venv\Scripts\activate.bat`. Upload an original image without prediction overlays and select the historical/custom preset. The new Standard/P2 and ensemble presets need their specific checkpoints. [Model availability](models/README.md).
+
+For local research inference, place an original image you have permission to use at `my_images/example.jpg`, then run:
+
+```bash
+python cli.py predict --weights models/helmet_yolov8n.pt --source my_images/example.jpg --conf 0.25 --iou 0.7 --device cpu --output outputs/example
+```
+
+[CLI and canonical data paths](docs/ENTRYPOINTS.md) · [Five-model inventory](models/release_manifest.json) · [Model card](models/MODEL_CARD.md). The five original PT checkpoints are staged locally, with rights and metadata reviews pending; no public download URLs exist for them. The public browser P2 ONNX is a separate export; see [artifact availability](models/README.md#公开浏览器-p2-onnx).
+
+The Gradio demo now offers available checkpoints from all five experiments, per-box tables, CSV/JSON export and same-image two-model comparison. Ordinary/SAHI inference and historical fusion remain available; missing checkpoints are excluded. P2 remains the default when available. See the [demo guide and validation scope](docs/GRADIO_DEMO.md).
+
+Project program code uses [AGPL-3.0](LICENSE), with separate third-party notices such as WBF's MIT license. **The root code license does not grant additional dataset, checkpoint, or photo rights; unrestricted commercial use has not been established.** See the [license audit and scope](docs/license_audit.md).
+
+The SHWD-based experiments are maintained within the upstream academic-research scope. The public browser ONNX retains derived-model rights limitations; redistribution of the five original PT files remains under review. These material-specific rules do not add a research-only restriction to AGPL code. The [unified experiment report](docs/experiment_report.md) reconciles all five runs, validation/test scores, size analysis, efficiency and limitations against saved records. No models were retrained or scores replaced for this report.
 
 ## Reproducibility and limitations
 
@@ -83,7 +97,9 @@ Windows: activate with `.venv\Scripts\activate.bat`. Upload an original image wi
 
 [Full report and commands](reports/final_evaluation/README.md) · [Machine-readable metrics](reports/final_evaluation/metrics.json) · [Frozen protocol](reports/final_evaluation/protocol.json) · [Raw timing](reports/final_evaluation/benchmark_raw.csv) · [Model selection](reports/final_evaluation/model_selection.json) · [SAHI](reports/sahi_evaluation.md) · [Fusion](reports/fusion_evaluation/README.md)
 
-Next priorities are weight delivery, clean-environment reproduction and new-scene evaluation; repeated seeds only if stronger research conclusions are needed. No additional modules are required to close this project.
+Next priorities are reviewing distribution of the five original PT files, validating use in an isolated environment, and new-scene evaluation. An isolated environment can be created on the same computer; this alone does not verify Windows/CUDA, training, or reproduction of AP. Only recorded checks should be treated as passed. Repeated seeds are needed for stronger research conclusions; no additional modules are required to close this project.
+
+2026-11-02 isolated-environment checks: installation on the same Mac, 57 lightweight tests, real CPU inference and Gradio HTTP passed. See [scope and limits](docs/release_checklist.md).
 
 ## Acknowledgements
 
